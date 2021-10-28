@@ -1,5 +1,8 @@
 export default function Logo () {
     return (
-        <div></div>
+        <>
+            <h1>FÄRGAPP</h1>
+            <div>logo/bild</div>
+        </>
     )
 }

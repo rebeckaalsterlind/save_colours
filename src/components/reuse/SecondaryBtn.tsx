@@ -1,5 +1,12 @@
-export default function SecondaryBtn () {
+import React, { useState } from 'react';
+
+interface Props  {
+    innerText: string,
+}
+
+export default function SecondaryBtn ({innerText}: Props) {
+
     return (
-        <div></div>
+        <button>{innerText}</button>
     )
 }

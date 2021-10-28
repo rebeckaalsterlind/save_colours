@@ -1,5 +1,9 @@
-export default function TextBtn () {
+interface Props  {
+    innerText: string
+}
+
+export default function TextBtn ({innerText}: Props) {
     return (
-        <div></div>
+        <p>{innerText}</p>
     )
 }
