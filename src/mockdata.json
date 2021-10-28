@@ -49,6 +49,15 @@
             "id": 2,
             "name": "Sommarstugan",
             "rooms": [
+                {
+                    "id": 1,
+                    "name": "Garderob",
+                    "color": "S5005-G50Y",
+                    "colorType": "Snickerifärg",
+                    "gloss": "matt",
+                    "comment": "Färg till garderob",
+                    "store": "Caparol"
+                }
             ]
         }
     ]
