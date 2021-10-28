@@ -1,5 +1,10 @@
-export default function PrimaryBtn () {
+interface Props  {
+    innerText: string
+}
+
+export default function PrimaryBtn ({innerText}: Props) {
+
     return (
-        <div></div>
+        <button>{innerText}</button>
     )
 }

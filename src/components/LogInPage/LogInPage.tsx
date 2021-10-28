@@ -1,21 +1,31 @@
-import Logo from './Logo';
+import React, { useState } from 'react';import Logo from './Logo';
 import LogInForm from './LogInForm';
 import SecondaryBtn from '../reuse/SecondaryBtn';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import TextBtn from '../reuse/TextBtn';
 
-export default function LogInPage () {
+
+interface State {
+    showRegister: boolean,
+}
+
+export default function LogInPage ({}, state: State) {
+
+    const [showRegister, setshowRegister] = useState(false);
+
     return (
         <div>
             <Logo />
-            // If !register
-            <LogInForm />
+ 
+            {showRegister 
+            ? <>
+            <LogInForm /> <SecondaryBtn /> 
+            </>
 
-            <SecondaryBtn /> // Prop: register, behaviour
-            // If register
-            <RegisterForm />
+            : <RegisterForm /> }
+
             
-            <TextBtn /> // Prop: forgot pass txt, mock behaviour
+            <TextBtn innerText="Glömt lösenord?" /> 
         </div>
     )
 }

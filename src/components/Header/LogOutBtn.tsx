@@ -3,7 +3,7 @@ import TextBtn from "../reuse/TextBtn"
 export default function LogOutBtn () {
     return (
         <div>
-            <TextBtn /> // Logga ut
+            <TextBtn innerText="Logga ut" /> 
         </div>
     )
 }

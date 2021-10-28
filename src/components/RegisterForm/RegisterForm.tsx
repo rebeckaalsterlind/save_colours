@@ -3,7 +3,7 @@ import PrimaryBtn from "../reuse/PrimaryBtn";
 export default function RegisterForm () {
     return (
         <div>
-            <PrimaryBtn />
+            <PrimaryBtn innerText="Registrera" />
         </div>
     )
 }
