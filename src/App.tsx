@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
+import { store } from './store';
 import './App.css';
 import LogInPage from './components/LogInPage/LogInPage';
 import MainApp from './components/MainApp/MainApp'
 
-function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+function App() {
 
   return (
     <div className="App">
-      {!isLoggedIn 
+      {!store.getState().loggedIn
         ? <LogInPage />
         : <MainApp />
       }
     </div>
   );
 }
+
 
 export default App;

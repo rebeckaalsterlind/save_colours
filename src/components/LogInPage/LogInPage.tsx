@@ -5,13 +5,11 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 import TextBtn from '../reuse/TextBtn';
 
 interface State {
-    isLoggedIn: boolean,
     showRegister: boolean,
 }
 
 export default function LogInPage ({}, state: State) {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [showRegister, setShowRegister] = useState(false);
 
     return (
@@ -19,7 +17,7 @@ export default function LogInPage ({}, state: State) {
             <Logo />
             {!showRegister 
                 ? <>
-                    <LogInForm toggle={loggedIn => setIsLoggedIn(loggedIn)}/> 
+                    <LogInForm /> 
                     <button onClick={ () => setShowRegister(true)}>Registrera dig</button>
                     <TextBtn innerText="Glömt lösenord?" /> 
                 </>

@@ -1,9 +1,8 @@
 import PrimaryBtn from "../reuse/PrimaryBtn"
 import React, { useState } from 'react';
+import { store } from '../../store';
+import { logIn } from '../../actions';
 
-interface Props {
-    toggle(state: boolean):void
-}
 
 interface State {
     username: string,
@@ -11,7 +10,7 @@ interface State {
     user: object,
 }
 
-export default function LogInForm ({toggle}: Props, state: State) {
+export default function LogInForm ({}, state: State) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -22,9 +21,9 @@ export default function LogInForm ({toggle}: Props, state: State) {
         //user data to send to db
         setUser({username: username, password: password})
 
-        //callback to set loggedin state. Answer (treu/false) should come from db
-        toggle(false)
-
+        //send logged-in state to redux. Answer (true/false) should come from db
+        store.dispatch(logIn(true))
+        
     }
 
     return (
