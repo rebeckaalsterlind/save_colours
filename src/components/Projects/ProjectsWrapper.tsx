@@ -1,14 +1,22 @@
+import React, { useState } from 'react';
+import Project from "./Project";
 
-import Project from "./Project"
+interface State {
+    toggleMenu: boolean
+}
 
+export default function ProjectsWrapper ({}, state: State) {
 
-export default function ProjectsWrapper () {
+    const [toggleMenu, setToggleMenu] = useState(true);
 
     return (
         <div>
-         
-                <Project />
-            
+            <button onClick={() => setToggleMenu(true)}>Projekt</button>
+            <button onClick={() => setToggleMenu(false)}>Färger</button>
+            {toggleMenu 
+                ? <Project />
+                : <p>mappa ut/lista alla färger här</p>
+            }
         </div>
     )
 }

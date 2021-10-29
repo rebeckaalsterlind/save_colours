@@ -20,7 +20,7 @@ export default function LogInPage ({}, state: State) {
                     <LogInForm /> 
                     <button onClick={ () => setShowRegister(true)}>Registrera dig</button>
                     <TextBtn innerText="Glömt lösenord?" /> 
-                </>
+                 </>
                 : <RegisterForm toggle={hideRegister => setShowRegister(hideRegister)}/> 
             }
         </div>

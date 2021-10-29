@@ -6,7 +6,9 @@ export default function reduce(state, action) {
   switch(action.type) {
     case "SET_LOGIN":
       return {
-       ...state, loggedIn: action.loggedIn
+       ...state, 
+       loggedIn: action.loggedIn,
+       username: action.username
       }
     
     default:

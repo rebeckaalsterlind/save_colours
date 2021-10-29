@@ -1,26 +1,30 @@
 {
-    "projects": [
+    "username": "username", 
+    "email": "email",
+    "password": "password",
+    "projects": 
+    [
         {
-            "id": 1,
-            "name": "Hemma",
+            "projectId": 1,
+            "projectName": "Hemma",
             "rooms": [
                 {
-                    "id": 1,
-                    "name": "sovrum",
+                    "roomId": 1,
+                    "roomName": "sovrum",
                     "colors": [
                         {
-                            "id": 1,
-                            "name": "Sovrum",
-                            "color": "S4005-G50Y",
+                            "colorId": 1,
+                            "colorName": "Sovrum",
+                            "colorCode": "S4005-G50Y",
                             "colorType": "väggfärg",
                             "gloss": "halvblank",
                             "comment": "Fondvägg i sovrum",
                             "store": "Caparol"
                         },
                         {
-                            "id": 2,
-                            "name": "Garderob",
-                            "color": "S5005-G50Y",
+                            "colorId": 2,
+                            "colorName": "Garderob",
+                            "colorCode": "S5005-G50Y",
                             "colorType": "Snickerifärg",
                             "gloss": "matt",
                             "comment": "Färg till garderob",
@@ -29,13 +33,13 @@
                     ]
                 },
                 {
-                    "id": 2,
-                    "name": "Vardagsrum",
+                    "roomId": 2,
+                    "roomName": "Vardagsrum",
                     "colors": [
                         {
-                            "id": 1,
-                            "name": "Vardagsrum vägg",
-                            "color": "S3500-N",
+                            "colorId": 1,
+                            "colorName": "Vardagsrum vägg",
+                            "colorCode": "S3500-N",
                             "colorType": "väggfärg",
                             "gloss": "halvblank",
                             "comment": "Väggar vardagsrum",
@@ -46,19 +50,28 @@
             ]
         }, 
         {
-            "id": 2,
-            "name": "Sommarstugan",
+            "projectId": 2,
+            "projectName": "Sommarstugan",
             "rooms": [
                 {
-                    "id": 1,
-                    "name": "Garderob",
-                    "color": "S5005-G50Y",
-                    "colorType": "Snickerifärg",
-                    "gloss": "matt",
-                    "comment": "Färg till garderob",
-                    "store": "Caparol"
+                    "roomId": 1,
+                    "roomName": "Sovrum",
+                    "colors": [
+                        {
+                            "colorId": 1,
+                            "colorName": "Garderob",
+                            "colorCode": "S5005-G50Y",
+                            "colorType": "Snickerifärg",
+                            "gloss": "matt",
+                            "comment": "Färg till garderob",
+                            "store": "Caparol"
+                        }
+                    ]
                 }
             ]
         }
     ]
 }
+
+
+
