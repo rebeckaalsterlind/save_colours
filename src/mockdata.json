@@ -1,0 +1,64 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "name": "Hemma",
+            "rooms": [
+                {
+                    "id": 1,
+                    "name": "sovrum",
+                    "colors": [
+                        {
+                            "id": 1,
+                            "name": "Sovrum",
+                            "color": "S4005-G50Y",
+                            "colorType": "väggfärg",
+                            "gloss": "halvblank",
+                            "comment": "Fondvägg i sovrum",
+                            "store": "Caparol"
+                        },
+                        {
+                            "id": 2,
+                            "name": "Garderob",
+                            "color": "S5005-G50Y",
+                            "colorType": "Snickerifärg",
+                            "gloss": "matt",
+                            "comment": "Färg till garderob",
+                            "store": "Caparol"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Vardagsrum",
+                    "colors": [
+                        {
+                            "id": 1,
+                            "name": "Vardagsrum vägg",
+                            "color": "S3500-N",
+                            "colorType": "väggfärg",
+                            "gloss": "halvblank",
+                            "comment": "Väggar vardagsrum",
+                            "store": "Caparol"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "id": 2,
+            "name": "Sommarstugan",
+            "rooms": [
+                {
+                    "id": 1,
+                    "name": "Garderob",
+                    "color": "S5005-G50Y",
+                    "colorType": "Snickerifärg",
+                    "gloss": "matt",
+                    "comment": "Färg till garderob",
+                    "store": "Caparol"
+                }
+            ]
+        }
+    ]
+}

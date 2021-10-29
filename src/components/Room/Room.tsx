@@ -1,7 +1,18 @@
 import RoomName from "./RoomName"
 import RoomColors from "./RoomColors"
 
-export default function Room () {
+interface Props{
+project: any; 
+}
+
+interface State {
+
+}
+
+export default function Room ({ project }: Props, state: State) {
+
+    console.log(project);
+    
     return (
         <div>
             <RoomName />
