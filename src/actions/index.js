@@ -1,8 +1,9 @@
-export function logIn(loginUser) {
-  console.log("actions", loginUser)
+export function logIn(user) {
+  console.log("actions", user)
 
   return {
     type: "SET_LOGIN",
-    loggedIn: loginUser
+    loggedIn: user.isTrue,
+    username: user.username
   }
 }

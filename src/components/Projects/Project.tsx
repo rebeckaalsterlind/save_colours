@@ -3,7 +3,7 @@ import ProjectName from "./ProjectName"
 import Room from "../Room/Room"
 import data from "../../mockdata.json";
 
-console.log(data.projects);
+console.log(data);
 
 interface Props {
 

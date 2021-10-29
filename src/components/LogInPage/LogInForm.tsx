@@ -18,11 +18,13 @@ export default function LogInForm ({}, state: State) {
 
     const handleSubmit = (evt:React.FormEvent) => {
         evt.preventDefault();
+        
         //user data to send to db
         setUser({username: username, password: password})
 
         //send logged-in state to redux. Answer (true/false) should come from db
-        store.dispatch(logIn(true))
+        const DBloginResponse: boolean = true;
+        store.dispatch(logIn({isTrue: DBloginResponse, username: username}))
         
     }
 

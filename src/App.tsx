@@ -6,7 +6,6 @@ import MainApp from './components/MainApp/MainApp'
 
 
 function App() {
-
   return (
     <div className="App">
       {!store.getState().loggedIn
