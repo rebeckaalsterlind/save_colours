@@ -1,3 +1,5 @@
+import Button from 'react-bootstrap/Button';
+
 interface Props  {
     innerText: string
 }
@@ -5,6 +7,6 @@ interface Props  {
 export default function PrimaryBtn ({innerText}: Props) {
 
     return (
-        <button>{innerText}</button>
+        <Button variant="primary" className="btn btn-primary bt-lg">{innerText}</Button>
     )
 }
