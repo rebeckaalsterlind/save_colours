@@ -22,7 +22,7 @@ export default function Project({ }: Props, state: State) {
     return (
         <div>
             {data.projects.map((project: any) => (
-                <h1 key={project.id} onClick={() => { setShowProject(!showProject); setSelectedproject(project); }}> {project.name}</h1>
+                <h1 key={project.id} onClick={() => { setShowProject(!showProject); setSelectedproject(project); }}> {project.projectName}</h1>
             ))}
             <ProjectName /> // prop: name
             // map room

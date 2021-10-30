@@ -11,7 +11,7 @@ interface State {
 
 export default function Room ({ project }: Props, state: State) {
 
-    console.log(project);
+    console.log("project in room.tsx", project);
     
     return (
         <div>
