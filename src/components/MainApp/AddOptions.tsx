@@ -1,16 +1,29 @@
+import React, { useState } from 'react';
+import AddColor from '../Forms/AddColor';
+import AddProject from '../Forms/AddProject';
 
-export default function AddOptions () {
-    
+interface State {
+  project: boolean,
+  color: boolean
+}
+
+export default function AddOptions ({}, state: State) {
+  
+    const [project, setProject] = useState(false);
+    const [color, setColor] = useState(false);
+
     const add = (evt:React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
         const { target } = evt;
 
         switch ((target as HTMLParagraphElement).id) {
             case "addColor":
-            console.log('add Color');
+              setColor(true)
+              setProject(false)
             break; 
 
             case "addProject":
-            console.log('add Project');
+              setProject(true)
+              setColor(false)
             break; 
         }
 
@@ -19,8 +32,14 @@ export default function AddOptions () {
     return (
 
         <div>
-            <p id="addColor" onClick={add}>Lägg till ny färg</p>
-            <p id="addProject" onClick={add}>Lägg till nytt projekt</p>
+          {!project && !color &&
+            <>
+              <p id="addColor" onClick={add}>Lägg till ny färg</p>
+              <p id="addProject" onClick={add}>Lägg till nytt projekt</p>
+            </>
+          }
+          {project && <AddProject />}
+          {color && <AddColor />}
         </div>
  
     )
