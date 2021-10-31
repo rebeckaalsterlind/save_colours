@@ -6,7 +6,7 @@ import Banner from "./Banner"
 export default function LogInPage () {
     return (
         <div>
-            <Header /> // username
+            <Header />
             <ProjectsWrapper />
             <NewObjectBtn />
             <Banner />
