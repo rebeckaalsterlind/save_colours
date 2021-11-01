@@ -1,7 +1,7 @@
 import React, { useState } from 'react';import Logo from './Logo';
 import LogInForm from './LogInForm';
 import SecondaryBtn from '../reuse/SecondaryBtn';
-import RegisterForm from '../RegisterForm/RegisterForm';
+import RegisterForm from '../Forms/RegisterForm';
 import TextBtn from '../reuse/TextBtn';
 
 interface State {
