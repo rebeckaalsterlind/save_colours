@@ -1,5 +1,4 @@
 export function logIn(user) {
-
   return {
     type: "SET_LOGIN",
     loggedIn: user.isTrue,
@@ -8,19 +7,15 @@ export function logIn(user) {
 }
 
 export function addColor(show) {
-
   return {
     type: "SET_ADDCOLOR",
-    addColor: show,
-    addProject: !show
+    addColor: show
   }
 }
 
 export function addProject(show) {
-
   return {
     type: "SET_ADDPROJECT",
-    addColor: !show,
     addProject: show
   }
 }

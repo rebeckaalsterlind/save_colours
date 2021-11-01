@@ -11,18 +11,15 @@ export default function reduce(state, action) {
        username: action.username
       }
 
-    //turn into one case?
     case "SET_ADDCOLOR":
       return {
         ...state,
-        addColor: action.addColor,
-        addProject: action.addProject
+        addColor: action.addColor
       }
 
     case "SET_ADDPROJECT":
       return {
         ...state,
-        addColor: action.addColor,
         addProject: action.addProject
       }
 

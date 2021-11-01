@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { store as reduxStore } from '../../store';
+import { addColor } from '../../actions';
 
 interface State {
   name: string, 
@@ -43,7 +45,9 @@ export default function AddColor({}, state: State ) {
           store: store
         }
       }
-    )
+    );
+
+    reduxStore.dispatch(addColor(false));
 
   }
 
