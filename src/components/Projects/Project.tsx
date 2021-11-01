@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import ProjectName from "./ProjectName"
 import Room from "../Room/Room"
 import data from "../../mockdata.json";
-
-console.log(data);
+import { store } from '../../store';
 
 interface Props {
-
 }
 
 interface State {
     showProject: boolean;
-    projectId: number;
+    selectedproject: object[];
 }
 
 export default function Project({ }: Props, state: State) {
@@ -21,13 +19,17 @@ export default function Project({ }: Props, state: State) {
 
     return (
         <div>
-            {data.projects.map((project: any) => (
-                <h1 key={project.id} onClick={() => { setShowProject(!showProject); setSelectedproject(project); }}> {project.projectName}</h1>
-            ))}
+
+            {store.getState().username === data.username && (
+                data.projects.map((project: any) => (
+                    <h1 key={project.projectId} onClick={() => { setShowProject(!showProject); setSelectedproject(project); }}> {project.projectName}</h1>
+                ))
+            )}
+
             <ProjectName /> // prop: name
             // map room
             {showProject && (
-            <Room project={selectedproject} />
+                <Room project={selectedproject} />
             )}
         </div>
     )
