@@ -1,5 +1,4 @@
 export function logIn(user) {
-  console.log("actions", user)
 
   return {
     type: "SET_LOGIN",
@@ -7,3 +6,22 @@ export function logIn(user) {
     username: user.username
   }
 }
+
+export function addColor(show) {
+
+  return {
+    type: "SET_ADDCOLOR",
+    addColor: show,
+    addProject: !show
+  }
+}
+
+export function addProject(show) {
+
+  return {
+    type: "SET_ADDPROJECT",
+    addColor: !show,
+    addProject: show
+  }
+}
+
