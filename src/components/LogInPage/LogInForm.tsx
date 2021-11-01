@@ -2,7 +2,7 @@ import PrimaryBtn from "../reuse/PrimaryBtn"
 import React, { useState } from 'react';
 import { store } from '../../store';
 import { logIn } from '../../actions';
-
+import data from "../../mockdata.json";
 
 interface State {
     username: string,
@@ -10,31 +10,40 @@ interface State {
     user: object,
 }
 
-export default function LogInForm ({}, state: State) {
+export default function LogInForm({ }, state: State) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState({});
+    const [errorText, setErrorText] = useState(false);
 
-    const handleSubmit = (evt:React.FormEvent) => {
+    const handleSubmit = (evt: React.FormEvent) => {
         evt.preventDefault();
-        
-        //user data to send to db
-        setUser({username: username, password: password})
 
-        //send logged-in state to redux. Answer (true/false) should come from db
-        const DBloginResponse: boolean = true;
-        store.dispatch(logIn({isTrue: DBloginResponse, username: username}))
-        
+        if (username === data.username && password === data.password) {
+
+            //user data to send to db
+            setUser({ username: username, password: password })
+            
+            //send logged-in state to redux. Answer (true/false) should come from db
+            const DBloginResponse: boolean = true;
+            store.dispatch(logIn({ isTrue: DBloginResponse, username: username }))
+        } else {
+            setErrorText(true)
+        }
     }
 
     return (
         <form onSubmit={handleSubmit}>
+             {errorText && (
+                <p>Fel användarnamn eller lösenord</p>
+            )}
             <input type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)} /> <br />
-            <input type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value) }/> <br />
+            <input type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
             <button>Logga in</button>
 
             {/* <PrimaryBtn innerText="Logga in" /> */}
+           
         </form>
     )
 }
