@@ -32,7 +32,8 @@ export default function LogInForm ({}, state: State) {
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)} /> <br />
             <input type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value) }/> <br />
-            <PrimaryBtn innerText="Logga in" />
+            <button>Logga in</button>
+            {/* <PrimaryBtn innerText="Logga in" /> */}
         </form>
     )
 }
