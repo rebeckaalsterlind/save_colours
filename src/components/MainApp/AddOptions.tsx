@@ -1,12 +1,21 @@
 import { store } from '../../store';
 import { addColor, addProject } from '../../actions';
+import './addOptions.css';
 
-export default function AddOptions () {
+interface Props {
+  callback(showComponent: boolean):void;
+}
+
+export default function AddOptions ({callback}:Props) {
   
-    const add = (evt:React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    const handleClick = (evt:React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
         const { target } = evt;
 
         switch ((target as HTMLParagraphElement).id) {
+            case "wrapper":
+              callback(false);
+            break;
+
             case "addColor":
               store.dispatch(addColor(true))
             break; 
@@ -15,13 +24,14 @@ export default function AddOptions () {
               store.dispatch(addProject(true))
             break; 
         }
-
     }
 
     return (
-        <div>
-          <p id="addColor" onClick={add}>Lägg till ny färg</p>
-          <p id="addProject" onClick={add}>Lägg till nytt projekt</p>
+        <div id="wrapper" className="modal-wrapper" onClick={handleClick}>
+          <div id="box" className="modal-box">
+            <p id="addColor" onClick={handleClick}>Lägg till ny färg</p>
+            <p id="addProject" onClick={handleClick}>Lägg till nytt projekt</p>
+          </div>
         </div>
     )
 }

@@ -12,7 +12,7 @@ export default function NewObjectBtn ({}, state: State) {
     return (
         <>
             <button onClick={() => setShowOptions(!showOptions)}>+</button>
-            {showOptions && <AddOptions /> }
+            {showOptions && <AddOptions callback={hide => setShowOptions(hide)} /> }
         </>
     )
 }

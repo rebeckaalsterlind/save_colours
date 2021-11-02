@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { store as reduxStore } from '../../store';
-import { addColor } from '../../actions';
+import { addColor as reduxAddColor } from '../../actions';
 
 interface State {
   name: string, 
@@ -47,7 +47,7 @@ export default function AddColor({}, state: State ) {
       }
     );
 
-    reduxStore.dispatch(addColor(false));
+    reduxStore.dispatch(reduxAddColor(false));
 
   }
 
@@ -90,7 +90,7 @@ export default function AddColor({}, state: State ) {
       {/* map rooms here. value should be roomId, innerText should be roomName */}
       </select><br />
 
-      <button>Spara</button>
+      <button>Spara färg</button>
     </form>
   )
 }
