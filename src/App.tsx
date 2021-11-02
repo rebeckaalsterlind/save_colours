@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { store } from './store';
 import './App.css';
 import LogInPage from './components/LogInPage/LogInPage';

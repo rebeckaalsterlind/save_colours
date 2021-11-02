@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { store } from '../../store';
+import { addProject } from '../../actions';
 
 interface State {
   projectName: string, 
@@ -20,7 +22,9 @@ export default function AddProject({}, state: State ) {
         projectName: projectName,
         rooms: []
       }
-    )
+    );
+
+    store.dispatch(addProject(false));
 
   }
 

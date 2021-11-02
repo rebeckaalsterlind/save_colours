@@ -10,7 +10,19 @@ export default function reduce(state, action) {
        loggedIn: action.loggedIn,
        username: action.username
       }
-    
+
+    case "SET_ADDCOLOR":
+      return {
+        ...state,
+        addColor: action.addColor
+      }
+
+    case "SET_ADDPROJECT":
+      return {
+        ...state,
+        addProject: action.addProject
+      }
+
     default:
     return state
 
