@@ -18,7 +18,7 @@ Colours is an application where a user can create projects and in detail save in
 
 ### Access hosted application
 
-This application is hosted on Netlify and you can access it on the following URL: [url]()
+This application is hosted on Netlify and you can access it on the following URL: [the url]()
 
 ### Install locally
 
@@ -34,7 +34,7 @@ Go to the folder
 cd save_colours
 ```
 
-Use the package manager [npm](https://www.npmjs.com/) to install the modules used in our color app.
+Use the package manager [npm](https://www.npmjs.com/) to install the modules used in our colour app.
 
 ```javascript
 npm i
@@ -49,7 +49,7 @@ npm start
 After the server started, navigate to the URL:
 
 ```javascript
-localhost: 3000;
+http://localhost:3000
 ```
 
 ## API Reference
