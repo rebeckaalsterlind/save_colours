@@ -1,5 +1,12 @@
-export default function ColorInfo () {
+interface Props {
+    color: Object
+}
+
+export default function ColorInfo ({color}: Props) {
+
+    console.log('color in colorInfo', color);
+
     return (
-        <div></div>
+        <div>colorinfo ska visas som modal</div>
     )
 }

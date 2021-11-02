@@ -39,12 +39,12 @@ export default function AddProject({}, state: State ) {
 
     switch((target as HTMLParagraphElement).id) {
       case "room":
-        setNewRoom(true)
+        setNewRoom(!newRoom)
         setNewColor(false)
       break; 
   
       case "color":
-        setNewColor(true)
+        setNewColor(!newColor)
         setNewRoom(false)
       break; 
     }
@@ -55,9 +55,9 @@ export default function AddProject({}, state: State ) {
     <form onSubmit={handleSubmit}>
       <h5>Nytt projekt:</h5>
       <input type="text" placeholder="Namn" onChange={ (evt) => setProjectName(evt.target.value)} />
-      <p id="room" onClick={show} ><span>+ </span> Lägg till rum</p>
+      <p id="room" onClick={show} ><span>{newRoom ? "-" : "+" }</span> Lägg till rum</p>
       {newRoom && <AddRoom />}
-      <p id="color" onClick={show} ><span>+ </span> Lägg till färg</p>
+      <p id="color" onClick={show} ><span>{newColor ? "-" : "+" }</span> Lägg till färg</p>
       {newColor && <AddColor />}
       <button>Spara projekt</button>
     </form>

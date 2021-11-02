@@ -1,5 +1,9 @@
 export default function EditBtns () {
     return (
-        <div></div>
+        <aside style={{display:'inline'}}>
+            <p style={{display:'inline'}}>+</p>
+            <p style={{display:'inline'}}>O</p>
+            <p style={{display:'inline'}}>V</p>
+        </aside>
     )
 }
