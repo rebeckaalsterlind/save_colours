@@ -1,5 +1,5 @@
 interface Props {
-    color: Object
+    color: any;
 }
 
 export default function ColorInfo ({color}: Props) {
@@ -7,6 +7,6 @@ export default function ColorInfo ({color}: Props) {
     console.log('color in colorInfo', color);
 
     return (
-        <div>colorinfo ska visas som modal</div>
+        <div><p>{color.colorCode}</p><p>{color.colorType}</p><button>Läs mer</button></div>
     )
 }

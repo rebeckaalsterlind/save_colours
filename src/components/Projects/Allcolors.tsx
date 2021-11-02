@@ -29,7 +29,6 @@ export default function Allcolors({ sendColors }: Props) {
                 colorArray.map((color: any) =>  (
                     <div>
                     <Color key={color.colorId} color={color} />
-                    <p key={Math.random()}>{color.colorCode}</p>
                     </div>
                 
                 ))
