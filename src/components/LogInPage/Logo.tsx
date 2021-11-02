@@ -1,8 +1,13 @@
-export default function Logo () {
+import * as banner from '../../img/logo.png';
+
+export default function Logo() {
+
+    const img = banner.default;
     return (
-        <>
-            <h1>FÄRGAPP</h1>
-            <div>logo/bild</div>
-        </>
+     
+            <div>
+                <h1>FÄRGAPP</h1>
+                <img src={img} style={{ width: 200 }} alt="logo" className="" />
+            </div>
     )
 }
