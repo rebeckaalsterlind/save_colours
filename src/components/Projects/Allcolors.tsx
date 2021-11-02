@@ -1,4 +1,5 @@
 import React from 'react';
+import Color from "../reuse/Color";
 
 interface Props {
     sendColors: any;
@@ -6,7 +7,6 @@ interface Props {
 
 
 export default function Allcolors({ sendColors }: Props) {
-    console.log(sendColors);
 
     const colorArray: object[] = [];
     const rooms: any = sendColors.map((p: any) => (p.rooms));
@@ -17,21 +17,21 @@ export default function Allcolors({ sendColors }: Props) {
             const seperateColors = roomColors[i].colors;
             for (let i = 0; i < seperateColors.length; i++) {
                 const colors = seperateColors[i];
-                console.log(colors);
                 colorArray.push(colors);
 
             }
         }
     }
 
-console.log(colorArray);
-
-
     return (
         <div>
             { 
                 colorArray.map((color: any) =>  (
+                    <div>
+                    <Color key={color.colorId} color={color} />
                     <p key={Math.random()}>{color.colorCode}</p>
+                    </div>
+                
                 ))
             }
 
