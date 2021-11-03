@@ -51,6 +51,8 @@ $grey: #585858;
   border: 1px solid $grey;
   border-radius: 0px; 
   margin: 10px;
+  height: 40px;
+  margin-left: 10px;
 }
 
 .activeBtn{
@@ -59,6 +61,9 @@ $grey: #585858;
   border: 1px solid $grey;
   border-radius: 0px; 
   margin: 10px;
+  height: 40px;
+  margin-left: 10px;
+
 }
 
 .addBtn{
@@ -109,3 +114,7 @@ a:hover{
   cursor: pointer;
 }
 
+footer{
+  position: absolute;
+  bottom: 0;
+}

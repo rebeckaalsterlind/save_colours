@@ -46,6 +46,8 @@
   border: 1px solid #585858;
   border-radius: 0px;
   margin: 10px;
+  height: 40px;
+  margin-left: 10px;
 }
 
 .activeBtn {
@@ -54,6 +56,8 @@
   border: 1px solid #585858;
   border-radius: 0px;
   margin: 10px;
+  height: 40px;
+  margin-left: 10px;
 }
 
 .addBtn {
@@ -102,5 +106,10 @@ p {
 
 a:hover {
   cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }
 /*# sourceMappingURL=style.css.map */
