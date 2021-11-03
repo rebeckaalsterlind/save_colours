@@ -17,13 +17,13 @@ export default function LogInPage() {
             {!store.getState().addProject && !store.getState().addColor &&
                 <>
                     <ProjectsWrapper />
+                    <footer>
+                        <NewObjectBtn />
+                        <Banner />
+                    </footer>
 
                 </>
             }
-            <footer>
-                <NewObjectBtn />
-                <Banner />
-            </footer>
         </div>
     )
 }
