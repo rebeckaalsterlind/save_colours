@@ -1,19 +1,16 @@
-.modal-wrapper {
-  position: fixed;
-  top:0;
-  left: 0;
+.color-wrapper {
+  position: absolute;
+  border: 1px solid red;
   background-color: rgba(255, 255, 255, 0.685);
-  height: 100vh;
-  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.modal-box {
+.color-box {
   background-color: white;
   border: 2px solid black;
-  height: 100px;
+  max-height: 200px;
   width: 200px;
   display: flex;
   flex-direction: column;

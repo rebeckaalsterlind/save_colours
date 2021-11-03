@@ -19,7 +19,7 @@ export default function Color({ color }: Props, state: State) {
                 onClick={() => setShowInfo(!showInfo)}
                 style={{ backgroundColor: "#2d3a80", height: '50px', width: '50px', margin: '.5em' }}>
             </div>
-            {showInfo && <ColorInfo color={color} /> }
+            {showInfo && <ColorInfo color={color} hide={hideModal => setShowInfo(hideModal) } /> }
         </>
     );
 }
