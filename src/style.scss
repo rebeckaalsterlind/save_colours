@@ -1,35 +1,39 @@
+$darkpink: #d6696b;
+$lighterpink: #ff8a8c;
+$white: #fff;
+$grey: #585858;
+
 .primary-btn {
-  background-color: #d6696b; 
-  color: #fff; 
-  border: 1px solid #272727;
+  background-color: $darkpink; 
+  color: $white;
+  border: 1px solid $grey;
   border-radius: 0px; 
   margin-bottom: 20px; 
 }
 
 .primary-btn:hover{
-  background-color: #ff8a8c; 
+  background-color: $lighterpink; 
 }
 
 .white-btn{
-  background-color: #fff; 
-  color: #d6696b; 
-  border: 1px solid #272727;
+  background-color: $white; 
+  color: $darkpink; 
+  border: 1px solid $grey;
   border-radius: 0px; 
   margin-bottom: 10px;
 }
 
 .white-btn:hover{
-  background-color: #ff8a8c; 
+  background-color: $lighterpink; 
 }
 
 .textBtn{
-  color: #d6696b; 
+  color: $darkpink; 
 }
 
 .inputfield{
-  color: #d6696b;
   height: 40px;
-  border: 1px solid #272727;
+  border: 1px solid $grey;
   border-radius: 0px; 
 }
 
@@ -42,17 +46,66 @@
 }
 
 .notActiveBtn{
-  background-color: #fff; 
-  color: #272727; 
-  border: 1px solid #272727;
+  background-color: $white; 
+  color: $grey; 
+  border: 1px solid $grey;
   border-radius: 0px; 
   margin: 10px;
 }
 
 .activeBtn{
-  background-color: #d6696b; 
-  color: #fff; 
-  border: 1px solid #272727;
+  background-color: $darkpink; 
+  color: $white; 
+  border: 1px solid $grey;
   border-radius: 0px; 
   margin: 10px;
 }
+
+.addBtn{
+  color: $darkpink; 
+  margin: 10px;
+}
+
+.editBtns {
+  display: inline;
+  margin: 10px;
+}
+
+.icon{
+  margin-left: 5px;
+  color:$grey;
+  
+}
+
+.colorBlock{
+  display: inline-block;
+  border-radius: 10px 10px 0px 10px;
+  height: 50px;
+  width: 50px;
+  margin: .5em; 
+}
+.projects{
+ text-align: left;
+ padding-left: 30px;
+}
+
+.projectName{
+  line-height: 40px
+}
+
+h3{
+  color: $grey; 
+}
+
+h6{
+  color: $grey; 
+}
+
+p{
+  color: $grey; 
+}
+
+a:hover{
+  cursor: pointer;
+}
+

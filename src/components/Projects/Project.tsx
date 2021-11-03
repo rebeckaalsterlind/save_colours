@@ -6,7 +6,7 @@ import { store } from '../../store';
 export default function Project() {
  
     return (
-        <div>
+        <div className="projects">
             {store.getState().username === data.username && (
                 data.projects.map((project: any) => (
                     <ProjectName key={project.projectId} project={project} />

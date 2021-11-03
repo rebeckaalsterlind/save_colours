@@ -1,9 +1,9 @@
-export default function EditBtns () {
+export default function EditBtns() {
     return (
-        <aside style={{display:'inline'}}>
-            <p style={{display:'inline'}}>+</p>
-            <p style={{display:'inline'}}>O</p>
-            <p style={{display:'inline'}}>V</p>
+        <aside className="editBtns">
+            <i className="fas fa-share-alt icon"></i>
+            <i className="fas fa-plus icon"></i>
+            <i className="far fa-edit icon"></i>
         </aside>
     )
 }
