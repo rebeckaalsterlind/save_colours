@@ -34,13 +34,13 @@ export default function LogInForm({ }, state: State) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
              {errorText && (
                 <p>Fel användarnamn eller lösenord</p>
             )}
-            <input type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)} /> <br />
-            <input type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
-            <button>Logga in</button>
+            <input type="text"  className="form-control inputfield" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)} /> <br />
+            <input type="text"  className="form-control inputfield" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
+            <button  className="btn btn-primary primary-btn">Logga in</button>
             {/* <PrimaryBtn innerText="Logga in" /> */}
            
         </form>

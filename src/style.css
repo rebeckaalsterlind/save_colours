@@ -1,0 +1,59 @@
+.primary-btn {
+  background-color: #d6696b;
+  color: #fff;
+  border: 1px solid #272727;
+  border-radius: 0px;
+  margin-bottom: 20px;
+}
+
+.primary-btn:hover {
+  background-color: #ff8a8c;
+}
+
+.white-btn {
+  background-color: #fff;
+  color: #d6696b;
+  border: 1px solid #272727;
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+
+.white-btn:hover {
+  background-color: #ff8a8c;
+}
+
+.textBtn {
+  color: #d6696b;
+}
+
+.inputfield {
+  color: #d6696b;
+  height: 40px;
+  border: 1px solid #272727;
+  border-radius: 0px;
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.cont-1 {
+  margin-top: 10px;
+}
+
+.notActiveBtn {
+  background-color: #fff;
+  color: #272727;
+  border: 1px solid #272727;
+  border-radius: 0px;
+  margin: 10px;
+}
+
+.activeBtn {
+  background-color: #d6696b;
+  color: #fff;
+  border: 1px solid #272727;
+  border-radius: 0px;
+  margin: 10px;
+}
+/*# sourceMappingURL=style.css.map */

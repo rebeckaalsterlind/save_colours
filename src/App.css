@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  max-width: 400px;
+  border:1px solid black ;
 }
 
 .App-logo {
@@ -22,6 +24,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {

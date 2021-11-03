@@ -3,6 +3,7 @@ import { store } from './store';
 import './App.css';
 import LogInPage from './components/LogInPage/LogInPage';
 import MainApp from './components/MainApp/MainApp'
+import './style.css';
 
 
 function App() {

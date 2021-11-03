@@ -7,7 +7,7 @@ export default function Logo() {
      
             <div>
                 <h1>FÄRGAPP</h1>
-                <img src={img} style={{ width: 200 }} alt="logo" className="" />
+                <img src={img} alt="logo" className="img-fluid logo" />
             </div>
     )
 }
