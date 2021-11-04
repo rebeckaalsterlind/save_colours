@@ -28,7 +28,7 @@ export default function AddOptions ({callback}:Props) {
 
     return (
         <div id="wrapper" className="modal-wrapper" onClick={handleClick}>
-          <div id="box" className="modal-box add">
+          <div id="box" className="modal-box">
             <p id="addColor" onClick={handleClick}>Lägg till ny färg</p>
             <p id="addProject" onClick={handleClick}>Lägg till nytt projekt</p>
           </div>

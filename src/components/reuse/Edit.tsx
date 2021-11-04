@@ -31,15 +31,38 @@ export default function Edit({toEdit, callback}: Props) {
 
   }
 
+  //on click outside => close modal
+  const handleClick = (evt:React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    const { target } = evt;
+
+    if((target as HTMLParagraphElement).id === "wrapper") {
+      callback(false);
+    }
+  }
+
+   //"save" and close modal
+  const handleSubmit = (evt:React.FormEvent):void => {
+    evt.preventDefault();
+
+    setTimeout(() => {
+      callback(false)
+     }, 2000);
+
+     document.getElementById("box")!.innerHTML = `<p>Sparat!</p>`;
+
+  }
+
   return (
     <div 
     id="wrapper" 
     className="modal-wrapper" 
-    onClick={() => callback(false)}>
+    onClick={handleClick}>
 
       <form 
-        className="modal-box edit"
-        style={{border: '1px solid black'}}>
+        id="box"
+        className="modal-box"
+        style={{border: '1px solid black'}}
+        onSubmit={handleSubmit}>
         
         <h3>Redigera</h3>
 

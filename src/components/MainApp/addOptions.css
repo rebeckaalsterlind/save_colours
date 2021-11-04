@@ -18,14 +18,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.add {
-  height: 100px;
-  width: 200px;
-} 
-
-.edit {
-  height: 300px;
-  width: 300px;
+  padding: 30px;
 }

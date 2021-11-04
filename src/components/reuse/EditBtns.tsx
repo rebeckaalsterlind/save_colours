@@ -66,9 +66,9 @@ export default function EditBtns ({obj}: Props, state: State) {
                 </i>
             </aside>
 
-            {isShare && <Share toShare={obj} />} 
+            {isShare && <Share toShare={obj} callback={hide => setIsShare(hide)}/>} 
             {isEdit && <Edit toEdit={obj} callback={hide => setIsEdit(hide)} />} 
-            {isDelete && <Delete toDelete={obj} />} 
+            {isDelete && <Delete toDelete={obj} callback={hide => setIsDelete(hide)}/>} 
         </>
     )
 }
