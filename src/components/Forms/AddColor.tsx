@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { store as reduxStore } from '../../store';
 import { addColor as reduxAddColor } from '../../actions';
 
@@ -25,7 +25,14 @@ export default function AddColor({}, state: State ) {
 
   const [project, setProject] = useState("");
   const [room, setRoom] = useState("");
-  const [newColor, setNewColor] = useState({})
+  const [newColor, setNewColor] = useState({});
+
+  const inputRef:any = useRef(null);
+
+  //set the focus on username input
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [])
 
   const handleSubmit = (evt:React.FormEvent) => {
     evt.preventDefault();
@@ -54,7 +61,7 @@ export default function AddColor({}, state: State ) {
   return (
     <form onSubmit={handleSubmit}>
       <h5>Ny färg:</h5>
-      <input type="text" placeholder="Namn" onChange={ (evt) => setName(evt.target.value)} /> <br />
+      <input ref={inputRef} type="text" placeholder="Namn" onChange={ (evt) => setName(evt.target.value)} /> <br />
       <input type="text" placeholder="NCS-kod" onChange={ (evt) => setCode(evt.target.value)} /> <br />
       
       <label htmlFor="type">Typ av färg:</label>

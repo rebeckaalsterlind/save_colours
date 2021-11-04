@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { store } from '../../store';
 import { addProject } from '../../actions';
 import AddColor from './AddColor';
@@ -17,6 +17,14 @@ export default function AddProject({}, state: State ) {
   const [newProject, setNewProject] = useState({});
   const [newRoom, setNewRoom] = useState(false);
   const [newColor, setNewColor] = useState(false);
+
+  const inputRef:any = useRef(null);
+
+  //set the focus on username input
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [])
+
 
   const handleSubmit = (evt:React.FormEvent) => {
     evt.preventDefault();
@@ -53,8 +61,9 @@ export default function AddProject({}, state: State ) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <p onClick={() => store.dispatch(addProject(false))}>&larr; </p>
       <h5>Nytt projekt:</h5>
-      <input type="text" placeholder="Namn" onChange={ (evt) => setProjectName(evt.target.value)} />
+      <input ref={inputRef} type="text" placeholder="Namn" onChange={ (evt) => setProjectName(evt.target.value)} />
       <p id="room" onClick={show} ><span>{newRoom ? "-" : "+" }</span> Lägg till rum</p>
       {newRoom && <AddRoom />}
       <p id="color" onClick={show} ><span>{newColor ? "-" : "+" }</span> Lägg till färg</p>
