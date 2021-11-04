@@ -5,7 +5,7 @@ export default function Logo() {
     const img = banner.default;
     return (
      
-            <div>
+            <div className="headerStartpage">
                 <h1>FÄRGAPP</h1>
                 <img src={img} alt="logo" className="img-fluid logo" />
             </div>

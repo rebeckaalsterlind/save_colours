@@ -42,7 +42,11 @@ $grey: #585858;
 }
 
 .cont-1{
-  margin-top:10px; 
+  margin-top: 20px; 
+}
+
+.headerStartpage{
+  margin-top: 20px; 
 }
 
 .notActiveBtn{
@@ -51,7 +55,7 @@ $grey: #585858;
   border: 1px solid $grey;
   border-radius: 0px; 
   margin: 10px;
-  height: 40px;
+  max-height: 40px;
   margin-left: 10px;
 }
 
@@ -61,7 +65,7 @@ $grey: #585858;
   border: 1px solid $grey;
   border-radius: 0px; 
   margin: 10px;
-  height: 40px;
+  max-height: 40px;
   margin-left: 10px;
 
 }
