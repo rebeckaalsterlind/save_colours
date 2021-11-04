@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { store as reduxStore } from '../../store';
 import { addColor as reduxAddColor } from '../../actions';
 
@@ -25,7 +25,14 @@ export default function AddColor({}, state: State ) {
 
   const [project, setProject] = useState("");
   const [room, setRoom] = useState("");
-  const [newColor, setNewColor] = useState({})
+  const [newColor, setNewColor] = useState({});
+
+  const inputRef:any = useRef(null);
+
+  //set the focus on username input
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [])
 
   const handleSubmit = (evt:React.FormEvent) => {
     evt.preventDefault();
@@ -54,9 +61,8 @@ export default function AddColor({}, state: State ) {
   return (
     <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
       <h5>Ny färg:</h5>
-      <input className="form-control inputfield"  type="text" placeholder="Namn" onChange={ (evt) => setName(evt.target.value)} /> <br />
-      <input className="form-control inputfield"  type="text" placeholder="NCS-kod" onChange={ (evt) => setCode(evt.target.value)} /> <br />
-      
+      <input ref={inputRef} className="form-control inputfield"  type="text" placeholder="Namn" onChange={ (evt) => setName(evt.target.value)} /> <br />
+      <input type="text"  className="form-control inputfield" placeholder="NCS-kod" onChange={ (evt) => setCode(evt.target.value)} /> <br />
       <select className="form-select inputfield" name="type" id="type" onChange={ (evt) => setType(evt.target.value)} >
         <option value="">Typ av Färg</option>
         <option value="roof">Tak</option>

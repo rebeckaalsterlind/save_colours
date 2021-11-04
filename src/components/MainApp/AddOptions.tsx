@@ -3,7 +3,7 @@ import { addColor, addProject } from '../../actions';
 import './addOptions.css';
 
 interface Props {
-  callback(showComponent: boolean):void;
+  callback(hideComponent: boolean):void;
 }
 
 export default function AddOptions ({callback}:Props) {
