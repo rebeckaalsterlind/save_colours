@@ -3,7 +3,7 @@ import { addColor, addProject } from '../../actions';
 import './addOptions.css';
 
 interface Props {
-  callback(showComponent: boolean):void;
+  callback(hideComponent: boolean):void;
 }
 
 export default function AddOptions ({callback}:Props) {
@@ -28,7 +28,7 @@ export default function AddOptions ({callback}:Props) {
 
     return (
         <div id="wrapper" className="modal-wrapper" onClick={handleClick}>
-          <div id="box" className="modal-box">
+          <div id="box" className="modal-box add">
             <p id="addColor" onClick={handleClick}>Lägg till ny färg</p>
             <p id="addProject" onClick={handleClick}>Lägg till nytt projekt</p>
           </div>

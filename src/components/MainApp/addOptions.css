@@ -13,10 +13,19 @@
 .modal-box {
   background-color: white;
   border: 2px solid black;
-  height: 100px;
-  width: 200px;
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.add {
+  height: 100px;
+  width: 200px;
+} 
+
+.edit {
+  height: 300px;
+  width: 300px;
 }
