@@ -117,4 +117,12 @@ footer {
   position: absolute;
   bottom: 0;
 }
+
+.AllcolorDiv {
+  float: left;
+}
+
+.Allcolors {
+  display: inline;
+}
 /*# sourceMappingURL=style.css.map */

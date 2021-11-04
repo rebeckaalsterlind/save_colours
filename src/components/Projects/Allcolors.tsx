@@ -27,7 +27,7 @@ export default function Allcolors({ sendColors }: Props) {
         <div>
             { 
                 colorArray.map((color: any) =>  (
-                    <div style={{display: 'inline'}}>
+                    <div className="Allcolors">
                     <Color key={color.colorId} color={color} />
                     </div>
                 
