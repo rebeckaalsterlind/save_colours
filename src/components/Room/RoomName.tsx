@@ -10,7 +10,7 @@ export default function RoomName ({room}: Props)  {
     return (
         <div>
             <header>
-                <h5 style={{display: 'inline'}}>Room name: {room.roomName}</h5>
+                <h5 style={{display: 'inline'}}>{room.roomName}</h5>
                 <EditBtns obj={room} /> 
 
             </header>
