@@ -1,14 +1,28 @@
+import React, { useState } from 'react';
+import Project from "./Project";
+import Allcolors from "./Allcolors";
 
-import Project from "./Project"
+interface State {
+    toggleMenu: boolean
+}
 
+export default function ProjectsWrapper ({}, state: State) {
 
-export default function ProjectsWrapper () {
+    const [toggleMenu, setToggleMenu] = useState(true);
+    const [colors, setcolors] = useState();
+
+   const getColors:any = (array:any) => {
+    setcolors(array);
+    }
 
     return (
         <div>
-         
-                <Project />
-            
+            <button onClick={() => setToggleMenu(true)}>Projekt</button>
+            <button onClick={() => setToggleMenu(false)}>Färger</button>
+            {toggleMenu 
+                ? <Project  colors={getColors} />
+                :  <Allcolors sendColors={colors}/>
+            }
         </div>
     )
 }

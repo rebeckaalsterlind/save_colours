@@ -6,9 +6,23 @@ export default function reduce(state, action) {
   switch(action.type) {
     case "SET_LOGIN":
       return {
-       ...state, loggedIn: action.loggedIn
+       ...state, 
+       loggedIn: action.loggedIn,
+       username: action.username
       }
-    
+
+    case "SET_ADDCOLOR":
+      return {
+        ...state,
+        addColor: action.addColor
+      }
+
+    case "SET_ADDPROJECT":
+      return {
+        ...state,
+        addProject: action.addProject
+      }
+
     default:
     return state
 

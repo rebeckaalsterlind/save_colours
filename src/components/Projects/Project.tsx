@@ -1,34 +1,24 @@
-import React, { useState } from 'react';
 import ProjectName from "./ProjectName"
-import Room from "../Room/Room"
 import data from "../../mockdata.json";
-
-console.log(data.projects);
+import { store } from '../../store';
 
 interface Props {
-
+    colors: any;
 }
 
-interface State {
-    showProject: boolean;
-    projectId: number;
-}
 
-export default function Project({ }: Props, state: State) {
+export default function Project({ colors }: Props) {
 
-    const [showProject, setShowProject] = useState(false);
-    const [selectedproject, setSelectedproject] = useState();
-
+    colors(data.projects); 
+ 
     return (
         <div>
-            {data.projects.map((project: any) => (
-                <h1 key={project.id} onClick={() => { setShowProject(!showProject); setSelectedproject(project); }}> {project.name}</h1>
-            ))}
-            <ProjectName /> // prop: name
-            // map room
-            {showProject && (
-            <Room project={selectedproject} />
+            {store.getState().username === data.username && (
+                data.projects.map((project: any) => (
+                    <ProjectName key={project.projectId} project={project} />
+                ))
             )}
         </div>
     )
 }
+
