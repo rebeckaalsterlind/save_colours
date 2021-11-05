@@ -17,7 +17,7 @@ export default function ProjectName ({project}: Props, state: State) {
     return (
     <div>
         <header>
-            <h3  onClick={() => setShowProject(!showProject)}
+            <h3 className="projectName" onClick={() => setShowProject(!showProject)}
             style={{display: 'inline'}} >{project.projectName}</h3>
             <EditBtns obj={project} />        
         </header>

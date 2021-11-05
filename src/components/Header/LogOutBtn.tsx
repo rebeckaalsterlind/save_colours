@@ -3,6 +3,6 @@ import { logIn } from '../../actions';
 
 export default function LogOutBtn () {
 
-    return <button onClick={() => store.dispatch(logIn(false))}>Logga ut</button>
+    return <button  className="btn btn-primary white-btn" onClick={() => store.dispatch(logIn(false))}>Logga ut</button>
     
 }

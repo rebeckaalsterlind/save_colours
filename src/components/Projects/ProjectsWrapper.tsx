@@ -9,16 +9,20 @@ interface State {
 export default function ProjectsWrapper ({}, state: State) {
 
     const [toggleMenu, setToggleMenu] = useState(true);
+    const [projectPage, setProjectPage] = useState(true);
+    const [colorpage, setcolorpage] = useState(false);
     const [colors, setcolors] = useState();
 
    const getColors:any = (array:any) => {
     setcolors(array);
     }
 
+
     return (
         <div>
-            <button onClick={() => setToggleMenu(true)}>Projekt</button>
-            <button onClick={() => setToggleMenu(false)}>Färger</button>
+          
+            <button onClick={() => {setToggleMenu(true); setProjectPage(true); setcolorpage(false)}} className= {projectPage ? "activeBtn" : "notActiveBtn"}>Projekt</button>
+            <button  onClick={() => {setToggleMenu(false); setcolorpage(true); setProjectPage(false)}} className={colorpage ? "activeBtn" : "notActiveBtn"}>Färger</button>
             {toggleMenu 
                 ? <Project  colors={getColors} />
                 :  <Allcolors sendColors={colors}/>

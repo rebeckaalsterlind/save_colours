@@ -36,13 +36,13 @@ export default function RegisterForm ({toggle}: Props, state: State) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+
+        <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
             <p onClick={() => toggle(false)}>&larr; </p>
-            <input ref={inputRef} type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)}/> <br />
-            <input type="email" placeholder="Email" required onChange={(evt) => setEmail(evt.target.value)} /> <br />
-            <input type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
-            <button>Spara</button>
-           
+            <input className="form-control inputfield" ref={inputRef} type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)}/> <br />
+            <input className="form-control inputfield" type="email" placeholder="Email" required onChange={(evt) => setEmail(evt.target.value)} /> <br />
+            <input className="form-control inputfield" type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
+            <button className="btn btn-primary primary-btn" >Spara</button>
         </form>
     )
 }

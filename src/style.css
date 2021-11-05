@@ -1,0 +1,128 @@
+.primary-btn {
+  background-color: #d6696b;
+  color: #fff;
+  border: 1px solid #585858;
+  border-radius: 0px;
+  margin-bottom: 20px;
+}
+
+.primary-btn:hover {
+  background-color: #ff8a8c;
+}
+
+.white-btn {
+  background-color: #fff;
+  color: #d6696b;
+  border: 1px solid #585858;
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+
+.white-btn:hover {
+  background-color: #ff8a8c;
+}
+
+.textBtn {
+  color: #d6696b;
+}
+
+.inputfield {
+  height: 40px;
+  border: 1px solid #585858;
+  border-radius: 0px;
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.cont-1 {
+  margin-top: 20px;
+}
+
+.headerStartpage {
+  margin-top: 20px;
+}
+
+.notActiveBtn {
+  background-color: #fff;
+  color: #585858;
+  border: 1px solid #585858;
+  border-radius: 0px;
+  margin: 10px;
+  max-height: 40px;
+  margin-left: 10px;
+}
+
+.activeBtn {
+  background-color: #d6696b;
+  color: #fff;
+  border: 1px solid #585858;
+  border-radius: 0px;
+  margin: 10px;
+  max-height: 40px;
+  margin-left: 10px;
+}
+
+.addBtn {
+  color: #d6696b;
+  margin: 10px;
+}
+
+.editBtns {
+  display: inline;
+  margin: 10px;
+}
+
+.icon {
+  margin-left: 5px;
+  color: #585858;
+}
+
+.colorBlock {
+  display: inline-block;
+  border-radius: 10px 10px 0px 10px;
+  height: 50px;
+  width: 50px;
+  margin: .5em;
+}
+
+.projects {
+  text-align: left;
+  padding-left: 30px;
+}
+
+.projectName {
+  line-height: 40px;
+}
+
+h3 {
+  color: #585858;
+}
+
+h6 {
+  color: #585858;
+}
+
+p {
+  color: #585858;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+footer {
+  max-width: 400px;
+  position: absolute;
+  bottom: 0;
+}
+
+.AllcolorDiv {
+  float: left;
+}
+
+.Allcolors {
+  display: inline;
+}
+/*# sourceMappingURL=style.css.map */

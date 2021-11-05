@@ -59,14 +59,12 @@ export default function AddColor({}, state: State ) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
       <h5>Ny färg:</h5>
-      <input ref={inputRef} type="text" placeholder="Namn" onChange={ (evt) => setName(evt.target.value)} /> <br />
-      <input type="text" placeholder="NCS-kod" onChange={ (evt) => setCode(evt.target.value)} /> <br />
-      
-      <label htmlFor="type">Typ av färg:</label>
-      <select name="type" id="type" onChange={ (evt) => setType(evt.target.value)} >
-        <option value="">--Välj en typ--</option>
+      <input ref={inputRef} className="form-control inputfield"  type="text" placeholder="Namn" onChange={ (evt) => setName(evt.target.value)} /> <br />
+      <input type="text"  className="form-control inputfield" placeholder="NCS-kod" onChange={ (evt) => setCode(evt.target.value)} /> <br />
+      <select className="form-select inputfield" name="type" id="type" onChange={ (evt) => setType(evt.target.value)} >
+        <option value="">Typ av Färg</option>
         <option value="roof">Tak</option>
         <option value="wall">Vägg</option>
         <option value="floor">Golv</option>
@@ -74,9 +72,8 @@ export default function AddColor({}, state: State ) {
         <option value="floor">Övrigt</option>
       </select><br />
 
-      <label htmlFor="finish">Finish:</label>
-      <select name="finish" id="finish" onChange={ (evt) => setGloss(evt.target.value)} >
-        <option value="">--Välj en finish--</option>
+      <select  className="form-select inputfield"  name="finish" id="finish" onChange={ (evt) => setGloss(evt.target.value)} >
+        <option value="">--Glans--</option>
         <option value="Gloss">Blank</option>
         <option value="SemiGloss">Halvblank</option>
         <option value="Matt">Matt</option>
@@ -84,20 +81,20 @@ export default function AddColor({}, state: State ) {
         <option value="Other">Annan</option>
       </select><br />
 
-      <input type="text" placeholder="Kommentar" onChange={ (evt) => setComment(evt.target.value)} /><br />
-      <input type="text" placeholder="Butik" onChange={ (evt) => setStore(evt.target.value)} /><br />
+      <input type="text" className="form-control inputfield"   placeholder="Kommentar" onChange={ (evt) => setComment(evt.target.value)} /><br />
+      <input type="text" className="form-control inputfield"  placeholder="Butik" onChange={ (evt) => setStore(evt.target.value)} /><br />
 
       <label htmlFor="project">Project:</label>
-      <select name="project" id="project" onChange={ (evt) => setProject(evt.target.value)}>
+      <select  className="form-select inputfield" name="project" id="project" onChange={ (evt) => setProject(evt.target.value)}>
       {/* map projects here. value should be projectId, innerText should be projectName */}
       </select><br />
 
       <label htmlFor="room">Room:</label>
-      <select name="room" id="room" onChange={ (evt) => setRoom(evt.target.value)}>
+      <select  className="form-select inputfield" name="room" id="room" onChange={ (evt) => setRoom(evt.target.value)}>
       {/* map rooms here. value should be roomId, innerText should be roomName */}
       </select><br />
 
-      <button>Spara färg</button>
+      <button className="btn btn-primary primary-btn" >Spara färg</button>
     </form>
   )
 }

@@ -4,6 +4,6 @@ interface Props  {
 
 export default function TextBtn ({innerText}: Props) {
     return (
-        <p>{innerText}</p>
+        <p className="textBtn">{innerText}</p>
     )
 }

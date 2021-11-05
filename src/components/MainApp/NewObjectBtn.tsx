@@ -11,7 +11,7 @@ export default function NewObjectBtn ({}, state: State) {
 
     return (
         <>
-            <button onClick={() => setShowOptions(!showOptions)}>+</button>
+            <i className="fas fa-plus-circle fa-3x addBtn" onClick={() => setShowOptions(!showOptions)}></i>
             {showOptions && <AddOptions callback={hide => setShowOptions(hide)} /> }
         </>
     )
