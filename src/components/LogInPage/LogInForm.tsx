@@ -40,16 +40,35 @@ export default function LogInForm({ }, state: State) {
     }
 
     return (
-        <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
-             {errorText && (
-                <p>Fel användarnamn eller lösenord</p>
-            )}
-            <h2>Logga in</h2>
-            <input className="form-control inputfield"  ref={inputRef} type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)} /> <br />
-            <input  className="form-control inputfield" type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
-            <button  className="btn btn-primary primary-btn">Logga in</button>
-            {/* <PrimaryBtn innerText="Logga in" /> */}
-           
-        </form>
+        <main className="form-signin">
+            <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
+                 {errorText && (
+                    <p>Fel användarnamn eller lösenord</p>
+                )}
+                <h1 className="h3 mb-3 fw-normal">Logga in</h1>
+                <div className="form-floating">
+                    <input
+                        className="form-control inputfield"
+                        id="floatingUsername"
+                        ref={inputRef}
+                        type="text"
+                        placeholder="Användarnamn"
+                        required onChange={(evt) => setUsername(evt.target.value)} />
+                    <label htmlFor="floatingUsername">Användarnamn</label>
+                </div>
+                <div className="form-floating">
+                    <input
+                        className="form-control inputfield"
+                        id="floatingPassword"
+                        type="text"
+                        placeholder="Lösenord"
+                        required onChange={(evt) => setPassword(evt.target.value)} />
+                    <label htmlFor="floatingPassword">Lösenord</label>
+                </div>
+                <button  className="btn btn-primary primary-btn">Logga in</button>
+                {/* <PrimaryBtn innerText="Logga in" /> */}
+               
+            </form>
+        </main>
     )
 }

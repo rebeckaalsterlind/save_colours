@@ -21,4 +21,18 @@ body {
   background-color: #CC887B;
   border: 1px solid #CC887B;
 }
+
+.btn-primary:hover {
+  background-color: #a77267;
+  border-color: #a77267;
+}
+
+.btn-link {
+  color: #485056;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: #CC887B;
+}
 /*# sourceMappingURL=style.css.map */
