@@ -49,7 +49,7 @@ export default function LogInForm({}, state: State) {
                 placeholder="Användarnamn"
                 required
                 onChange={(evt) => setUsername(evt.target.value)}
-            />{' '}
+            />
             <br />
             <input
                 className="form-control inputfield"
@@ -57,7 +57,7 @@ export default function LogInForm({}, state: State) {
                 placeholder="Lösenord"
                 required
                 onChange={(evt) => setPassword(evt.target.value)}
-            />{' '}
+            />
             <br />
             <button className="btn btn-primary primary-btn">Logga in</button>
             {/* <PrimaryBtn innerText="Logga in" /> */}
