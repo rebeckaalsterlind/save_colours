@@ -12,12 +12,12 @@ export default function LogInForm({ }, state: State) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorText, setErrorText] = useState(false);
-    const inputRef:any = useRef(null);
+    const inputRef: any = useRef(null);
 
     //set the focus on username input
     useEffect(() => {
         inputRef.current.focus();
-    }, [])
+    }, []);
 
     //check user agains database
     const handleSubmit = (evt: React.FormEvent) => {
@@ -46,17 +46,28 @@ export default function LogInForm({ }, state: State) {
         })
     }
 
-
     return (
         <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
-             {errorText && (
-                <p>Fel användarnamn eller lösenord</p>
-            )}
-            <input className="form-control inputfield"  ref={inputRef} type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)} /> <br />
-            <input  className="form-control inputfield" type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
-            <button  className="btn btn-primary primary-btn">Logga in</button>
+            {errorText && <p>Fel användarnamn eller lösenord</p>}
+            <input
+                className="form-control inputfield"
+                ref={inputRef}
+                type="text"
+                placeholder="Användarnamn"
+                required
+                onChange={(evt) => setUsername(evt.target.value)}
+            />
+            <br />
+            <input
+                className="form-control inputfield"
+                type="password"
+                placeholder="Lösenord"
+                required
+                onChange={(evt) => setPassword(evt.target.value)}
+            />
+            <br />
+            <button className="btn btn-primary primary-btn">Logga in</button>
             {/* <PrimaryBtn innerText="Logga in" /> */}
-           
         </form>
-    )
+    );
 }
