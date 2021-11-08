@@ -6,7 +6,7 @@ export default function Banner () {
 
     return (
         <div>
-            <img src={img} className="img-fluid" alt="image of janne with ostkorkar"  />
+            <img src={img} className="img-fluid" alt="Image of Janne with ostkorkar"  />
        </div>
     )
 }

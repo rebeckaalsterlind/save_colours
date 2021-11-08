@@ -1,39 +1,38 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 interface Props {
-    toggle(state: boolean):void
+    toggle(state: boolean): void;
 }
 
 interface State {
-    username: string,
-    email: string,
-    password: string,
-    newUser: Object
+    username: string;
+    email: string;
+    password: string;
+    newUser: Object;
 }
 
-export default function RegisterForm ({toggle}: Props, state: State) {
+export default function RegisterForm({ toggle }: Props, state: State) {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [newUser, setNewUser] = useState({});
 
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [newUser, setNewUser] = useState({})
-
-    const inputRef:any = useRef(null);
+    const inputRef: any = useRef(null);
 
     //set the focus on username input
     useEffect(() => {
-      inputRef.current.focus();
-    }, [])
-  
-    const handleSubmit = (evt:React.FormEvent):void => {
+        inputRef.current.focus();
+    }, []);
+
+    const handleSubmit = (evt: React.FormEvent): void => {
         evt.preventDefault();
-        
+
         //new user data
-        setNewUser({username: username, email: email, password: password})
-        
+        setNewUser({ username: username, email: email, password: password });
+
         //callback to hide reg form
-        toggle(false)
-    }
+        toggle(false);
+    };
 
     return (
         <main className="form-signin">

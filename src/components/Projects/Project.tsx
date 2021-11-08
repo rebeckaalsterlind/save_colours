@@ -9,8 +9,9 @@ interface Props {
 
 export default function Project({ colors }: Props) {
 
-    colors(data.projects); 
- 
+    colors(data); 
+    //"store.getState().user.projects" will replace "data.projects in map"
+    //and we prop dont need: store.getState().username === data.username &&..
     return (
         <div className="projects">
             {store.getState().username === data.username && (
