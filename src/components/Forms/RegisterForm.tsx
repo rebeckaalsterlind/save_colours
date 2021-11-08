@@ -27,7 +27,7 @@ export default function RegisterForm ({toggle}: Props, state: State) {
   
     const handleSubmit = (evt:React.FormEvent):void => {
         evt.preventDefault();
-        
+
         //new user data
         setNewUser({username: username, email: email, password: password})
         

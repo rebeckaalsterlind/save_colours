@@ -1,7 +1,7 @@
 
 export default function reduce(state, action) {
   
-  console.log('reducer', state);
+  console.log('reducer action', action, "reducer state: ", state);
 
   switch(action.type) {
     case "SET_LOGIN":
