@@ -12,7 +12,7 @@ export default function LogInPage ({}, state: State) {
     const [showRegister, setShowRegister] = useState(false);
 
     return (
-        <div>
+        <div className="loginPage">
             <Logo />
             {!showRegister 
                 ? <>
