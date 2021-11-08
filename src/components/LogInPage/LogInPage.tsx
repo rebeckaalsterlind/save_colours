@@ -18,13 +18,13 @@ export default function LogInPage ({}, state: State) {
                 ? <>
                     <LogInForm /> 
                     <div  className="d-grid gap-2 col-6 mx-auto">
-                    <button className="btn btn-primary white-btn " onClick={ () => setShowRegister(true)}>Registrera</button>
+                    <button className="btn btn-secondary" onClick={ () => setShowRegister(true)}>Registrera</button>
                     </div>
                     <TextBtn innerText="Glömt lösenord?" /> 
                  </>
                 : <RegisterForm toggle={hideRegister => setShowRegister(hideRegister)}/> 
             }
-            <CompColors />
+            {/* <CompColors /> */}
         </div>
     )
 }
