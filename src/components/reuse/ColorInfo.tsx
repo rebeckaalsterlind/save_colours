@@ -48,6 +48,5 @@ export default function ColorInfo ({color, hide}: Props) {
                 {color.store && <li>Butik: {color.store}</li>}
             </ul>   
         </div>
-           
     )
 }

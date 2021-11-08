@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { store } from '../../store';
 import { logIn } from '../../actions';
-import data from "../../mockdata.json";
 
 interface State {
     username: string,
-    password: string
+    password: string,
 }
 
 export default function LogInForm({ }, state: State) {
@@ -36,14 +35,17 @@ export default function LogInForm({ }, state: State) {
         })
         .then(res => res.json())
         .then(response => {
-            console.log('Response from backend: ', response);
+
             if(response.username) {
-                store.dispatch(logIn({ isTrue: true, username: username }));
+                store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
+                console.log('Response from backend: ', response);
             } else {
                 setErrorText(true)
             }
+
         })
     }
+
 
     return (
         <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
