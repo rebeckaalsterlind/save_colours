@@ -45,7 +45,9 @@ export default function RegisterForm ({toggle}: Props, state: State) {
                         ref={inputRef}
                         type="text"
                         placeholder="Användarnamn"
-                        required onChange={(evt) => setUsername(evt.target.value)}/>
+                        required
+                        onChange={(evt) => setUsername(evt.target.value)}
+                    />
                     <label htmlFor="regUsername">Användarnamn</label>
                 </div>
                 <div className="form-floating inputfield">
@@ -54,7 +56,9 @@ export default function RegisterForm ({toggle}: Props, state: State) {
                         id="regMail"
                         type="email"
                         placeholder="Email"
-                        required onChange={(evt) => setEmail(evt.target.value)} />
+                        required
+                        onChange={(evt) => setEmail(evt.target.value)}
+                    />
                     <label htmlFor="regMail">E-mail</label>
                 </div>
                 <div className="form-floating">
@@ -62,12 +66,14 @@ export default function RegisterForm ({toggle}: Props, state: State) {
                         className="form-control inputfield"
                         id="regPassword"
                         type="text" placeholder="Lösenord"
-                        required onChange={(evt) => setPassword(evt.target.value)} />
+                        required
+                        onChange={(evt) => setPassword(evt.target.value)}
+                    />
                     <label htmlFor="regPassword">Lösenord</label>
                 </div>
-                <button className="btn btn-primary primary-btn" >Spara</button>
+                <button className="btn btn-primary primary-btn">Spara</button>
                 <button className="btn btn-secondary" onClick={() => toggle(false)}>Tillbaka</button>
             </form>
         </main>
-    )
+    );
 }

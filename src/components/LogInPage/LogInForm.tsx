@@ -53,7 +53,9 @@ export default function LogInForm({ }, state: State) {
                         ref={inputRef}
                         type="text"
                         placeholder="Användarnamn"
-                        required onChange={(evt) => setUsername(evt.target.value)} />
+                        required
+                        onChange={(evt) => setUsername(evt.target.value)}
+                    />
                     <label htmlFor="floatingUsername">Användarnamn</label>
                 </div>
                 <div className="form-floating">
@@ -62,13 +64,13 @@ export default function LogInForm({ }, state: State) {
                         id="floatingPassword"
                         type="text"
                         placeholder="Lösenord"
-                        required onChange={(evt) => setPassword(evt.target.value)} />
+                        required
+                        onChange={(evt) => setPassword(evt.target.value)}
+                    />
                     <label htmlFor="floatingPassword">Lösenord</label>
                 </div>
-                <button  className="btn btn-primary primary-btn">Logga in</button>
-                {/* <PrimaryBtn innerText="Logga in" /> */}
-               
+                <button className="btn btn-primary primary-btn">Logga in</button>
             </form>
         </main>
-    )
+    );
 }
