@@ -24,13 +24,13 @@ export default function RegisterForm ({toggle}: Props, state: State) {
     useEffect(() => {
       inputRef.current.focus();
     }, [])
-  
+
     const handleSubmit = (evt:React.FormEvent):void => {
         evt.preventDefault();
-        
+
         //new user data
         setNewUser({username: username, email: email, password: password})
-        
+
         //callback to hide reg form
         toggle(false)
     }
@@ -41,7 +41,7 @@ export default function RegisterForm ({toggle}: Props, state: State) {
             <p onClick={() => toggle(false)}>&larr; </p>
             <input className="form-control inputfield" ref={inputRef} type="text" placeholder="Användarnamn" required onChange={(evt) => setUsername(evt.target.value)}/> <br />
             <input className="form-control inputfield" type="email" placeholder="Email" required onChange={(evt) => setEmail(evt.target.value)} /> <br />
-            <input className="form-control inputfield" type="text" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
+            <input className="form-control inputfield" type="password" placeholder="Lösenord" required onChange={(evt) => setPassword(evt.target.value)} /> <br />
             <button className="btn btn-primary primary-btn" >Spara</button>
         </form>
     )
