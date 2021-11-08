@@ -18,6 +18,8 @@ export default function ProjectsWrapper ({}, state: State) {
 
     const getColors:any = (array:any) => {
         setColors(array);
+        console.log(colors);
+        
     }
 
 
