@@ -94,7 +94,7 @@ export default function AddColor({}, state: State ) {
       {/* map rooms here. value should be roomId, innerText should be roomName */}
       </select><br />
 
-      <button className="btn btn-primary primary-btn" >Spara färg</button>
+      <button className="btn btn-primary primary-btn">Spara färg</button>
     </form>
   )
 }
