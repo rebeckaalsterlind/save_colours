@@ -1,19 +1,16 @@
-import PrimaryBtn from '../reuse/PrimaryBtn';
 import React, { useState, useRef, useEffect } from 'react';
 import { store } from '../../store';
 import { logIn } from '../../actions';
-import data from '../../mockdata.json';
 
 interface State {
-    username: string;
-    password: string;
-    user: object;
+    username: string,
+    password: string,
 }
 
-export default function LogInForm({}, state: State) {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [user, setUser] = useState({});
+export default function LogInForm({ }, state: State) {
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const [errorText, setErrorText] = useState(false);
     const inputRef: any = useRef(null);
 
@@ -22,22 +19,32 @@ export default function LogInForm({}, state: State) {
         inputRef.current.focus();
     }, []);
 
+    //check user agains database
     const handleSubmit = (evt: React.FormEvent) => {
         evt.preventDefault();
 
-        if (username === data.username && password === data.password) {
-            //user data to send to db
-            setUser({ username: username, password: password });
+        fetch("http://localhost:3000/api/users/login", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "username": username,
+                "password": password
+            })
+        })
+        .then(res => res.json())
+        .then(response => {
 
-            //send logged-in state to redux. Answer (true/false) should come from db
-            const DBloginResponse: boolean = true;
-            store.dispatch(
-                logIn({ isTrue: DBloginResponse, username: username })
-            );
-        } else {
-            setErrorText(true);
-        }
-    };
+            if(response.username) {
+                store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
+                console.log('Response from backend: ', response);
+            } else {
+                setErrorText(true)
+            }
+
+        })
+    }
 
     return (
         <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
