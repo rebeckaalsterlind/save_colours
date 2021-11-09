@@ -8,35 +8,44 @@ interface Props {
 
 export default function Allcolors({ sendColors }: Props) {
 
-    console.log(sendColors );
+    console.log(sendColors);
 
-    
+
 
     const colorArray: object[] = [];
-    const rooms: any = sendColors.projects.map((p: any) => (p.rooms));
-    console.log(rooms);
-    
 
-    for (let i = 0; i < rooms.length; i++) {
-        const roomColors = rooms[i];
-        for (let i = 0; i < roomColors.length; i++) {
+    const rooms: any = sendColors.map((p: any) => (p.rooms));
+    console.log(rooms);
+
+
+    for (let i = 0; i < sendColors.length; i++) {
+        const roomColors = sendColors[i].rooms;
+        console.log(roomColors);
+        if (roomColors.length > 1 ) { 
+            for (let i = 0; i < roomColors.length; i++) {
             const seperateColors = roomColors[i].colors;
+            console.log(roomColors);
             for (let i = 0; i < seperateColors.length; i++) {
                 const colors = seperateColors[i];
                 colorArray.push(colors);
 
             }
         }
+
+        }
+console.log( colorArray);
+
+     
     }
 
     return (
         <div>
-            { 
-                colorArray.map((color: any) =>  (
+            {
+                colorArray.map((color: any) => (
                     <div className="Allcolors">
-                    <Color key={color.colorId} color={color} />
+                        <Color key={color.colorId} color={color} />
                     </div>
-                
+
                 ))
             }
 

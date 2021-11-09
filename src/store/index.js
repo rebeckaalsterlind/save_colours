@@ -8,4 +8,5 @@ const initialState = {
   addColor: false, 
   addProject: false
 };
+
 export const store = createStore(reduce, initialState);

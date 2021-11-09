@@ -1,4 +1,4 @@
-import * as banner from '../../img/logo.png';
+import * as banner from '../../img/color-app-icon.png';
 
 export default function Logo() {
 
@@ -6,7 +6,6 @@ export default function Logo() {
     return (
      
             <div className="headerStartpage">
-                <h1>FÄRGAPP</h1>
                 <img src={img} alt="logo" className="img-fluid logo" />
             </div>
     )
