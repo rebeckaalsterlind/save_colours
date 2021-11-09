@@ -42,12 +42,32 @@ body {
   }
 }
 
+.btn-secondary {
+  background-color: white;
+  border-color: $rose;
+  color: $gray;
+  &:hover {
+    background-color: $roseHover;
+    border-color: $roseHover;
+  }
+}
+
 .btn-link {
   color: $gray;
   text-decoration: none;
   &:hover {
     color: $rose;
   }
+}
+
+.loginPage {
+  & input, & button {
+    margin-bottom: 2vh;
+  }
+}
+
+.h4-login {
+  text-transform: uppercase;
 }
 
 // .primary-btn {
@@ -133,12 +153,13 @@ body {
   
 // }
 
-// .colorBlock{
-//   display: inline-block;
-//   border-radius: 10px 10px 0px 10px;
-//   height: 50px;
-//   width: 50px;
-//   margin: .5em; 
+.colorBlock{
+  display: inline-block;
+  border-radius: 10px 10px 0px 10px;
+  height: 50px;
+  width: 50px;
+  margin: .5em;
+}
   
 // }
 // .projects{
@@ -175,4 +196,3 @@ body {
 // .Allcolors{
 //   display: inline;
 // }
-

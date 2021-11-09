@@ -27,6 +27,17 @@ body {
   border-color: #a77267;
 }
 
+.btn-secondary {
+  background-color: white;
+  border-color: #CC887B;
+  color: #485056;
+}
+
+.btn-secondary:hover {
+  background-color: #a77267;
+  border-color: #a77267;
+}
+
 .btn-link {
   color: #485056;
   text-decoration: none;
@@ -34,5 +45,21 @@ body {
 
 .btn-link:hover {
   color: #CC887B;
+}
+
+.loginPage input, .loginPage button {
+  margin-bottom: 2vh;
+}
+
+.h4-login {
+  text-transform: uppercase;
+}
+
+.colorBlock {
+  display: inline-block;
+  border-radius: 10px 10px 0px 10px;
+  height: 50px;
+  width: 50px;
+  margin: .5em;
 }
 /*# sourceMappingURL=style.css.map */

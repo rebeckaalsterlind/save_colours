@@ -52,7 +52,7 @@ export default function LogInForm({ }, state: State) {
                  {errorText && (
                     <p>Fel användarnamn eller lösenord</p>
                 )}
-                <h1 className="h3 mb-3 fw-normal">Logga in</h1>
+                <h1 className="h4 mb-3 fw-normal h4-login">Logga in</h1>
                 <div className="form-floating">
                     <input
                         className="form-control inputfield"
