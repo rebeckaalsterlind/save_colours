@@ -69,7 +69,7 @@ export default function LogInForm({ }, state: State) {
                     <input
                         className="form-control inputfield"
                         id="floatingPassword"
-                        type="password"
+                        type="text"
                         placeholder="Lösenord"
                         required
                         onChange={(evt) => setPassword(evt.target.value)}
@@ -79,10 +79,5 @@ export default function LogInForm({ }, state: State) {
                 <button className="btn btn-primary primary-btn">Logga in</button>
             </form>
         </main>
-<<<<<<< HEAD
-    )
-}
-=======
     );
 }
->>>>>>> 4e9136e (Fixes formatting)
