@@ -12,19 +12,20 @@ export default function LogInPage ({}, state: State) {
     const [showRegister, setShowRegister] = useState(false);
 
     return (
-        <div>
+        <div className="loginPage">
             <Logo />
             {!showRegister 
                 ? <>
                     <LogInForm /> 
                     <div  className="d-grid gap-2 col-6 mx-auto">
-                    <button className="btn btn-primary white-btn " onClick={ () => setShowRegister(true)}>Registrera</button>
+                    <button className="btn btn-secondary" onClick={ () => setShowRegister(true)}>Registrera</button>
                     </div>
-                    <TextBtn innerText="Glömt lösenord?" /> 
+                    {/* <TextBtn innerText="Glömt lösenord?" />  */}
+                    <button type="button" className="btn btn-link">Glömt lösenordet?</button>
                  </>
                 : <RegisterForm toggle={hideRegister => setShowRegister(hideRegister)}/> 
             }
-            <CompColors />
+            {/* <CompColors /> */}
         </div>
     )
 }

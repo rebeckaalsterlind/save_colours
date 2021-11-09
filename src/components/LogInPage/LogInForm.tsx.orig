@@ -23,7 +23,7 @@ export default function LogInForm({ }, state: State) {
     const handleSubmit = (evt: React.FormEvent) => {
         evt.preventDefault();
 
-        fetch("https://mads-colour-backend.herokuapp.com/api/users/login", {
+        fetch("http://localhost:3000/api/users/login", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export default function LogInForm({ }, state: State) {
 
             if(response.username) {
                 store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
-                localStorage.setItem('user', response.username);
+                console.log('Response from backend: ', response);
             } else {
                 setErrorText(true)
             }
@@ -47,9 +47,12 @@ export default function LogInForm({ }, state: State) {
     }
 
     return (
+<<<<<<< HEAD
         <main className="form-signin">
             <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
-                 {errorText && (<p>Fel användarnamn eller lösenord</p>)}
+                 {errorText && (
+                    <p>Fel användarnamn eller lösenord</p>
+                )}
                 <h1 className="h4 mb-3 fw-normal h4-login">Logga in</h1>
                 <div className="form-floating">
                     <input
@@ -67,7 +70,7 @@ export default function LogInForm({ }, state: State) {
                     <input
                         className="form-control inputfield"
                         id="floatingPassword"
-                        type="password"
+                        type="text"
                         placeholder="Lösenord"
                         required
                         onChange={(evt) => setPassword(evt.target.value)}
@@ -79,3 +82,29 @@ export default function LogInForm({ }, state: State) {
         </main>
     );
 }
+=======
+        <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
+            {errorText && <p>Fel användarnamn eller lösenord</p>}
+            <input
+                className="form-control inputfield"
+                ref={inputRef}
+                type="text"
+                placeholder="Användarnamn"
+                required
+                onChange={(evt) => setUsername(evt.target.value)}
+            />
+            <br />
+            <input
+                className="form-control inputfield"
+                type="password"
+                placeholder="Lösenord"
+                required
+                onChange={(evt) => setPassword(evt.target.value)}
+            />
+            <br />
+            <button className="btn btn-primary primary-btn">Logga in</button>
+            {/* <PrimaryBtn innerText="Logga in" /> */}
+        </form>
+    );
+}
+>>>>>>> main
