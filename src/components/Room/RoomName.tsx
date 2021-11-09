@@ -9,14 +9,15 @@ export default function RoomName ({room}: Props)  {
     
     return (
         <div>
-            <header>
-                <h5 style={{display: 'inline'}}>{room.roomName}</h5>
+            <div className="roomHead">
+                <h2 className="h5 roomName">{room.roomName}</h2>
                 <EditBtns obj={room} /> 
-
-            </header>
-            {room.colors.map((color: any) => (
-                <Color key={color.colorId} color={color} />
-            ))}
+            </div>
+            <div className="colorWrap">
+                {room.colors.map((color: any) => (
+                    <Color key={color.colorId} color={color} />
+                ))}
+            </div>
         </div>
     )
 }

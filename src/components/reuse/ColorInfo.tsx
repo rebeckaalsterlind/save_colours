@@ -39,20 +39,46 @@ export default function ColorInfo({ color, hide }: Props) {
             }
         >
             <div className="color-box">
-                <button
-                    type="button"
-                    className="btn-close"
-                    aria-label="Close"
-                    onClick={() => hide(false)}
-                ></button>
-                <ul>
-                    <li>Namn: {color.colorName}</li>
-                    <li>NCS kod: {color.colorCode}</li>
-                    {color.colorType && <li>Typ: {color.colorType}</li>}
-                    {color.gloss && <li>Finish: {color.gloss}</li>}
-                    {color.comment && <li>Kommentar: {color.comment}</li>}
-                    {color.store && <li>Butik: {color.store}</li>}
+                <div>
+                    <button
+                        type="button"
+                        className="btn-close"
+                        aria-label="Close"
+                        onClick={() => hide(false)}
+                    ></button>
+                </div>
+                <ul className="list-group list-group-horizontal">
+                    <li className="list-group-item first-li">Namn:</li>
+                    <li className="list-group-item">{color.colorName}</li>
                 </ul>
+                <ul className="list-group list-group-horizontal">
+                    <li className="list-group-item first-li">NCS kod:</li>
+                    <li className="list-group-item">{color.colorCode}</li>
+                </ul>
+                {color.colorType &&
+                    <ul className="list-group list-group-horizontal">
+                        <li className="list-group-item first-li">Typ:</li>
+                        <li className="list-group-item">{color.colorType}</li>
+                    </ul>
+                }
+                {color.gloss && 
+                    <ul className="list-group list-group-horizontal">
+                        <li className="list-group-item first-li">Finish:</li>
+                        <li className="list-group-item">{color.gloss}</li>
+                    </ul>
+                }
+                {color.comment && 
+                    <ul className="list-group list-group-horizontal">
+                        <li className="list-group-item first-li">Kommentar:</li>
+                        <li className="list-group-item">{color.comment}</li>
+                    </ul>
+                }
+                {color.store && 
+                    <ul className="list-group list-group-horizontal">
+                        <li className="list-group-item first-li">Butik:</li>
+                        <li className="list-group-item">{color.store}</li>
+                    </ul>
+                }
             </div>
         </div>
     );

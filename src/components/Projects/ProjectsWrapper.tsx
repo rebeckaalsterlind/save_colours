@@ -21,9 +21,35 @@ export default function ProjectsWrapper ({}, state: State) {
     }
     
     return (
-        <div>
-          <button onClick={() => {setToggleMenu(true); setProjectPage(true); setColorPage(false)}} className= {projectPage ? "activeBtn" : "notActiveBtn"}>Projekt</button>
-            <button  onClick={() => {setToggleMenu(false); setColorPage(true); setProjectPage(false)}} className={colorPage ? "activeBtn" : "notActiveBtn"}>Färger</button>
+        <div className="projectWrap">
+            <button
+                onClick={() => {
+                    setToggleMenu(true);
+                    setProjectPage(true);
+                    setColorPage(false)}}
+                className={
+                    projectPage ?
+                        "activeBtn btn btn-primary shadow-none"
+                        :
+                        "notActiveBtn btn btn-secondary shadow-none"
+                    }
+            >
+                Projekt
+            </button>
+            <button
+                onClick={() => {
+                    setToggleMenu(false);
+                    setColorPage(true);
+                    setProjectPage(false)}}
+                className={
+                    colorPage ?
+                        "activeBtn btn btn-primary shadow-none"
+                        :
+                        "notActiveBtn btn btn-secondary shadow-none"
+                    }
+            >
+                Färger
+            </button>
             {toggleMenu 
                 ? <Project colors={getColors} />
                 :  <Allcolors sendColors={colors}/>
