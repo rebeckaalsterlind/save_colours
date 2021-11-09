@@ -5,10 +5,12 @@ import './App.css';
 import LogInPage from './components/LogInPage/LogInPage';
 import MainApp from './components/MainApp/MainApp'
 import './style.css';
+import { getJSDocTemplateTag } from 'typescript';
 
 function App() {
 
-  if (localStorage.getItem("userId")) {
+  //checking user against localsStorage. if true => fetch user object
+  if (localStorage.getItem("userId") && !store.getState().username) {
       
     fetch(`http://localhost:3000/api/users/${localStorage.getItem("userId")}`)
     .then(res => res.json())
@@ -22,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      {!localStorage.getItem("userId")
+      {!store.getState().loggedIn
         ? <LogInPage />
         : <MainApp />
       }
