@@ -5,6 +5,7 @@
 
 $offwhite: #F9F2F0;
 $rose: #CC887B;
+$roseHover: #a77267;
 $pink: #E9D6D2;
 $foam: #B8C5CD;
 $lavender: #B3ADD1;
@@ -35,6 +36,18 @@ body {
 .btn-primary {
   background-color: $rose;
   border: 1px solid $rose;
+  &:hover {
+    background-color: $roseHover;
+    border-color: $roseHover;
+  }
+}
+
+.btn-link {
+  color: $gray;
+  text-decoration: none;
+  &:hover {
+    color: $rose;
+  }
 }
 
 // .primary-btn {
