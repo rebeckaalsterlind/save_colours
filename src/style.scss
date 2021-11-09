@@ -85,15 +85,27 @@ body {
   border: none;
   color: white;
   border-radius: $corner;
-  background-color: $foam;
+  background-color: $rose;
   cursor: pointer;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  &:hover h1 {
-    color: $stone;
+  & h1 {
+    text-transform: capitalize;
   }
+  &:hover h1 {
+    color: $roseHover;
+  }
+}
+
+.img-fluid {
+  width: 90%;
+  margin-top: 5vh;
+}
+
+.krokar {
+  cursor: pointer;
 }
 
 // .primary-btn {

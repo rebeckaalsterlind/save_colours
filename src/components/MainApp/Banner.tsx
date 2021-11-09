@@ -6,7 +6,7 @@ export default function Banner () {
 
     return (
         <div>
-            <img src={img} className="img-fluid" alt="Image of Janne with ostkorkar"  />
+            <img src={img} className="img-fluid krokar" alt="Image of Janne with ostkorkar" onClick={() => {alert('Mums filibabba!')}} />
        </div>
     )
 }
