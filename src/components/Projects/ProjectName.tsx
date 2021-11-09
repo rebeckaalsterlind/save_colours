@@ -3,28 +3,26 @@ import EditBtns from "../reuse/EditBtns"
 import RoomName from '../Room/RoomName';
 
 interface Props {
-    project: any
+    project: any,
+    key: any
 }
 
 interface State {
     showProject: boolean  
 }
 
-export default function ProjectName ({project}: Props, state: State) {
-
+export default function ProjectName ({project, key}: Props, state: State) {
     const [showProject, setShowProject] = useState(false);
       
     return (
-    <div>
-        <header>
-            <h3 className="projectName" onClick={() => setShowProject(!showProject)}
-            style={{display: 'inline'}} >{project.projectName}</h3>
-            <EditBtns obj={project} />        
-        </header>
-        {showProject &&
-           project.rooms.map((room: any) => (
-            <RoomName key={room.roomId} room={room} />
-        ))}
+        <div>
+            <div className="projectHead" onClick={() => setShowProject(!showProject)}>
+                <h1 className="h4">{project.projectName}</h1>
+                <EditBtns obj={project} />        
+            </div>
+                {showProject && project.rooms.map((room: any) => (
+                    <RoomName key={room.roomId} room={room} />
+                ))}
         </div>
-    )
+    );
 }

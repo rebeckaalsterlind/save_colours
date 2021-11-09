@@ -12,11 +12,19 @@
 
 .modal-box {
   background-color: white;
-  border: 2px solid black;
- 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* padding: 30px; */
+}
+
+.modal-box div {
+  width: 100%;
+}
+
+.modal-box p {
+  width: 200px;
+  margin: 0 30px 30px 30px;
 }

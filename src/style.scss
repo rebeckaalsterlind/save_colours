@@ -8,7 +8,6 @@ $rose: #CC887B;
 $roseHover: #a77267;
 $pink: #E9D6D2;
 $foam: #B8C5CD;
-$lavender: #B3ADD1;
 $stone: #76838B;
 $gray: #485056;
 $corner: 5px;
@@ -22,7 +21,7 @@ body {
 .App {
   margin: 0 auto;
   background-color: $offwhite;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 5vh;
 }
 
@@ -36,16 +35,16 @@ body {
 .btn-primary {
   background-color: $rose;
   border: 1px solid $rose;
-  &:hover {
+  &:hover, &:active, &:focus {
     background-color: $roseHover;
     border-color: $roseHover;
   }
 }
 
 .btn-secondary {
-  background-color: white;
+  background-color: transparent;
   border-color: $rose;
-  color: $gray;
+  color: $rose;
   &:hover {
     background-color: $roseHover;
     border-color: $roseHover;
@@ -68,6 +67,88 @@ body {
 
 .h4-login {
   text-transform: uppercase;
+}
+
+.roomName {
+  display: inline;
+  margin: 0 1%;
+  text-transform: capitalize;
+}
+
+.projectWrap button {
+  margin: 5px;
+  width: 10vw;
+}
+
+.projectHead {
+  width: 90%;
+  margin: 5%;
+  border: none;
+  color: white;
+  border-radius: $corner;
+  background-color: $rose;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & h1 {
+    text-transform: capitalize;
+  }
+  &:hover h1 {
+    color: $roseHover;
+  }
+}
+
+.roomHead {
+  width: 90%;
+  margin: 5% 5% 2% 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-fluid {
+  width: 90%;
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+}
+
+.krokar {
+  cursor: pointer;
+}
+
+.colorWrap {
+  display: flex;
+  width: 90%;
+  margin: 2% 5% 10% 5%;
+}
+
+.colorBlock{
+  display: inline-block;
+  border-radius: 10px 10px 0px 10px;
+  height: 50px;
+  width: 50px;
+  margin: .5em;
+}
+
+.activeBtn, .notActiveBtn {
+  min-width: 50px;
+}
+
+.addBtn {
+  color: $rose;
+  cursor: pointer;
+  &:hover {
+    color: $roseHover;
+  }
+}
+
+.btn-close {
+  padding: 5px;
+  margin-bottom: 15px;
+  position: relative;
+  float: right;
 }
 
 // .primary-btn {
@@ -152,14 +233,6 @@ body {
 //   color:$grey;
   
 // }
-
-.colorBlock{
-  display: inline-block;
-  border-radius: 10px 10px 0px 10px;
-  height: 50px;
-  width: 50px;
-  margin: .5em;
-}
   
 // }
 // .projects{

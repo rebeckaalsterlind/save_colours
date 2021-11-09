@@ -3,13 +3,13 @@ import { store } from '../../store';
 import { addProject } from '../../actions';
 import AddColor from './AddColor';
 import AddRoom from './AddRoom';
-import { ObjectBindingOrAssignmentElement } from 'typescript';
 
 interface State {
   projectName: string,
   newProject: Object,
   newRoom: boolean,
-  newColor: boolean
+  newColor: boolean,
+  room: string[]
 }
 
 export default function AddProject({ }, state: State) {
@@ -18,6 +18,7 @@ export default function AddProject({ }, state: State) {
   const [newProject, setNewProject] = useState({});
   const [newRoom, setNewRoom] = useState(false);
   const [newColor, setNewColor] = useState(false);
+  const [room, setRoom] = useState([]);
 
   const inputRef: any = useRef(null);
 
@@ -26,21 +27,26 @@ export default function AddProject({ }, state: State) {
     inputRef.current.focus();
   }, [])
 
+  const roomname: any = (addNewRoom: any) => {
+    const newRoomArray = room.concat(addNewRoom)
+    setRoom(newRoomArray);
+  }
+
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
     const id = Math.floor(Math.random() * 10000) + 1;
-
+    
     setNewProject(
       {
         _id: id,
         projectName: projectName,
-        rooms: []
+        rooms: room
       }
     );
 
     const projectToAdd: Object = {
       "projectName": projectName,
-      "rooms": []
+      "rooms": room
     }
 
     const user = store.getState().user._id;
@@ -48,19 +54,18 @@ export default function AddProject({ }, state: State) {
     fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      body: 
-      JSON.stringify(projectToAdd) 
+      body:
+        JSON.stringify(projectToAdd)
     })
       .then(async response => response.json())
       .then(response => {
 
-        if(response) {
+        if (response) {
           console.log('Response from backend: ', response);
         }
-    })
+      })
 
     store.dispatch(addProject(false));
-
   }
 
   const show = (evt: React.MouseEvent): void => {
@@ -77,7 +82,6 @@ export default function AddProject({ }, state: State) {
         setNewRoom(false)
         break;
     }
-
   }
 
   return (
@@ -86,9 +90,9 @@ export default function AddProject({ }, state: State) {
       <h5>Nytt projekt:</h5>
       <input className="form-control inputfield" ref={inputRef} type="text" placeholder="Namn" onChange={(evt) => setProjectName(evt.target.value)} />
       <p id="room" onClick={show} ><span>{newRoom ? "-" : "+"}</span> Lägg till rum</p>
-      {newRoom && <AddRoom />}
-      <p id="color" onClick={show} ><span>{newColor ? "-" : "+"}</span> Lägg till färg</p>
-      {newColor && <AddColor />}
+      {newRoom && <AddRoom roomInfo={roomname} />}
+      {/* <p id="color" onClick={show} ><span>{newColor ? "-" : "+"}</span> Lägg till färg</p>
+      {newColor && <AddColor />} */}
       <button className="btn btn-primary primary-btn">Spara projekt</button>
     </form>
   )
