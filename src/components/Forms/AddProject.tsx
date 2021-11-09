@@ -3,6 +3,7 @@ import { store } from '../../store';
 import { addProject } from '../../actions';
 import AddColor from './AddColor';
 import AddRoom from './AddRoom';
+import { ObjectBindingOrAssignmentElement } from 'typescript';
 
 interface State {
   projectName: string,
@@ -31,30 +32,44 @@ export default function AddProject({ }, state: State) {
 
     setNewProject(
       {
-        projectId: id,
+        _id: id,
         projectName: projectName,
         rooms: []
       }
     );
 
-    const user = store.getState().user._id;
-    console.log(user);
+    const projectToAdd: Object = {
+      "projectName": projectName,
+      "rooms": []
+    }
+
+    const projects = store.getState().user.projects;
+    console.log(projects);
+
+    projects.push(projectToAdd);
+    console.log(projects);
+
 
     // let url = `https://mads-colour-backend.herokuapp.com/api/users/${user}/projects`;
     // console.log(url);
 
+    const user = store.getState().user._id;
+    console.log(user);
+
     fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
+      body: 
+      JSON.stringify(projectToAdd) 
     })
-      .then(async response => await response.json())
+      .then(async response => response.json())
       .then(response => {
-     
+
         if(response) {
-          console.log('Response from backend: ', JSON.stringify(response));
+          console.log('Response from backend: ', response);
         } else {
            console.log("no");
-           
+
         }
 
     })
