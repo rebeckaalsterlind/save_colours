@@ -22,15 +22,15 @@ body {
   border: 1px solid #CC887B;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
   background-color: #a77267;
   border-color: #a77267;
 }
 
 .btn-secondary {
-  background-color: white;
+  background-color: transparent;
   border-color: #CC887B;
-  color: #485056;
+  color: #CC887B;
 }
 
 .btn-secondary:hover {
@@ -53,6 +53,39 @@ body {
 
 .h4-login {
   text-transform: uppercase;
+}
+
+.roomName {
+  display: inline;
+}
+
+.projectWrap button {
+  margin: 5px;
+  width: 10vw;
+}
+
+.projectHead {
+  width: 90%;
+  margin: 5%;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  background-color: #B8C5CD;
+  cursor: pointer;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.projectHead:hover h1 {
+  color: #76838B;
 }
 
 .colorBlock {

@@ -9,11 +9,10 @@ export default function RoomName ({room}: Props)  {
     
     return (
         <div>
-            <header>
-                <h5 style={{display: 'inline'}}>{room.roomName}</h5>
+            <div>
+                <h2 className="roomName">{room.roomName}</h2>
                 <EditBtns obj={room} /> 
-
-            </header>
+            </div>
             {room.colors.map((color: any) => (
                 <Color key={color.colorId} color={color} />
             ))}

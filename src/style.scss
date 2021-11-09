@@ -36,16 +36,16 @@ body {
 .btn-primary {
   background-color: $rose;
   border: 1px solid $rose;
-  &:hover {
+  &:hover, &:active, &:focus {
     background-color: $roseHover;
     border-color: $roseHover;
   }
 }
 
 .btn-secondary {
-  background-color: white;
+  background-color: transparent;
   border-color: $rose;
-  color: $gray;
+  color: $rose;
   &:hover {
     background-color: $roseHover;
     border-color: $roseHover;
@@ -68,6 +68,32 @@ body {
 
 .h4-login {
   text-transform: uppercase;
+}
+
+.roomName {
+  display: inline;
+}
+
+.projectWrap button {
+  margin: 5px;
+  width: 10vw;
+}
+
+.projectHead {
+  width: 90%;
+  margin: 5%;
+  border: none;
+  color: white;
+  border-radius: $corner;
+  background-color: $foam;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &:hover h1 {
+    color: $stone;
+  }
 }
 
 // .primary-btn {
