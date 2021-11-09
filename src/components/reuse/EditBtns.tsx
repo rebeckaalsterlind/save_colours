@@ -21,6 +21,8 @@ export default function EditBtns ({obj}: Props, state: State) {
 
     const handleClick = (evt:React.MouseEvent) => {
         const { target } = evt; 
+        console.log(obj);
+        
 
         switch((target as HTMLParagraphElement).id) {
             case "share":
