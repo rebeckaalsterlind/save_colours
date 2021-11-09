@@ -23,7 +23,7 @@ export default function LogInForm({ }, state: State) {
     const handleSubmit = (evt: React.FormEvent) => {
         evt.preventDefault();
 
-        fetch("http://localhost:3000/api/users/login", {
+        fetch("http://localhost:3000/api/users/login/", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export default function LogInForm({ }, state: State) {
 
             if(response.username) {
                 store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
-                localStorage.setItem('user', response.username);
+                localStorage.setItem('userId', response._id);
             } else {
                 setErrorText(true)
             }
