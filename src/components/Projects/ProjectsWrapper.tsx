@@ -17,12 +17,9 @@ export default function ProjectsWrapper ({}, state: State) {
     const [colors, setColors] = useState();
 
     const getColors:any = (array:any) => {
-        setColors(array);
-        console.log(colors);
-        
+        setColors(array);   
     }
-
-
+    
     return (
         <div>
           <button onClick={() => {setToggleMenu(true); setProjectPage(true); setColorPage(false)}} className= {projectPage ? "activeBtn" : "notActiveBtn"}>Projekt</button>
