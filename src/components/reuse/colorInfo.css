@@ -1,7 +1,8 @@
 .color-wrapper {
     position: absolute;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: rgba(255, 255, 255, 0.685);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,12 +10,34 @@
 
 .color-box {
     background-color: white;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     /* max-height: 200px; */
-    width: 200px;
+    width: 400px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+    /* align-items: center;
+    justify-content: center; */
+    /* padding: 10px; */
+}
+
+li {
+    text-align: left;
+}
+
+.list-group-item {
+    width: 300px;
+    border: none;
+    text-transform: capitalize;
+}
+
+.first-li {
+    width: 130px;
+}
+
+.color-box {
+    padding: 0;
+}
+
+.color-box button {
+    width: 3vw;
 }

@@ -10,7 +10,7 @@ export default function RoomName ({room}: Props)  {
     return (
         <div>
             <div className="roomHead">
-                <h2 className="h4 roomName">{room.roomName}</h2>
+                <h2 className="h5 roomName">{room.roomName}</h2>
                 <EditBtns obj={room} /> 
             </div>
             <div className="colorWrap">

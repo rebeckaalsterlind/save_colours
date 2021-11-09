@@ -6,7 +6,7 @@ body {
 .App {
   margin: 0 auto;
   background-color: #F9F2F0;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 5vh;
 }
 
@@ -57,6 +57,8 @@ body {
 
 .roomName {
   display: inline;
+  margin: 0 1%;
+  text-transform: capitalize;
 }
 
 .projectWrap button {
@@ -109,6 +111,7 @@ body {
 .img-fluid {
   width: 90%;
   margin-top: 5vh;
+  margin-bottom: 3vh;
 }
 
 .krokar {

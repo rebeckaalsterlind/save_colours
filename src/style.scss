@@ -8,7 +8,6 @@ $rose: #CC887B;
 $roseHover: #a77267;
 $pink: #E9D6D2;
 $foam: #B8C5CD;
-$lavender: #B3ADD1;
 $stone: #76838B;
 $gray: #485056;
 $corner: 5px;
@@ -22,7 +21,7 @@ body {
 .App {
   margin: 0 auto;
   background-color: $offwhite;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 5vh;
 }
 
@@ -72,6 +71,8 @@ body {
 
 .roomName {
   display: inline;
+  margin: 0 1%;
+  text-transform: capitalize;
 }
 
 .projectWrap button {
@@ -110,6 +111,7 @@ body {
 .img-fluid {
   width: 90%;
   margin-top: 5vh;
+  margin-bottom: 3vh;
 }
 
 .krokar {

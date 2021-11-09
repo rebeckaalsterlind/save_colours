@@ -12,14 +12,12 @@ interface State {
 }
 
 export default function ProjectName ({project, key}: Props, state: State) {
-
     const [showProject, setShowProject] = useState(false);
-    const keyNum = "#" + key;
       
     return (
         <div>
             <div className="projectHead" onClick={() => setShowProject(!showProject)}>
-                <h1 className="h3">{project.projectName}</h1>
+                <h1 className="h4">{project.projectName}</h1>
                 <EditBtns obj={project} />        
             </div>
                 {showProject && project.rooms.map((room: any) => (
