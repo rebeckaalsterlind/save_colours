@@ -1,18 +1,53 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { store } from '../../store';
 
-export default function AddRoom() {
+interface Props {
+  roomInfo: any;
+}
 
-  const inputRef:any = useRef(null);
+export default function AddRoom({ roomInfo }: Props) {
+
+  const inputRef: any = useRef(null);
+  const [roomName, setRoomName] = useState("");
+  const [room, setRoom] = useState([]);
+  const [inputValue, setinputValue] = useState("Namn..");
 
   //set the focus on username input
   useEffect(() => {
     inputRef.current.focus();
   }, [])
 
+  const handleClick = (evt: React.FormEvent) => {
+    evt.preventDefault();
+
+    const roomToAdd: Object = {
+      "roomName": roomName,
+      "colors": [],
+    }
+
+    roomInfo(roomToAdd)
+
+    const name: any = roomName;
+    const roomNames = room.concat(name)
+    setRoom(roomNames);
+  }
+
   return (
-    <form>
-      <input ref={inputRef} type="text" placeholder="Namn.." />
-      <button>Spara rum</button>
-    </form>
+    <div>
+      <form>
+        <input ref={inputRef} type="text" placeholder={inputValue} onChange={(evt) => setRoomName(evt.target.value)} />
+        <button onClick={handleClick}>Spara rum</button>
+      </form>
+      <div>
+
+      {
+        room.map((roomname: any) => (
+          <p>{roomname} har lagts till</p>
+        ))
+      }
+      </div>
+    </div>
+
+
   )
 }
