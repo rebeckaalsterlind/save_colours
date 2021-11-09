@@ -8,6 +8,7 @@ import './style.css';
 
 function App() {
 
+  //checking user against localsStorage. if true => fetch user object
   if (localStorage.getItem("userId")) {
       
     fetch(`http://localhost:3000/api/users/${localStorage.getItem("userId")}`)

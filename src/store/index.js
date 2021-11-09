@@ -2,9 +2,7 @@ import reduce from '../reducers/index';
 import { createStore } from 'redux';
 
 let isLoggedIn = false;
-
 if(localStorage.getItem("userId")) isLoggedIn = true;
-
 
 const initialState = {
   loggedIn: isLoggedIn, 
