@@ -49,9 +49,7 @@ export default function LogInForm({ }, state: State) {
     return (
         <main className="form-signin">
             <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
-                 {errorText && (
-                    <p>Fel användarnamn eller lösenord</p>
-                )}
+                 {errorText && (<p>Fel användarnamn eller lösenord</p>)}
                 <h1 className="h4 mb-3 fw-normal h4-login">Logga in</h1>
                 <div className="form-floating">
                     <input
@@ -69,7 +67,7 @@ export default function LogInForm({ }, state: State) {
                     <input
                         className="form-control inputfield"
                         id="floatingPassword"
-                        type="text"
+                        type="password"
                         placeholder="Lösenord"
                         required
                         onChange={(evt) => setPassword(evt.target.value)}
