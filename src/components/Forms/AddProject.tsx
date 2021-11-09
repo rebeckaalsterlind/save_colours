@@ -43,18 +43,7 @@ export default function AddProject({ }, state: State) {
       "rooms": []
     }
 
-    const projects = store.getState().user.projects;
-    console.log(projects);
-
-    projects.push(projectToAdd);
-    console.log(projects);
-
-
-    // let url = `https://mads-colour-backend.herokuapp.com/api/users/${user}/projects`;
-    // console.log(url);
-
     const user = store.getState().user._id;
-    console.log(user);
 
     fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects`, {
       method: "POST",
@@ -67,11 +56,7 @@ export default function AddProject({ }, state: State) {
 
         if(response) {
           console.log('Response from backend: ', response);
-        } else {
-           console.log("no");
-
         }
-
     })
 
     store.dispatch(addProject(false));
