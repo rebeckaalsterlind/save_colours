@@ -1,131 +1,198 @@
-$darkpink: #d6696b;
-$lighterpink: #ff8a8c;
-$white: #fff;
-$grey: #585858;
+// $darkpink: #d6696b;
+// $lighterpink: #ff8a8c;
+// $white: #fff;
+// $grey: #585858;
 
-.primary-btn {
-  background-color: $darkpink; 
-  color: $white;
-  border: 1px solid $grey;
-  border-radius: 0px; 
-  margin-bottom: 20px; 
+$offwhite: #F9F2F0;
+$rose: #CC887B;
+$roseHover: #a77267;
+$pink: #E9D6D2;
+$foam: #B8C5CD;
+$lavender: #B3ADD1;
+$stone: #76838B;
+$gray: #485056;
+$corner: 5px;
+
+
+body {
+  background-color: $foam;
+  color: $gray;
 }
 
-.primary-btn:hover{
-  background-color: $lighterpink; 
+.App {
+  margin: 0 auto;
+  background-color: $offwhite;
+  height: 100vh;
+  padding-top: 5vh;
 }
 
-.white-btn{
-  background-color: $white; 
-  color: $darkpink; 
-  border: 1px solid $grey;
-  border-radius: 0px; 
-  margin-bottom: 10px;
+.headerStartpage {
+  margin: 0 auto;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  width: 50%;
 }
 
-.white-btn:hover{
-  background-color: $lighterpink; 
+.btn-primary {
+  background-color: $rose;
+  border: 1px solid $rose;
+  &:hover {
+    background-color: $roseHover;
+    border-color: $roseHover;
+  }
 }
 
-.textBtn{
-  color: $darkpink; 
+.btn-secondary {
+  background-color: white;
+  border-color: $rose;
+  color: $gray;
+  &:hover {
+    background-color: $roseHover;
+    border-color: $roseHover;
+  }
 }
 
-.inputfield{
-  height: 40px;
-  border: 1px solid $grey;
-  border-radius: 0px; 
+.btn-link {
+  color: $gray;
+  text-decoration: none;
+  &:hover {
+    color: $rose;
+  }
 }
 
-.logo{
-  max-width: 150px;
+.loginPage {
+  & input, & button {
+    margin-bottom: 2vh;
+  }
 }
 
-.cont-1{
-  margin-top: 20px; 
+.h4-login {
+  text-transform: uppercase;
 }
 
-.headerStartpage{
-  margin-top: 20px; 
-}
+// .primary-btn {
+//   background-color: $darkpink; 
+//   color: $white;
+//   border: 1px solid $grey;
+//   border-radius: 0px; 
+//   margin-bottom: 20px; 
+// }
 
-.notActiveBtn{
-  background-color: $white; 
-  color: $grey; 
-  border: 1px solid $grey;
-  border-radius: 0px; 
-  margin: 10px;
-  max-height: 40px;
-  margin-left: 10px;
-}
+// .primary-btn:hover{
+//   background-color: $lighterpink; 
+// }
 
-.activeBtn{
-  background-color: $darkpink; 
-  color: $white; 
-  border: 1px solid $grey;
-  border-radius: 0px; 
-  margin: 10px;
-  max-height: 40px;
-  margin-left: 10px;
+// .white-btn{
+//   background-color: $white; 
+//   color: $darkpink; 
+//   border: 1px solid $grey;
+//   border-radius: 0px; 
+//   margin-bottom: 10px;
+// }
 
-}
+// .white-btn:hover{
+//   background-color: $lighterpink; 
+// }
 
-.addBtn{
-  color: $darkpink; 
-  margin: 10px;
-}
+// .textBtn{
+//   color: $darkpink; 
+// }
 
-.editBtns {
-  display: inline;
-  margin: 10px;
-}
+// .inputfield{
+//   height: 40px;
+//   border: 1px solid $grey;
+//   border-radius: 0px; 
+// }
 
-.icon{
-  margin-left: 5px;
-  color:$grey;
+// .logo{
+//   max-width: 150px;
+// }
+
+// .cont-1{
+//   margin-top: 20px; 
+// }
+
+// .headerStartpage{
+//   margin-top: 20px; 
+// }
+
+// .notActiveBtn{
+//   background-color: $white; 
+//   color: $grey; 
+//   border: 1px solid $grey;
+//   border-radius: 0px; 
+//   margin: 10px;
+//   max-height: 40px;
+//   margin-left: 10px;
+// }
+
+// .activeBtn{
+//   background-color: $darkpink; 
+//   color: $white; 
+//   border: 1px solid $grey;
+//   border-radius: 0px; 
+//   margin: 10px;
+//   max-height: 40px;
+//   margin-left: 10px;
+
+// }
+
+// .addBtn{
+//   color: $darkpink; 
+//   margin: 10px;
+// }
+
+// .editBtns {
+//   display: inline;
+//   margin: 10px;
+// }
+
+// .icon{
+//   margin-left: 5px;
+//   color:$grey;
   
-}
+// }
 
 .colorBlock{
   display: inline-block;
   border-radius: 10px 10px 0px 10px;
   height: 50px;
   width: 50px;
-  margin: .5em; 
+  margin: .5em;
+}
   
-}
-.projects{
- text-align: left;
- padding-left: 30px;
-}
+// }
+// .projects{
+//  text-align: left;
+//  padding-left: 30px;
+// }
 
-.projectName{
-  line-height: 40px
-}
+// .projectName{
+//   line-height: 40px
+// }
 
-h3{
-  color: $grey; 
-}
+// h3{
+//   color: $grey; 
+// }
 
-h6{
-  color: $grey; 
-}
+// h6{
+//   color: $grey; 
+// }
 
-p{
-  color: $grey; 
-}
+// p{
+//   color: $grey; 
+// }
 
-a:hover{
-  cursor: pointer;
-}
+// a:hover{
+//   cursor: pointer;
+// }
 
-footer{
-  max-width:400px;
-  position: absolute;
-  bottom: 0;
-}
+// footer{
+//   max-width:400px;
+//   position: absolute;
+//   bottom: 0;
+// }
 
-.Allcolors{
-  display: inline;
-}
-
+// .Allcolors{
+//   display: inline;
+// }

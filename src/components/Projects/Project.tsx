@@ -16,7 +16,7 @@ export default function Project({ colors }: Props) {
         <div className="projects">
             {store.getState().username === data.username && (
                 data.projects.map((project: any) => (
-                    <ProjectName key={project.projectId} project={project} />
+                    <ProjectName key={project._Id} project={project} />
                 ))
             )}
         </div>

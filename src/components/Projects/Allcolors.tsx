@@ -8,8 +8,14 @@ interface Props {
 
 export default function Allcolors({ sendColors }: Props) {
 
+    console.log(sendColors );
+
+    
+
     const colorArray: object[] = [];
-    const rooms: any = sendColors.map((p: any) => (p.rooms));
+    const rooms: any = sendColors.projects.map((p: any) => (p.rooms));
+    console.log(rooms);
+    
 
     for (let i = 0; i < rooms.length; i++) {
         const roomColors = rooms[i];
