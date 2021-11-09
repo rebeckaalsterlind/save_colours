@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      {!localStorage.getItem("userId")
+      {!store.getState().loggedIn
         ? <LogInPage />
         : <MainApp />
       }
