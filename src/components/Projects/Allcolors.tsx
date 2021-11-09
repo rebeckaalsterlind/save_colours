@@ -21,7 +21,6 @@ export default function Allcolors({ sendColors }: Props) {
     for (let i = 0; i < sendColors.length; i++) {
         const roomColors = sendColors[i].rooms;
         console.log(roomColors);
-        if (roomColors.length > 1 ) { 
             for (let i = 0; i < roomColors.length; i++) {
             const seperateColors = roomColors[i].colors;
             console.log(roomColors);
@@ -30,7 +29,6 @@ export default function Allcolors({ sendColors }: Props) {
                 colorArray.push(colors);
 
             }
-        }
 
         }
 console.log( colorArray);
