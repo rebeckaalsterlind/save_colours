@@ -92,6 +92,20 @@ body {
   color: #a77267;
 }
 
+.roomHead {
+  width: 90%;
+  margin: 5% 5% 2% 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .img-fluid {
   width: 90%;
   margin-top: 5vh;
@@ -101,11 +115,39 @@ body {
   cursor: pointer;
 }
 
+.colorWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  margin: 2% 5% 10% 5%;
+}
+
 .colorBlock {
   display: inline-block;
   border-radius: 10px 10px 0px 10px;
   height: 50px;
   width: 50px;
   margin: .5em;
+}
+
+.activeBtn, .notActiveBtn {
+  min-width: 50px;
+}
+
+.addBtn {
+  color: #CC887B;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  color: #a77267;
+}
+
+.btn-close {
+  padding: 5px;
+  margin-bottom: 15px;
+  position: relative;
+  float: right;
 }
 /*# sourceMappingURL=style.css.map */

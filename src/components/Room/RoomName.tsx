@@ -9,13 +9,15 @@ export default function RoomName ({room}: Props)  {
     
     return (
         <div>
-            <div>
-                <h2 className="roomName">{room.roomName}</h2>
+            <div className="roomHead">
+                <h2 className="h4 roomName">{room.roomName}</h2>
                 <EditBtns obj={room} /> 
             </div>
-            {room.colors.map((color: any) => (
-                <Color key={color.colorId} color={color} />
-            ))}
+            <div className="colorWrap">
+                {room.colors.map((color: any) => (
+                    <Color key={color.colorId} color={color} />
+                ))}
+            </div>
         </div>
     )
 }

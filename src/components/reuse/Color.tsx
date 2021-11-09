@@ -14,12 +14,12 @@ export default function Color({ color }: Props, state: State) {
     const [showInfo, setShowInfo] = useState(false);
 
     return (
-        <>
+        <div>
             <div className="colorBlock"
                 onClick={() => setShowInfo(!showInfo)}
                 style={{ backgroundColor: "#2d3a80" }}>
             </div>
             {showInfo && <ColorInfo color={color} hide={hideModal => setShowInfo(hideModal) } /> }
-        </>
+        </div>
     );
 }
