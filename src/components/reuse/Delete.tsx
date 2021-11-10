@@ -3,6 +3,7 @@ import { store } from '../../store';
 import { store as reduxStore } from '../../store';
 import { isTemplateSpan } from 'typescript';
 import { addDelete as addDelete, deleteObject } from '../../actions';
+import { log } from 'console';
 
 interface Props {
   toDelete: any,
@@ -125,7 +126,19 @@ export default function Delete({ toDelete, callback }: Props) {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
+
+  
+        const foundProject = userprojects.find((p:any) => p._id === projectId)
+        console.log(foundProject);
+        
+        const newRoomArray = foundProject.rooms.filter((item:any) => item._id !== response._id);
+        console.log(newRoomArray);
+
+        const updatedUser = reduxStore.getState().user;
+        updatedUser.projects = newRoomArray;
+
+        reduxStore.dispatch(deleteObject({ user: updatedUser }));
+        
       })
   }
 
