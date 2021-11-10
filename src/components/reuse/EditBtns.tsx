@@ -17,7 +17,7 @@ export default function EditBtns({ obj }: Props, state: State) {
 
     const [isShare, setIsShare] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
-    const [isDelete, setIsDelete] = useState(false);
+    const [isDelete, setIsDelete] = useState(false);   
 
     const handleClick = (evt: React.MouseEvent) => {
         const { target } = evt;
