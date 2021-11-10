@@ -1,23 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { store as reduxStore } from '../../store';
-import { addColor as reduxAddColor } from '../../actions';
+import { addColor as reduxAddColor, saveColor } from '../../actions';
 
 interface State {
     selectedProject: any;
+    project: any;
+    room: any;
     name: string;
     code: string;
     type: string;
     gloss: string;
     comment: string;
     store: string;
-    project: any;
-    room: any;
 }
 
 export default function AddColor({}, state: State) {
     
     const [selectedProject, setSelectedProject] = useState([]);
-
+    
+    const [project, setProject] = useState('');
+    const [room, setRoom] = useState('');
+   
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
     const [type, setType] = useState('');
@@ -25,11 +28,9 @@ export default function AddColor({}, state: State) {
     const [comment, setComment] = useState('');
     const [store, setStore] = useState('');
 
-    const [project, setProject] = useState('');
-    const [room, setRoom] = useState('');
-    //const [newColor, setNewColor] = useState({});
-
     const inputRef: any = useRef(null);
+    const allProjects = reduxStore.getState().user.projects;
+
 
     //set the focus on username input
     useEffect(() => {
@@ -39,46 +40,48 @@ export default function AddColor({}, state: State) {
 
     const handleSubmit = (evt: React.FormEvent) => {
         evt.preventDefault();
-        const id = Math.floor(Math.random() * 10000) + 1;
-        const newColor = {
-            projectId: project,
-            roomId: room,
-            color: {
-                colorId: id,
-                colorName: name,
-                colorCode: code,
-                colorType: type,
-                gloss: gloss,
-                comment: comment,
-                store: store,
-            }
+
+        let newColor = {
+    
+            colorName: name,
+            colorCode: code,
+            colorType: type,
+            gloss: gloss,
+            comment: comment,
+            store: store
+        
         };
 
-        console.log('newColor', newColor);
-        // setNewColor({
-        //     projectId: project,
-        //     roomId: room,
-        //     color: {
-        //         colorId: id,
-        //         colorName: name,
-        //         colorCode: code,
-        //         colorType: type,
-        //         gloss: gloss,
-        //         comment: comment,
-        //         store: store,
-        //     },
-        // });
+        const userId = reduxStore.getState().user._id;
+        fetch(`https://mads-colour-backend.herokuapp.com/api/users/${userId}/projects/${project}/rooms/${room}/colors`, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newColor)
+          })
+        .then(async response => response.json())
+        .then(response => {          
+            if(response.colorName) {
+                //find room to push color into
+                let foundRoom:any = selectedProject.find( (selectedRoom:any) => selectedRoom._id === room );
+                foundRoom.colors.push(newColor);
+                
+                //redux add color to user object
+                reduxStore.dispatch(saveColor({ user: allProjects }));
 
-        reduxStore.dispatch(reduxAddColor(false));
+                // set state to close addColor modal
+                reduxStore.dispatch(reduxAddColor(false));
+            };
+        });
+
     };
 
+    //use chosen project to map rooms in project as <options>
     useEffect(() => {
 
-       if(project !== '') {
-        const allProjects = reduxStore.getState().user.projects;
-        const foundProject = allProjects.find( (selectedProject:any) => selectedProject._id === project );
-        setSelectedProject(foundProject.rooms)
-        }
+        if(project !== '') {
+            const foundProject = allProjects.find( (selectedProject:any) => selectedProject._id === project );
+            setSelectedProject(foundProject.rooms);
+        };
 
     }, [project])
 
@@ -163,8 +166,8 @@ export default function AddColor({}, state: State) {
                 onChange={(evt) => setProject(evt.target.value)}
             >
                   <option value="misc">--Välj projekt--</option>
-                {reduxStore.getState().user.projects.map((project: any) => (
-                    <option value={project._id}>{project.projectName}</option>))
+                {reduxStore.getState().user.projects.map((project: any, index:number) => (
+                    <option key={index} value={project._id}>{project.projectName}</option>))
                 }
             </select>
             <br />
@@ -177,8 +180,8 @@ export default function AddColor({}, state: State) {
                 onChange={(evt) => setRoom(evt.target.value)}
             >
                 <option value="misc">--Välj Rum--</option>
-                {selectedProject.map((room: any) => (
-                    <option value={room._id}>{room.roomName}</option>))
+                {selectedProject.map((room: any, index:number) => (
+                    <option key={index} value={room._id}>{room.roomName}</option>))
                 }
             </select>
             <br />
