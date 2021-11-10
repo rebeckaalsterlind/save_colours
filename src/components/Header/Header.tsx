@@ -1,17 +1,20 @@
 import { store } from '../../store';
 import LogOutBtn from "./LogOutBtn";
+import * as banner from '../../img/color-app-icon.png';
+
+// {store.getState().username}
 
 export default function Header() {
+    const img = banner.default;
     return (
-        <div className="container cont-1">
-            <div className="row">
-                <div className="col">
-                    <p >{store.getState().username}</p>
-                </div>
-                <div className="col" >
-                    <LogOutBtn />
-                </div>
+        <header>
+            <div className="imgContainer">
+                <img src={img} alt="colorkeeper logotype" className="img-fluid logo" />
             </div>
-        </div>
+            <div className="userInfoContainer">
+                    <p className="h5">{store.getState().username}</p>
+                    <LogOutBtn />
+            </div>
+        </header>
     )
 }

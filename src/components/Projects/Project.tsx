@@ -8,7 +8,9 @@ interface Props {
 
 export default function Project({ colors }: Props) {
     
-    const data:any = store.getState().user.projects; 
+    const data:any = store.getState().user.projects;
+    console.log(store.getState().user.projects);
+    
     colors(data); 
    
     return (

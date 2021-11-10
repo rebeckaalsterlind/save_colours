@@ -21,10 +21,10 @@ export default function Allcolors({ sendColors }: Props) {
     }
 
     return (
-        <div>
+        <div className="allColorsContainer">
             {
                 colorArray.map((color: any) => (
-                    <div className="Allcolors">
+                    <div className="allColors">
                         <Color key={color.colorId} color={color} />
                     </div>
 
