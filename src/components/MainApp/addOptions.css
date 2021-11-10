@@ -28,3 +28,8 @@
   width: 200px;
   margin: 0 30px 30px 30px;
 }
+
+.askDeleteText {
+  color: gray;
+  margin: 0;
+}
