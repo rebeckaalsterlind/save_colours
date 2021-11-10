@@ -30,16 +30,18 @@ export default function AddOptions({ callback }: Props) {
     return (
         <div id="wrapper" className="modal-wrapper" onClick={handleClick}>
             <div id="box" className="modal-box">
-                <button
-                    type="button"
-                    className="btn-close"
-                    aria-label="Close"
-                    onClick={() => callback(false)}
-                ></button>
-                <p id="addColor" onClick={handleClick}>
+                <div>
+                    <button
+                        type="button"
+                        className="btn-close"
+                        aria-label="Close"
+                        onClick={() => callback(false)}
+                    ></button>
+                </div>
+                <p className="btn btn-primary" id="addColor" onClick={handleClick}>
                     Lägg till ny färg
                 </p>
-                <p id="addProject" onClick={handleClick}>
+                <p className="btn btn-secondary" id="addProject" onClick={handleClick}>
                     Lägg till nytt projekt
                 </p>
             </div>

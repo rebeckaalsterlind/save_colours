@@ -21,7 +21,6 @@ export default function LogInPage() {
                         <NewObjectBtn />
                         <Banner />
                     </footer>
-
                 </>
             }
         </div>
