@@ -22,6 +22,13 @@ export function addProject(show) {
   }
 }
 
+export function saveProject(updatedUser) {
+  return {
+    type: "SET_SAVEPROJECT",
+    user: updatedUser.user
+  }
+}
+
 export function saveColor(updatedUser) {
   return {
     type: "SET_SAVECOLOR",

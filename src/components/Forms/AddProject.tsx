@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { store } from '../../store';
+import { store as reduxStore } from '../../store';
 import { addProject } from '../../actions';
 import AddColor from './AddColor';
 import AddRoom from './AddRoom';
+import { addProject as reduxaddProject, saveProject } from '../../actions';
 
 interface State {
   projectName: string,
@@ -35,7 +37,7 @@ export default function AddProject({ }, state: State) {
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
     const id = Math.floor(Math.random() * 10000) + 1;
-    
+
     setNewProject(
       {
         _id: id,
@@ -50,6 +52,9 @@ export default function AddProject({ }, state: State) {
     }
 
     const user = store.getState().user._id;
+    const projects = store.getState().user.projects;
+    console.log(projects);
+
 
     fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects`, {
       method: "POST",
@@ -62,6 +67,14 @@ export default function AddProject({ }, state: State) {
 
         if (response) {
           console.log('Response from backend: ', response);
+
+          projects.push(response);
+
+          console.log(projects);
+          const updatedUser = reduxStore.getState().user;
+          updatedUser.projects = projects;
+
+          reduxStore.dispatch(saveProject({ user: updatedUser }));
         }
       })
 
