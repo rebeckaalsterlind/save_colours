@@ -99,9 +99,12 @@ export default function Delete({ toDelete, callback }: Props) {
       id="wrapper"
       className="modal-wrapper"
       onClick={handleClick}>
-      <div id="box" className="modal-box">
-        <h3>Vill du radera {name}?</h3>
-        <p><span id="yes" onClick={handleClick}>Ja </span> | <span id="no"> Nej</span></p>
+      <div id="box" className="modal-box deleteChoiceModal">
+        <p className="askDeleteText">Vill du radera "{name}"?</p>
+        <div className="deleteChoiceBtnGroup">
+          <button id="yes" className="btn btn-secondary" onClick={handleClick}>Ja</button>
+          <button id="no" className="btn btn-primary" onClick={handleClick}>Nej</button>
+        </div>
       </div>
     </div>
   )

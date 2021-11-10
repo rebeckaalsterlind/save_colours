@@ -77,7 +77,7 @@ body {
 
 .projectWrap button {
   margin: 5px;
-  width: 10vw;
+  // width: 10vw;
 }
 
 .projectHead {
@@ -133,7 +133,7 @@ body {
 }
 
 .activeBtn, .notActiveBtn {
-  min-width: 50px;
+  min-width: 100px;
 }
 
 .addBtn {
@@ -149,6 +149,19 @@ body {
   margin-bottom: 15px;
   position: relative;
   float: right;
+}
+
+.deleteChoiceBtnGroup {
+  display: inline;
+  & button {
+    width: 40%;
+  }
+}
+
+.deleteChoiceModal {
+  & p {
+    margin-top: 10%;
+  }
 }
 
 // .primary-btn {
