@@ -38,7 +38,6 @@ export default function LogInForm({ }, state: State) {
 
                 if (response.username) {
                     store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
-                    console.log(response);
 
                     localStorage.setItem('userId', response._id);
                 } else {
