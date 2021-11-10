@@ -62,21 +62,16 @@ export default function AddColor({}, state: State) {
         .then(async response => response.json())
         .then(response => {          
             if(response.colorName) {
-               
-                let foundProject = allProjects.find((p:any) => p._id === project)
-                let foundRoom:any = foundProject.rooms.find((r:any) => r._id === room)
+                
+                //update user object with new color
+                const foundProject = allProjects.find((p:any) => p._id === project)
+                const foundRoom:any = foundProject.rooms.find((r:any) => r._id === room)
                 foundRoom.colors.push(response);
       
-                let updatedUser = reduxStore.getState().user;
+                const updatedUser = reduxStore.getState().user;
                 updatedUser.projects = allProjects;
 
-               
-
-                // //find room to push color into
-                // let foundRoom:any = selectedProject.find( (selectedRoom:any) => selectedRoom._id === room );
-                // foundRoom.colors.push(response);
-                
-                //redux add color to user object
+                //add object to redux: user
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
 
                 // set state to close addColor modal
