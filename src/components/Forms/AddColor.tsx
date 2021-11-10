@@ -52,6 +52,7 @@ export default function AddColor({}, state: State) {
         
         };
 
+       
         const userId = reduxStore.getState().user._id;
         fetch(`https://mads-colour-backend.herokuapp.com/api/users/${userId}/projects/${project}/rooms/${room}/colors`, {
             method: "POST",
@@ -61,12 +62,22 @@ export default function AddColor({}, state: State) {
         .then(async response => response.json())
         .then(response => {          
             if(response.colorName) {
-                //find room to push color into
-                let foundRoom:any = selectedProject.find( (selectedRoom:any) => selectedRoom._id === room );
-                foundRoom.colors.push(newColor);
+               
+                let foundProject = allProjects.find((p:any) => p._id === project)
+                let foundRoom:any = foundProject.rooms.find((r:any) => r._id === room)
+                foundRoom.colors.push(response);
+      
+                let updatedUser = reduxStore.getState().user;
+                updatedUser.projects = allProjects;
+
+               
+
+                // //find room to push color into
+                // let foundRoom:any = selectedProject.find( (selectedRoom:any) => selectedRoom._id === room );
+                // foundRoom.colors.push(response);
                 
                 //redux add color to user object
-                reduxStore.dispatch(saveColor({ user: allProjects }));
+                reduxStore.dispatch(saveColor({ user: updatedUser }));
 
                 // set state to close addColor modal
                 reduxStore.dispatch(reduxAddColor(false));
@@ -166,8 +177,8 @@ export default function AddColor({}, state: State) {
                 onChange={(evt) => setProject(evt.target.value)}
             >
                   <option value="misc">--Välj projekt--</option>
-                {reduxStore.getState().user.projects.map((project: any, index:number) => (
-                    <option key={index} value={project._id}>{project.projectName}</option>))
+                {reduxStore.getState().user.projects && reduxStore.getState().user.projects.map((project: any, index: number) => (
+                    <option key={index} value={project._id}>{project.projectName}</option> ))
                 }
             </select>
             <br />
