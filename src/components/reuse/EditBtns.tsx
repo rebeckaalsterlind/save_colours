@@ -49,20 +49,20 @@ export default function EditBtns({ obj }: Props, state: State) {
     return (
         <>
             <aside style={{ display: 'inline' }}>
-                &nbsp;&nbsp;<i
+                <i
                     id="share"
                     onClick={handleClick}
-                    className="fas fa-share-alt">&nbsp; &nbsp;
+                    className="fas fa-share-alt">
                 </i>
                 <i
                     id="edit"
                     onClick={handleClick}
-                    className="fas fa-edit">&nbsp; &nbsp;
+                    className="far fa-edit">
                 </i>
                 <i
                     id="delete"
                     onClick={handleClick}
-                    className="fas fa-trash-alt">
+                    className="far fa-trash-alt">
                 </i>
             </aside>
 

@@ -164,4 +164,10 @@ body {
 .deleteChoiceModal p {
   margin-top: 10%;
 }
+
+i {
+  font-weight: 100;
+  margin-left: 7px;
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */
