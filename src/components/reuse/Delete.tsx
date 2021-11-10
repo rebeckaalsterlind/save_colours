@@ -7,17 +7,14 @@ interface Props {
 }
 
 export default function Delete({ toDelete, callback }: Props) {
-  const obj: any = Object.values(toDelete)[1];
-  console.log(toDelete);
-
-  const userprojects = store.getState().user;
+  const userprojects = store.getState().user.projects;
   const user = store.getState().user._id;
   const objName: any = toDelete;
 
   let name: string = "";
   let id: string = "";
   let type: string = "";
-  let project: string = "";
+  let projectId: any = "";
 
   if (objName.projectName) {
     name = objName.projectName;
@@ -29,25 +26,28 @@ export default function Delete({ toDelete, callback }: Props) {
     name = objName.roomName;
     id = objName._id;
     type = "room";
-    project = userprojects.filter(id);
-    console.log(project);
+    let project = findParent(userprojects, id);
+    projectId = project._id;
   }
 
-  console.log(name);
-  console.log(id);
-  console.log(type);
+  function findParent(userprojects: any, id: any, parent = null) {
+    for (let item of userprojects) {
+      let res: any = item._id === id ? parent
+        : item.rooms && findParent(item.rooms, id, item);
+      if (res) return res;
+    }
+  }
 
   const handleClick = (evt: React.FormEvent): void => {
     evt.preventDefault();
     const { target } = evt;
 
     switch ((target as HTMLElement).id) {
-      //on click outside => close modal
+
       case "wrapper":
         callback(false);
         break;
 
-      //on click on "Ja" => "Delete" and close modal
       case "yes":
         setTimeout(() => {
           callback(false)
@@ -64,7 +64,6 @@ export default function Delete({ toDelete, callback }: Props) {
         document.getElementById("box")!.innerHTML = `<p>${name} raderad!</p>`;
         break;
 
-      //on click on "Nej" => close modal
       case "no":
         callback(false);
         break;
@@ -77,38 +76,33 @@ export default function Delete({ toDelete, callback }: Props) {
 
     fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects/${id}`, {
       method: "DELETE"
-      })
+    })
       .then(response => response.json())
       .then(response => {
-          console.log(response);
+        console.log(response);
       })
-    }
-
-const deleteRoom = () => {
-
-  // fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects/${}/rooms/${id}`, {
-  //   method: "DELETE"
-  //   })
-  //   .then(response => response.json())
-  //   .then(response => {
-  //       console.log(response);
-  //   })
   }
 
+  const deleteRoom = () => {
 
+    fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects/${projectId}/rooms/${id}`, {
+      method: "DELETE"
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      })
+  }
 
-
-
-
-return (
-  <div
-    id="wrapper"
-    className="modal-wrapper"
-    onClick={handleClick}>
-    <div id="box" className="modal-box">
-      <h3>Vill du radera {name}?</h3>
-      <p><span id="yes" onClick={handleClick}>Ja </span> | <span id="no"> Nej</span></p>
+  return (
+    <div
+      id="wrapper"
+      className="modal-wrapper"
+      onClick={handleClick}>
+      <div id="box" className="modal-box">
+        <h3>Vill du radera {name}?</h3>
+        <p><span id="yes" onClick={handleClick}>Ja </span> | <span id="no"> Nej</span></p>
+      </div>
     </div>
-  </div>
-)
+  )
 }
