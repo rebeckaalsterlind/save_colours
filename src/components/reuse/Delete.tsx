@@ -1,7 +1,6 @@
 import '../MainApp/addOptions.css';
 import { store } from '../../store';
 
-
 interface Props {
   toDelete: any,
   callback(hideComponent: boolean): void;
@@ -18,6 +17,7 @@ export default function Delete({ toDelete, callback }: Props) {
   let name: string = "";
   let id: string = "";
   let type: string = "";
+  let project: string = "";
 
   if (objName.projectName) {
     name = objName.projectName;
@@ -29,12 +29,13 @@ export default function Delete({ toDelete, callback }: Props) {
     name = objName.roomName;
     id = objName._id;
     type = "room";
+    project = userprojects.filter(id);
+    console.log(project);
   }
 
   console.log(name);
   console.log(id);
   console.log(type);
-
 
   const handleClick = (evt: React.FormEvent): void => {
     evt.preventDefault();
@@ -56,7 +57,7 @@ export default function Delete({ toDelete, callback }: Props) {
           }
 
           if (type === "room") {
-            console.log("yeppp");
+            deleteRoom();
           }
         }, 2000);
 
@@ -85,7 +86,14 @@ export default function Delete({ toDelete, callback }: Props) {
 
 const deleteRoom = () => {
 
-}
+  // fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects/${}/rooms/${id}`, {
+  //   method: "DELETE"
+  //   })
+  //   .then(response => response.json())
+  //   .then(response => {
+  //       console.log(response);
+  //   })
+  }
 
 
 
