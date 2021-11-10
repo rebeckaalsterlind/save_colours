@@ -66,11 +66,8 @@ export default function AddProject({ }, state: State) {
       .then(response => {
 
         if (response) {
-          console.log('Response from backend: ', response);
-
           projects.push(response);
 
-          console.log(projects);
           const updatedUser = reduxStore.getState().user;
           updatedUser.projects = projects;
 

@@ -1,6 +1,8 @@
 import '../MainApp/addOptions.css';
 import { store } from '../../store';
+import { store as reduxStore } from '../../store';
 import { isTemplateSpan } from 'typescript';
+import { addDelete as addDelete, deleteObject } from '../../actions';
 
 interface Props {
   toDelete: any,
@@ -106,7 +108,13 @@ export default function Delete({ toDelete, callback }: Props) {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
+        const newProjectArray = userprojects.filter((item:any) => item._id !== response._id);
+
+        const updatedUser = reduxStore.getState().user;
+        updatedUser.projects = newProjectArray;
+
+        reduxStore.dispatch(deleteObject({ user: updatedUser }));
+
       })
   }
 

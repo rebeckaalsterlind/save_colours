@@ -35,3 +35,17 @@ export function saveColor(updatedUser) {
     user: updatedUser.user
   }
 }
+
+export function addDelete(show) {
+  return {
+    type: "SET_ADDDELETE",
+    addDelete: show
+  }
+}
+
+export function deleteObject(updatedUser) {
+  return {
+    type: "SET_DELETEOBJECT",
+    user: updatedUser.user
+  }
+}
