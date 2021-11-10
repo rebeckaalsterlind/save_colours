@@ -10,8 +10,9 @@ interface Props {
 export default function Delete({ toDelete, callback }: Props) {
   const obj: any = Object.values(toDelete)[1];
   console.log(toDelete);
-  const user = store.getState().user._id;
 
+  const userprojects = store.getState().user;
+  const user = store.getState().user._id;
   const objName: any = toDelete;
 
   let name: string = "";

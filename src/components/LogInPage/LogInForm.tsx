@@ -23,7 +23,7 @@ export default function LogInForm({ }, state: State) {
     const handleSubmit = (evt: React.FormEvent) => {
         evt.preventDefault();
 
-        fetch("http://localhost:3000/api/users/login", {
+        fetch("https://mads-colour-backend.herokuapp.com/api/users/login", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
