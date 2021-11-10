@@ -54,31 +54,30 @@ export default function Edit({toEdit, callback}: Props) {
 
   return (
     <div 
-    id="wrapper" 
-    className="modal-wrapper" 
-    onClick={handleClick}>
+      id="wrapper" 
+      className="modal-wrapper" 
+      onClick={handleClick}>
 
       <form 
         id="box"
         className="modal-box"
-        style={{border: '1px solid black'}}
         onSubmit={handleSubmit}>
         
-        <h3>Redigera</h3>
+        <h2>Redigera</h2>
 
-        <h5>{headName} &nbsp;
-           <i className="fas fa-edit" /> &nbsp;
-        </h5><br />
+        <h3>{headName}
+           <i className="fas fa-edit" />
+        </h3><br />
         
-        <h5>{subName}</h5>
+        <h4>{subName}</h4>
         {sub.map((name: any) => (
-          <p>{name} &nbsp;
-            <i className="fas fa-edit" /> &nbsp;
+          <p>{name}
+            <i className="fas fa-edit" />
             <i className="fas fa-trash-alt" />
           </p>
         ))}
 
-        <button>Spara</button>
+        <button className="btn btn-primary">Spara</button>
       </form>
     </div>
    

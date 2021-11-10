@@ -76,7 +76,7 @@ body {
 }
 
 .projectWrap button {
-  margin: 5px;
+  margin: 25px 5px 5px 5px;
   // width: 10vw;
 }
 
@@ -110,7 +110,7 @@ body {
 
 .img-fluid {
   width: 90%;
-  margin-top: 5vh;
+  margin-top: 3vh;
   margin-bottom: 3vh;
 }
 
@@ -168,6 +168,47 @@ i {
   font-weight: 100;
   margin-left: 7px;
   cursor: pointer;
+}
+
+.h5-modal {
+  color: $gray;
+}
+
+.modalInput {
+  margin: 5px 10px;
+}
+
+.allColorsContainer {
+  margin: 20px;
+}
+
+.allColors {
+  display: inline-flex;
+}
+
+.smallLogo {
+  margin-left: 20px;
+}
+
+header {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.imgContainer {
+  width: 30%;
+}
+
+.userInfoContainer {
+  // width: 50%;
+  display: flex;
+  align-items: center;
+  & p {
+    margin: 0 10px;
+  }
 }
 
 // .primary-btn {
