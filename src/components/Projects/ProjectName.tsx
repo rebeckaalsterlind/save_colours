@@ -8,14 +8,16 @@ interface Props {
 }
 
 interface State {
-    showProject: boolean  
+    showProject: boolean,
 }
 
 export default function ProjectName ({project, key}: Props, state: State) {
+
     const [showProject, setShowProject] = useState(false);
-      
+
     return (
         <div>
+
             <div className="projectHead" onClick={() => setShowProject(!showProject)}>
                 <h1 className="h4">{project.projectName}</h1>
                 <EditBtns obj={project} />        

@@ -33,24 +33,24 @@ export default function LogInForm({ }, state: State) {
                 "password": password
             })
         })
-        .then(res => res.json())
-        .then(response => {
+            .then(res => res.json())
+            .then(response => {
 
-            if(response.username) {
-                store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
+                if (response.username) {
+                    store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
 
-                localStorage.setItem('userId', response._id);
-            } else {
-                setErrorText(true)
-            }
+                    localStorage.setItem('userId', response._id);
+                } else {
+                    setErrorText(true)
+                }
 
-        })
+            })
     }
 
     return (
         <main className="form-signin">
             <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
-                 {errorText && (<p>Fel användarnamn eller lösenord</p>)}
+                {errorText && (<p>Fel användarnamn eller lösenord</p>)}
                 <h1 className="h4 mb-3 fw-normal h4-login">Logga in</h1>
                 <div className="form-floating">
                     <input
