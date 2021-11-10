@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './colorInfo.css';
+import EditBtns from "../reuse/EditBtns"
 
 interface Props {
     color: any;
@@ -25,8 +26,6 @@ const useClickOutside = (handler: any) => {
 };
 
 export default function ColorInfo({ color, hide }: Props) {
-    console.log('color in colorInfo', color);
-
     let domNode = useClickOutside(() => hide(false));
 
     return (
@@ -34,9 +33,9 @@ export default function ColorInfo({ color, hide }: Props) {
             ref={domNode}
             id="wrapper"
             className="color-wrapper"
-            onClick={({ target }) =>
-                (target as HTMLParagraphElement).id && hide(false)
-            }
+            // onClick={({ target }) =>
+            //     (target as HTMLParagraphElement).id && hide(false)
+            // }
         >
             <div className="color-box">
                 <div>
@@ -79,6 +78,7 @@ export default function ColorInfo({ color, hide }: Props) {
                         <li className="list-group-item">{color.store}</li>
                     </ul>
                 }
+                <EditBtns obj={color} />
             </div>
         </div>
     );
