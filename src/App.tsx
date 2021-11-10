@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { store } from './store';
 import { logIn } from './actions';
 import './App.css';
 import LogInPage from './components/LogInPage/LogInPage';
 import MainApp from './components/MainApp/MainApp'
 import './style.css';
-import { getJSDocTemplateTag } from 'typescript';
+
 
 function App() {
 
   //checking user against localsStorage. if true => fetch user object
   if (localStorage.getItem("userId") && !store.getState().username) {
-      
+    
     fetch(`http://localhost:3000/api/users/${localStorage.getItem("userId")}`)
     .then(res => res.json())
     .then(response => {
