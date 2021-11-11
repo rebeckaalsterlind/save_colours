@@ -23,6 +23,12 @@ export default function reduce(state, action) {
         ...state,
         addProject: action.addProject
       }
+      
+    case "SET_SAVECOLOR":
+      return {
+        ...state,
+        user: action.user
+      } 
 
     default:
     return state

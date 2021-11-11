@@ -1,5 +1,6 @@
 import '../MainApp/addOptions.css';
 import { store } from '../../store';
+import { isTemplateSpan } from 'typescript';
 
 interface Props {
   toDelete: any,
@@ -14,6 +15,7 @@ export default function Delete({ toDelete, callback }: Props) {
   let name: string = "";
   let id: string = "";
   let type: string = "";
+  let roomId: any = "";
   let projectId: any = "";
 
   if (objName.projectName) {
@@ -28,6 +30,27 @@ export default function Delete({ toDelete, callback }: Props) {
     type = "room";
     let project = findParent(userprojects, id);
     projectId = project._id;
+  }
+
+  if (objName.colorName) {
+    name = objName.colorName;
+    id = objName._id;
+    type = "color";
+    let room = findRoom(userprojects, id);
+    roomId = room._id;
+    const project = findParent(userprojects, roomId);
+    projectId = project._id;
+
+  }
+
+  function findRoom(userprojects: any, id: any, parent = null) {
+    for (let i of userprojects) {
+      for (let item of i.rooms) {
+        let res: any = item._id === id ? parent
+          : item.colors && findParent(item.colors, id, item);
+        if (res) return res;
+      }
+    }
   }
 
   function findParent(userprojects: any, id: any, parent = null) {
@@ -58,6 +81,10 @@ export default function Delete({ toDelete, callback }: Props) {
 
           if (type === "room") {
             deleteRoom();
+          }
+
+          if (type === "color") {
+            deleteColor();
           }
         }, 2000);
 
@@ -94,14 +121,28 @@ export default function Delete({ toDelete, callback }: Props) {
       })
   }
 
+  const deleteColor = () => {
+
+    fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}/projects/${projectId}/rooms/${roomId}/colors/${id}`, {
+      method: "DELETE"
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      })
+  }
+
   return (
     <div
       id="wrapper"
       className="modal-wrapper"
       onClick={handleClick}>
-      <div id="box" className="modal-box">
-        <h3>Vill du radera {name}?</h3>
-        <p><span id="yes" onClick={handleClick}>Ja </span> | <span id="no"> Nej</span></p>
+      <div id="box" className="modal-box deleteChoiceModal">
+        <p className="askDeleteText">Vill du radera "{name}"?</p>
+        <div className="deleteChoiceBtnGroup">
+          <button id="yes" className="btn btn-secondary" onClick={handleClick}>Ja</button>
+          <button id="no" className="btn btn-primary" onClick={handleClick}>Nej</button>
+        </div>
       </div>
     </div>
   )

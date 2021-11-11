@@ -8,6 +8,6 @@ export default function LogOutBtn () {
         localStorage.clear();
     }
 
-    return <button className="btn btn-primary white-btn" onClick={handleClick}>Logga ut</button>
+    return <button className="btn btn-secondary" onClick={handleClick}>Logga ut</button>
     
 }

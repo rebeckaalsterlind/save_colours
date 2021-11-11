@@ -35,9 +35,9 @@ export default function Share({toShare, callback}: Props) {
     onClick={handleClick}>
 
       <form id="box" onSubmit={handleSubmit} className="modal-box">
-        <h3>Dela {toShare.projectName} med: </h3>
-        <input type="text" placeholder="Användare"/>
-        <button>Skicka</button>
+        <h2 className="h5 h5-modal">Dela {toShare.projectName} med: </h2>
+        <input type="text" className="form-control modalInput" placeholder="Användare"/>
+        <button className="btn btn-primary">Skicka</button>
       </form>
     </div>
   )
