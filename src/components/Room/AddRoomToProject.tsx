@@ -51,33 +51,33 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
     };
 
     return (
-        <div onClick={handleDivClick}>
-            <div id="wrapper" className="modal-wrapper">
-                <div id="box" className="modal-box p-3">
+        <div id="wrapper" className="modal-wrapper" onClick={handleDivClick}>
+            <div id="box" className="modal-box p-4">
+                <div>
                     <button
                         type="button"
-                        className="btn-close"
+                        className="btn-close mt-1"
                         aria-label="Close"
                         onClick={() => onHideModal(false)}
                     ></button>
-                    <form onSubmit={handleFormSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="roomName">Skapa nytt rum:</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="roomName"
-                                aria-describedby="namn på rum"
-                                placeholder="Namn på rum"
-                                value={roomName}
-                                onChange={(e) => setRoomName(e.target.value)}
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-primary">
-                            Spara
-                        </button>
-                    </form>
                 </div>
+                <form onSubmit={handleFormSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="roomName">Skapa nytt rum:</label>
+                        <input
+                            type="text"
+                            className="form-control "
+                            id="roomName"
+                            aria-describedby="namn på rum"
+                            placeholder="Namn på rum"
+                            value={roomName}
+                            onChange={(e) => setRoomName(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        Spara
+                    </button>
+                </form>
             </div>
         </div>
     );
