@@ -10,10 +10,16 @@ export default function Project({ colors }: Props) {
     
     const data:any = store.getState().user.projects;  
     colors(data); 
+
+    let projects = []; 
+
+    if (data !== undefined){
+        projects = store.getState().user.projects; 
+    }
    
     return (
         <div className="projects">
-            {store.getState().user.projects.map((project: any) => (
+            {projects.map((project: any) => (
                     <ProjectName project={project} />
                 ))
             }
