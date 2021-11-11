@@ -9,6 +9,7 @@ interface Props {
 
 const useClickOutside = (handler: any) => {
     const domNode: any = useRef();
+    
 
     useEffect(() => {
         let maybeHandler = (evt: any) => {
