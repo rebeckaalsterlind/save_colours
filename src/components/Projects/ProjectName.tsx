@@ -23,7 +23,7 @@ export default function ProjectName ({project, key}: Props, state: State) {
                 <EditBtns obj={project} />        
             </div>
                 {showProject && project.rooms.map((room: any) => (
-                    <RoomName key={room.roomId} room={room} />
+                    <RoomName key={room.roomId} projectId={project._id} room={room} />
                 ))}
         </div>
     );
