@@ -9,13 +9,15 @@ export default function Allcolors({ sendColors }: Props) {
 
     const colorArray: object[] = [];
 
-    for (let i = 0; i < sendColors.length; i++) {
-        const roomColors = sendColors[i].rooms;
-        for (let i = 0; i < roomColors.length; i++) {
-            const seperateColors = roomColors[i].colors;
-            for (let i = 0; i < seperateColors.length; i++) {
-                const colors = seperateColors[i];
-                colorArray.push(colors);
+    if (sendColors !== undefined){
+        for (let i = 0; i < sendColors.length; i++) {
+            const roomColors = sendColors[i].rooms;
+            for (let i = 0; i < roomColors.length; i++) {
+                const seperateColors = roomColors[i].colors;
+                for (let i = 0; i < seperateColors.length; i++) {
+                    const colors = seperateColors[i];
+                    colorArray.push(colors);
+                }
             }
         }
     }
@@ -26,9 +28,11 @@ export default function Allcolors({ sendColors }: Props) {
                 colorArray.map((color: any) => (
                     <div className="allColors">
                         <Color key={color.colorId} color={color} />
+        
                     </div>
 
                 ))
+                
             }
         </div>
     )

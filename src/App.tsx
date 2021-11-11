@@ -9,18 +9,25 @@ import './style.css';
 
 function App() {
 
-  //checking user against localsStorage. if true => fetch user object
-  if (localStorage.getItem("userId") && !store.getState().username) {
-    
-    fetch(`http://localhost:3000/api/users/${localStorage.getItem("userId")}`)
-    .then(res => res.json())
-    .then(response => {
-      if(response.username) {
-        store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
-      }
-    });
 
+
+
+  //checking user against localsStorage. if true => fetch user object
+  if (localStorage.userId && !store.getState().username) {
+    let user: any = localStorage.getItem("userId")
+
+    fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}`, {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(response => {
+
+        if (response.username) {
+          store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
+        }
+      });
   }
+
 
   return (
     <div className="App">

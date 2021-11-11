@@ -13,7 +13,7 @@ export default function LogInPage() {
             {store.getState().addProject
                 && <AddProject />}
             {store.getState().addColor
-                && <AddColor />}
+                && <AddColor roomId={''} projectId={''}/>}
             {!store.getState().addProject && !store.getState().addColor &&
                 <>
                     <ProjectsWrapper />

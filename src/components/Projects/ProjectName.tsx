@@ -5,14 +5,13 @@ import AddRoomToProject from '../Room/AddRoomToProject';
 
 interface Props {
     project: any;
-    key: any;
 }
 
 interface State {
     showProject: boolean;
 }
 
-export default function ProjectName({ project, key }: Props, state: State) {
+export default function ProjectName({ project }: Props, state: State) {
     const [showProject, setShowProject] = useState(false);
     const [showRoom, setShowRoom] = useState(false);
 
@@ -27,7 +26,11 @@ export default function ProjectName({ project, key }: Props, state: State) {
             </div>
             {showProject &&
                 project.rooms.map((room: any) => (
-                    <RoomName key={room.roomId} room={room} />
+                    <RoomName
+                        key={room.roomId}
+                        room={room}
+                        projectId={project._id}
+                    />
                 ))}
             {showProject && (
                 <button
