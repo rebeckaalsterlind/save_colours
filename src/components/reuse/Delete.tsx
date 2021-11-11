@@ -3,7 +3,6 @@ import { store } from '../../store';
 import { store as reduxStore } from '../../store';
 import { isTemplateSpan } from 'typescript';
 import { addDelete as addDelete, deleteObject } from '../../actions';
-import { log } from 'console';
 
 interface Props {
   toDelete: any,
@@ -109,7 +108,7 @@ export default function Delete({ toDelete, callback }: Props) {
     })
       .then(response => response.json())
       .then(response => {
-        const newProjectArray = userprojects.filter((item:any) => item._id !== response._id);
+        const newProjectArray = userprojects.filter((item: any) => item._id !== response._id);
 
         const updatedUser = reduxStore.getState().user;
         updatedUser.projects = newProjectArray;
@@ -127,18 +126,22 @@ export default function Delete({ toDelete, callback }: Props) {
       .then(response => response.json())
       .then(response => {
 
+        const foundProject = userprojects.find((p: any) => p._id === projectId)
   
-        const foundProject = userprojects.find((p:any) => p._id === projectId)
-        console.log(foundProject);
-        
-        const newRoomArray = foundProject.rooms.filter((item:any) => item._id !== response._id);
-        console.log(newRoomArray);
+        const newRoomArray = foundProject.rooms.filter((item: any) => item._id !== id);
+
+        foundProject.rooms = newRoomArray; 
 
         const updatedUser = reduxStore.getState().user;
-        updatedUser.projects = newRoomArray;
+        updatedUser.projects = userprojects;
 
         reduxStore.dispatch(deleteObject({ user: updatedUser }));
+
+        console.log(response);
+
+        console.log(userprojects);
         
+
       })
   }
 
@@ -148,8 +151,25 @@ export default function Delete({ toDelete, callback }: Props) {
       method: "DELETE"
     })
       .then(response => response.json())
-      .then(response => {
+      .then(response => { 
         console.log(response);
+        
+      //   if(response.colorName) {
+        
+      //     console.log(userprojects);
+                
+      //     const foundProject = userprojects.find((p:any) => p._id === projectId)
+      //     const foundRoom:any = foundProject.rooms.find((r:any) => r._id === roomId)
+      //     const foundColors:any = foundRoom.colors.find((r:any) => r._id !== response._id)
+      //     console.log(foundColors);
+          
+      //     foundRoom.colors.push(foundColors)
+      //     console.log(foundRoom);
+          
+
+      //    console.log(userprojects.projects);
+      
+      // };
       })
   }
 
