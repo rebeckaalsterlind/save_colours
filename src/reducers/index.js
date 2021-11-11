@@ -18,6 +18,12 @@ export default function reduce(state, action) {
         addColor: action.addColor
       }
 
+      case "SET_ADDCOLORINROOM":
+        return {
+          ...state,
+          addColor: action.addColorInRoom
+        }
+
     case "SET_ADDPROJECT":
       return {
         ...state,

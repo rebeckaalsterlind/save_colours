@@ -1,5 +1,5 @@
 import ProjectName from "./ProjectName"
-import React, { useEffect } from 'react';
+import React from 'react';
 import { store } from '../../store';
 
 interface Props {
@@ -8,15 +8,13 @@ interface Props {
 
 export default function Project({ colors }: Props) {
     
-    const data:any = store.getState().user.projects;
-    console.log(store.getState().user.projects);
-    
+    const data:any = store.getState().user.projects;  
     colors(data); 
    
     return (
         <div className="projects">
             {store.getState().user.projects.map((project: any) => (
-                    <ProjectName key={project._Id} project={project} />
+                    <ProjectName project={project} />
                 ))
             }
         </div>

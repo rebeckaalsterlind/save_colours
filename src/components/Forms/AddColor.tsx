@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { store as reduxStore } from '../../store';
-import { addColor as reduxAddColor, saveColor } from '../../actions';
+import { addColor as reduxAddColor, addColorInRoom, saveColor } from '../../actions';
+
+interface Props {
+    roomId: any;
+    projectId: any
+}
 
 interface State {
     selectedProject: any;
@@ -14,13 +19,13 @@ interface State {
     store: string;
 }
 
-export default function AddColor({}, state: State) {
-    
+export default function AddColor({roomId, projectId}: Props, state: State) {
+    console.log('roomId', roomId, "projectId", projectId);
     const [selectedProject, setSelectedProject] = useState([]);
     
-    const [project, setProject] = useState('');
-    const [room, setRoom] = useState('');
-   
+    const [project, setProject] = useState(projectId);
+    const [room, setRoom] = useState(roomId);
+
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
     const [type, setType] = useState('');
@@ -31,8 +36,7 @@ export default function AddColor({}, state: State) {
     const inputRef: any = useRef(null);
     const allProjects = reduxStore.getState().user.projects;
 
-
-    //set the focus on username input
+     //set the focus on username input
     useEffect(() => {
         inputRef.current.focus();
     }, []);
@@ -75,7 +79,12 @@ export default function AddColor({}, state: State) {
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
 
                 // set state to close addColor modal
-                reduxStore.dispatch(reduxAddColor(false));
+                if (projectId === '') {
+                    reduxStore.dispatch(reduxAddColor(false));
+                } else {
+                    reduxStore.dispatch(addColorInRoom(false));
+                }
+           
             };
         });
 
@@ -163,35 +172,37 @@ export default function AddColor({}, state: State) {
                 onChange={(evt) => setStore(evt.target.value)}
             />
             <br />
-
-            <label htmlFor="project">Project:</label>
-            <select
-                className="form-select inputfield"
-                name="project"
-                id="project"
-                onChange={(evt) => setProject(evt.target.value)}
-            >
-                  <option value="misc">--Välj projekt--</option>
-                {reduxStore.getState().user.projects && reduxStore.getState().user.projects.map((project: any, index: number) => (
-                    <option key={index} value={project._id}>{project.projectName}</option> ))
-                }
-            </select>
-            <br />
-            
-            <label htmlFor="room">Room:</label>
-            <select
-                className="form-select inputfield"
-                name="room"
-                id="room"
-                onChange={(evt) => setRoom(evt.target.value)}
-            >
-                <option value="misc">--Välj Rum--</option>
-                {selectedProject.map((room: any, index:number) => (
-                    <option key={index} value={room._id}>{room.roomName}</option>))
-                }
-            </select>
-            <br />
-
+            {roomId === '' && 
+            <>
+                <label htmlFor="project">Project:</label>
+                <select
+                    className="form-select inputfield"
+                    name="project"
+                    id="project"
+                    onChange={(evt) => setProject(evt.target.value)}
+                >
+                    <option value="misc">--Välj projekt--</option>
+                    {reduxStore.getState().user.projects && reduxStore.getState().user.projects.map((project: any, index: number) => (
+                        <option key={index} value={project._id}>{project.projectName}</option> ))
+                    }
+                </select>
+                <br />
+        
+                <label htmlFor="room">Room:</label>
+                <select
+                    className="form-select inputfield"
+                    name="room"
+                    id="room"
+                    onChange={(evt) => setRoom(evt.target.value)}
+                >
+                    <option value="misc">--Välj Rum--</option>
+                    {selectedProject.map((room: any, index:number) => (
+                        <option key={index} value={room._id}>{room.roomName}</option>))
+                    }
+                </select>
+                <br />
+            </>
+            }
             <button className="btn btn-primary primary-btn">Spara färg</button>
         </form>
     );
