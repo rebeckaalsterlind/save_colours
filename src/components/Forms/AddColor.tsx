@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { store as reduxStore } from '../../store';
-import { addColor as reduxAddColor, saveColor } from '../../actions';
+import { addColor as reduxAddColor, addColorInRoom, saveColor } from '../../actions';
 
 interface Props {
     roomId: any;
@@ -79,7 +79,12 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
 
                 // set state to close addColor modal
-                reduxStore.dispatch(reduxAddColor(false));
+                if (projectId === '') {
+                    reduxStore.dispatch(reduxAddColor(false));
+                } else {
+                    reduxStore.dispatch(addColorInRoom(false));
+                }
+           
             };
         });
 

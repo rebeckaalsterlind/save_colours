@@ -9,6 +9,7 @@ const initialState = {
   user: {},
   username: "", 
   addColor: false, 
+  addColorInRoom: false,
   addProject: false
 };
 

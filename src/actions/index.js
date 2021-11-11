@@ -15,6 +15,13 @@ export function addColor(show) {
   }
 }
 
+export function addColorInRoom(show) {
+  return {
+    type: "SET_ADDCOLORINROOM",
+    addColorInRoom: show
+  }
+}
+
 export function addProject(show) {
   return {
     type: "SET_ADDPROJECT",

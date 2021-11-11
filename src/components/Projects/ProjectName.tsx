@@ -4,14 +4,13 @@ import RoomName from '../Room/RoomName';
 
 interface Props {
     project: any,
-    key: any
 }
 
 interface State {
     showProject: boolean,
 }
 
-export default function ProjectName ({project, key}: Props, state: State) {
+export default function ProjectName ({project}: Props, state: State) {
 
     const [showProject, setShowProject] = useState(false);
 
@@ -23,7 +22,7 @@ export default function ProjectName ({project, key}: Props, state: State) {
                 <EditBtns obj={project} />        
             </div>
                 {showProject && project.rooms.map((room: any) => (
-                    <RoomName key={room.roomId} projectId={project._id} room={room} />
+                    <RoomName key={room.roomId} room={room} projectId={project._id}/>
                 ))}
         </div>
     );

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { store } from '../../store';
+import { addColorInRoom } from '../../actions';
 import EditBtns from "../reuse/EditBtns";
 import Color from "../reuse/Color";
 import AddColor from '../Forms/AddColor';
@@ -8,14 +10,9 @@ interface Props {
     projectId: any;
 }
 
-interface State {
-    addColor: boolean; 
-}
 
-export default function RoomName ({room, projectId}: Props, state: State)  {
-    
-    const [addColor, setAddColor] = useState(false);
-console.log('room', room);
+export default function RoomName ({room, projectId}: Props)  {
+
     return (
         <div>
             <div className="roomHead">
@@ -26,9 +23,10 @@ console.log('room', room);
                 {room.colors.map((color: any) => (
                     <Color key={color.colorId} color={color} />
                 ))}
-                <button className="btn btn-primary bt-lg" onClick={() => setAddColor(!addColor)} >+</button>
-                {addColor && <AddColor projectId={projectId} roomId={room._id}/>}
             </div>
+            <button className="btn btn-primary bt-lg" onClick={() => store.dispatch(addColorInRoom(true))}>+</button>
+                {store.getState().addColorInRoom && 
+                    <AddColor projectId={projectId} roomId={room._id}/>}
         </div>
     )
 }
