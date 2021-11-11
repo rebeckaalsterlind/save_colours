@@ -108,12 +108,15 @@ export default function Delete({ toDelete, callback }: Props) {
     })
       .then(response => response.json())
       .then(response => {
-        const newProjectArray = userprojects.filter((item: any) => item._id !== response._id);
+        console.log(response);
+        const newProjectArray = userprojects.filter((item: any) => item._id !== id);
 
         const updatedUser = reduxStore.getState().user;
         updatedUser.projects = newProjectArray;
 
         reduxStore.dispatch(deleteObject({ user: updatedUser }));
+      
+        
 
       })
   }
@@ -125,6 +128,7 @@ export default function Delete({ toDelete, callback }: Props) {
     })
       .then(response => response.json())
       .then(response => {
+        console.log(response);
 
         const foundProject = userprojects.find((p: any) => p._id === projectId)
   
@@ -136,12 +140,7 @@ export default function Delete({ toDelete, callback }: Props) {
         updatedUser.projects = userprojects;
 
         reduxStore.dispatch(deleteObject({ user: updatedUser }));
-
-        console.log(response);
-
-        console.log(userprojects);
         
-
       })
   }
 
@@ -153,23 +152,18 @@ export default function Delete({ toDelete, callback }: Props) {
       .then(response => response.json())
       .then(response => { 
         console.log(response);
-        
-      //   if(response.colorName) {
-        
-      //     console.log(userprojects);
-                
-      //     const foundProject = userprojects.find((p:any) => p._id === projectId)
-      //     const foundRoom:any = foundProject.rooms.find((r:any) => r._id === roomId)
-      //     const foundColors:any = foundRoom.colors.find((r:any) => r._id !== response._id)
-      //     console.log(foundColors);
-          
-      //     foundRoom.colors.push(foundColors)
-      //     console.log(foundRoom);
-          
 
-      //    console.log(userprojects.projects);
+        const foundProject = userprojects.find((p: any) => p._id === projectId)
+        const foundRoom = foundProject.rooms.find((item: any) => item._id === roomId);
+        const newColorArray = foundRoom.colors.filter((r:any) => r._id !== id);
       
-      // };
+        foundRoom.colors = newColorArray;
+        
+        const updatedUser = reduxStore.getState().user;
+        updatedUser.projects = userprojects;
+
+        reduxStore.dispatch(deleteObject({ user: updatedUser }));
+        
       })
   }
 
