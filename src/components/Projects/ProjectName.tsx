@@ -40,7 +40,7 @@ export default function ProjectName({ project, key }: Props, state: State) {
             {showRoom && (
                 <AddRoomToProject
                     projectid={project._id}
-                    setShowRoom={setShowRoom}
+                    onHideModal={setShowRoom}
                 />
             )}
         </div>

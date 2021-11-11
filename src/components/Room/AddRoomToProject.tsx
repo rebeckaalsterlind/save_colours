@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import { store } from '../../store';
 
 interface Props {
-    // callback(hideComponent: boolean): void;
     projectid: string;
-    setShowRoom: React.Dispatch<React.SetStateAction<boolean>>;
+    onHideModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function AddRoomToProject({ projectid, setShowRoom }: Props) {
+export default function AddRoomToProject({ projectid, onHideModal }: Props) {
     const [roomName, setRoomName] = useState('');
 
     //on click outside => close modal
-    const handleClick = (
+    const handleDivClick = (
         evt: React.MouseEvent<HTMLParagraphElement, MouseEvent>
     ) => {
         const { target } = evt;
 
         if ((target as HTMLParagraphElement).id === 'wrapper') {
-            setShowRoom(false);
+            onHideModal(false);
         }
     };
 
@@ -37,22 +36,31 @@ export default function AddRoomToProject({ projectid, setShowRoom }: Props) {
             });
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         saveRoomToBacken();
+        updateProject();
+        onHideModal(false);
+    };
+
+    const updateProject = () => {
+        store
+            .getState()
+            .user.projects.find((project: any) => project._id === projectid)
+            .rooms.push({ roomName, colors: [] });
     };
 
     return (
-        <div onClick={handleClick}>
+        <div onClick={handleDivClick}>
             <div id="wrapper" className="modal-wrapper">
                 <div id="box" className="modal-box p-3">
                     <button
                         type="button"
                         className="btn-close"
                         aria-label="Close"
-                        onClick={() => setShowRoom(false)}
+                        onClick={() => onHideModal(false)}
                     ></button>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleFormSubmit}>
                         <div className="form-group">
                             <label htmlFor="roomName">Skapa nytt rum:</label>
                             <input
