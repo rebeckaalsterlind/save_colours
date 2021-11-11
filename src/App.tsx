@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { store } from './store';
 import { logIn } from './actions';
 import './App.css';
@@ -10,26 +10,23 @@ import './style.css';
 function App() {
 
 
-  
+
 
   //checking user against localsStorage. if true => fetch user object
   if (localStorage.userId && !store.getState().username) {
-   let user:any = localStorage.getItem("userId")
-    console.log(user);
+    let user: any = localStorage.getItem("userId")
 
-    fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}`,  {
+    fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}`, {
       method: "GET",
     })
-    .then(res => res.json())
-    .then(response => {
-  
-      console.log(response);
-      
-      if(response.username) {
-        store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
-      }
-    });
-}
+      .then(res => res.json())
+      .then(response => {
+
+        if (response.username) {
+          store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
+        }
+      });
+  }
 
 
   return (
