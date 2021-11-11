@@ -1,156 +1,160 @@
 body {
-  background-color: #B8C5CD;
-  color: #485056;
+    background-color: #b8c5cd;
+    color: #485056;
 }
 
 .App {
-  margin: 0 auto;
-  background-color: #F9F2F0;
-  min-height: 100vh;
-  padding-top: 5vh;
+    margin: 0 auto;
+    background-color: #f9f2f0;
+    min-height: 100vh;
+    padding-top: 5vh;
 }
 
 .headerStartpage {
-  margin: 0 auto;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  width: 50%;
+    margin: 0 auto;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    width: 50%;
 }
 
 .btn-primary {
-  background-color: #CC887B;
-  border: 1px solid #CC887B;
+    background-color: #cc887b;
+    border: 1px solid #cc887b;
 }
 
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-  background-color: #a77267;
-  border-color: #a77267;
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: #a77267;
+    border-color: #a77267;
 }
 
 .btn-secondary {
-  background-color: transparent;
-  border-color: #CC887B;
-  color: #CC887B;
+    background-color: transparent;
+    border-color: #cc887b;
+    color: #cc887b;
 }
 
 .btn-secondary:hover {
-  background-color: #a77267;
-  border-color: #a77267;
+    background-color: #a77267;
+    border-color: #a77267;
 }
 
 .btn-link {
-  color: #485056;
-  text-decoration: none;
+    color: #485056;
+    text-decoration: none;
 }
 
 .btn-link:hover {
-  color: #CC887B;
+    color: #cc887b;
 }
 
-.loginPage input, .loginPage button {
-  margin-bottom: 2vh;
+.loginPage input,
+.loginPage button {
+    margin-bottom: 2vh;
 }
 
 .h4-login {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .roomName {
-  display: inline;
-  margin: 0 1%;
-  text-transform: capitalize;
+    display: inline;
+    margin: 0 1%;
+    text-transform: capitalize;
 }
 
 .projectWrap button {
-  margin: 5px;
-  width: 10vw;
+    margin: 5px;
+    /* width: 10vw; */
 }
 
 .projectHead {
-  width: 90%;
-  margin: 5%;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  background-color: #CC887B;
-  cursor: pointer;
-  padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    width: 90%;
+    margin: 5%;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color: #cc887b;
+    cursor: pointer;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .projectHead h1 {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .projectHead:hover h1 {
-  color: #a77267;
+    color: #a77267;
 }
 
 .roomHead {
-  width: 90%;
-  margin: 5% 5% 2% 5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    width: 90%;
+    margin: 5% 5% 2% 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .img-fluid {
-  width: 90%;
-  margin-top: 5vh;
-  margin-bottom: 3vh;
+    width: 90%;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
 }
 
 .krokar {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .colorWrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 90%;
-  margin: 2% 5% 10% 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 90%;
+    margin: 2% 5% 10% 5%;
 }
 
 .colorBlock {
-  display: inline-block;
-  border-radius: 10px 10px 0px 10px;
-  height: 50px;
-  width: 50px;
-  margin: .5em;
+    display: inline-block;
+    border-radius: 10px 10px 0px 10px;
+    height: 50px;
+    width: 50px;
+    margin: 0.5em;
 }
 
-.activeBtn, .notActiveBtn {
-  min-width: 50px;
+.activeBtn,
+.notActiveBtn {
+    min-width: 50px;
 }
 
 .addBtn {
-  color: #CC887B;
-  cursor: pointer;
+    color: #cc887b;
+    cursor: pointer;
 }
 
 .addBtn:hover {
-  color: #a77267;
+    color: #a77267;
 }
 
 .btn-close {
-  padding: 5px;
-  margin-bottom: 15px;
-  position: relative;
-  float: right;
+    padding: 5px;
+    margin-bottom: 15px;
+    position: relative;
+    float: right;
 }
 /*# sourceMappingURL=style.css.map */
