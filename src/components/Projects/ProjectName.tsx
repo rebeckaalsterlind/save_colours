@@ -34,11 +34,14 @@ export default function ProjectName({ project, key }: Props, state: State) {
                     className="notActiveBtn btn btn-secondary shadow-none"
                     onClick={() => setShowRoom(!showRoom)}
                 >
-                    + room
+                    + Rum
                 </button>
             )}
             {showRoom && (
-                <AddRoomToProject _id={project._id} setShowRoom={setShowRoom} />
+                <AddRoomToProject
+                    projectid={project._id}
+                    setShowRoom={setShowRoom}
+                />
             )}
         </div>
     );
