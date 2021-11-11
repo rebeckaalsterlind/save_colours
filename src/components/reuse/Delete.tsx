@@ -1,6 +1,8 @@
 import '../MainApp/addOptions.css';
 import { store } from '../../store';
+import { store as reduxStore } from '../../store';
 import { isTemplateSpan } from 'typescript';
+import { addDelete as addDelete, deleteObject } from '../../actions';
 
 interface Props {
   toDelete: any,
@@ -107,6 +109,15 @@ export default function Delete({ toDelete, callback }: Props) {
       .then(response => response.json())
       .then(response => {
         console.log(response);
+        const newProjectArray = userprojects.filter((item: any) => item._id !== id);
+
+        const updatedUser = reduxStore.getState().user;
+        updatedUser.projects = newProjectArray;
+
+        reduxStore.dispatch(deleteObject({ user: updatedUser }));
+      
+        
+
       })
   }
 
@@ -118,6 +129,18 @@ export default function Delete({ toDelete, callback }: Props) {
       .then(response => response.json())
       .then(response => {
         console.log(response);
+
+        const foundProject = userprojects.find((p: any) => p._id === projectId)
+  
+        const newRoomArray = foundProject.rooms.filter((item: any) => item._id !== id);
+
+        foundProject.rooms = newRoomArray; 
+
+        const updatedUser = reduxStore.getState().user;
+        updatedUser.projects = userprojects;
+
+        reduxStore.dispatch(deleteObject({ user: updatedUser }));
+        
       })
   }
 
@@ -127,8 +150,20 @@ export default function Delete({ toDelete, callback }: Props) {
       method: "DELETE"
     })
       .then(response => response.json())
-      .then(response => {
+      .then(response => { 
         console.log(response);
+
+        const foundProject = userprojects.find((p: any) => p._id === projectId)
+        const foundRoom = foundProject.rooms.find((item: any) => item._id === roomId);
+        const newColorArray = foundRoom.colors.filter((r:any) => r._id !== id);
+      
+        foundRoom.colors = newColorArray;
+        
+        const updatedUser = reduxStore.getState().user;
+        updatedUser.projects = userprojects;
+
+        reduxStore.dispatch(deleteObject({ user: updatedUser }));
+        
       })
   }
 
