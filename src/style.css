@@ -62,7 +62,7 @@ body {
 }
 
 .projectWrap button {
-  margin: 25px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
 }
 
 .projectHead {
@@ -121,16 +121,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 90%;
-  margin: 2% 5% 10% 5%;
-}
-
-.colorBlock {
-  display: inline-block;
-  border-radius: 10px 10px 0px 10px;
-  height: 50px;
-  width: 50px;
-  margin: .5em;
+  margin: 2% 5% 7% 5%;
 }
 
 .activeBtn, .notActiveBtn {
@@ -222,5 +216,18 @@ header {
 
 .userInfoContainer p {
   margin: 0 10px;
+}
+
+.colorBlock {
+  display: inline-block;
+  border-radius: 10px 10px 0px 10px;
+  height: 50px;
+  width: 50px;
+  margin: .5em !important;
+}
+
+.colorBlock.btn-secondary {
+  border-style: solid;
+  border-width: 1px;
 }
 /*# sourceMappingURL=style.css.map */
