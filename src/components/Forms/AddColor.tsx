@@ -28,6 +28,7 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
 
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
+    const [color, setColor] = useState('#b2b2b2');
     const [type, setType] = useState('');
     const [gloss, setGloss] = useState('');
     const [comment, setComment] = useState('');
@@ -49,14 +50,14 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
     
             colorName: name,
             colorCode: code,
+            color: color,
             colorType: type,
             gloss: gloss,
             comment: comment,
             store: store
-        
         };
 
-       
+    
         const userId = reduxStore.getState().user._id;
         fetch(`https://mads-colour-backend.herokuapp.com/api/users/${userId}/projects/${project}/rooms/${room}/colors`, {
             method: "POST",
@@ -125,6 +126,24 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
                 placeholder="NCS-kod"
                 onChange={(evt) => setCode(evt.target.value)}
             />
+            <br />
+
+            <select
+                className="form-select inputfield"
+                name="type"
+                id="type"
+                onChange={(evt) => setColor(evt.target.value)}
+            >
+                <option value="">--Beskriv kulör--</option>
+                <option value="#ff2f00">Röd</option>
+                <option value="#8cbed6">Blå</option>
+                <option value="#99aa8b">Grön</option>
+                <option value="#bf9171">Brun</option>
+                <option value="#f0e5dc">Beige</option>
+                <option value="#ffe4a9">gul</option>
+                <option value="#505152">Svart</option>
+                <option value="#b2b2b2">Grå</option>
+            </select>
             <br />
             
             <select
