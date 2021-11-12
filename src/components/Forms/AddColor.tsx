@@ -46,23 +46,15 @@ export default function AddColor({}, state: State) {
         inputRef.current.focus();
     }, []);
 
-<<<<<<< HEAD
     const handleChange = (evt: React.ChangeEvent<HTMLSelectElement>): void => {
-=======
-    const handleClick = (evt: React.ChangeEvent<HTMLSelectElement>): void => {
->>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
 
         const foundProject = allProjects.find((project:any) => project._id === evt.currentTarget.value);
 
         if(foundProject.projectName === "Övriga färger") {
             const foundRoom = foundProject.rooms.find((room:any) => room.roomName === "noRoom");
             setRoom(foundRoom._id)
-<<<<<<< HEAD
             setShowRoomOptions(false)
         } else if (foundProject.rooms.length > 0){
-=======
-        } else {
->>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
             setShowRoomOptions(true)
         }
 
@@ -105,17 +97,8 @@ export default function AddColor({}, state: State) {
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
      
                 // set state to close addColor modal
-<<<<<<< HEAD
                 reduxStore.dispatch(reduxAddColor(false));
       
-=======
-                if (projectId === '') {
-                    reduxStore.dispatch(reduxAddColor(false));
-                } else {
-                    reduxStore.dispatch(addColorInRoom(false));
-                }
-
->>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
                 //if showing roomOptions => hide as default
                 setShowRoomOptions(false)
            
@@ -224,22 +207,14 @@ export default function AddColor({}, state: State) {
                 onChange={(evt) => setStore(evt.target.value)}
             />
             <br />
-<<<<<<< HEAD
             {reduxStore.getState().projectId === '' && 
-=======
-            {projectId === '' && 
->>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
             <>
                 <label htmlFor="project">Project:</label>
                 <select
                     className="form-select inputfield"
                     name="project"
                     id="project"
-<<<<<<< HEAD
                     onChange={handleChange}
-=======
-                    onChange={handleClick}
->>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
                 >
                     <option value="">--Välj projekt--</option>
                     {reduxStore.getState().user.projects && reduxStore.getState().user.projects.map((project: any, index: number) => (
