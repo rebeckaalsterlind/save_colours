@@ -8,17 +8,24 @@ export function logIn(user) {
   }
 }
 
+export function setProjectId(id) {
+  return {
+    type: "SET_PROJECTID",
+    projectId: id
+  }
+}
+
+export function setRoomId(id) {
+  return {
+    type: "SET_ROOMID",
+    roomId: id
+  }
+}
+
 export function addColor(show) {
   return {
     type: "SET_ADDCOLOR",
     addColor: show
-  }
-}
-
-export function addColorInRoom(show) {
-  return {
-    type: "SET_ADDCOLORINROOM",
-    addColorInRoom: show
   }
 }
 
