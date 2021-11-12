@@ -29,6 +29,7 @@ export default function AddColor({}, state: State) {
 
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
+    const [color, setColor] = useState('#b2b2b2');
     const [type, setType] = useState('');
     const [gloss, setGloss] = useState('');
     const [comment, setComment] = useState('');
@@ -45,15 +46,23 @@ export default function AddColor({}, state: State) {
         inputRef.current.focus();
     }, []);
 
+<<<<<<< HEAD
     const handleChange = (evt: React.ChangeEvent<HTMLSelectElement>): void => {
+=======
+    const handleClick = (evt: React.ChangeEvent<HTMLSelectElement>): void => {
+>>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
 
         const foundProject = allProjects.find((project:any) => project._id === evt.currentTarget.value);
 
         if(foundProject.projectName === "Övriga färger") {
             const foundRoom = foundProject.rooms.find((room:any) => room.roomName === "noRoom");
             setRoom(foundRoom._id)
+<<<<<<< HEAD
             setShowRoomOptions(false)
         } else if (foundProject.rooms.length > 0){
+=======
+        } else {
+>>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
             setShowRoomOptions(true)
         }
 
@@ -66,14 +75,14 @@ export default function AddColor({}, state: State) {
         let newColor = {
             colorName: name,
             colorCode: code,
+            color: color,
             colorType: type,
             gloss: gloss,
             comment: comment,
             store: store
-        
         };
 
-       
+    
         const userId = reduxStore.getState().user._id;
         fetch(`https://mads-colour-backend.herokuapp.com/api/users/${userId}/projects/${project}/rooms/${room}/colors`, {
             method: "POST",
@@ -96,8 +105,17 @@ export default function AddColor({}, state: State) {
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
      
                 // set state to close addColor modal
+<<<<<<< HEAD
                 reduxStore.dispatch(reduxAddColor(false));
       
+=======
+                if (projectId === '') {
+                    reduxStore.dispatch(reduxAddColor(false));
+                } else {
+                    reduxStore.dispatch(addColorInRoom(false));
+                }
+
+>>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
                 //if showing roomOptions => hide as default
                 setShowRoomOptions(false)
            
@@ -141,6 +159,24 @@ export default function AddColor({}, state: State) {
                 placeholder="NCS-kod"
                 onChange={(evt) => setCode(evt.target.value)}
             />
+            <br />
+
+            <select
+                className="form-select inputfield"
+                name="type"
+                id="type"
+                onChange={(evt) => setColor(evt.target.value)}
+            >
+                <option value="">--Beskriv kulör--</option>
+                <option value="#ff2f00">Röd</option>
+                <option value="#8cbed6">Blå</option>
+                <option value="#99aa8b">Grön</option>
+                <option value="#bf9171">Brun</option>
+                <option value="#f0e5dc">Beige</option>
+                <option value="#ffe4a9">gul</option>
+                <option value="#505152">Svart</option>
+                <option value="#b2b2b2">Grå</option>
+            </select>
             <br />
             
             <select
@@ -188,14 +224,22 @@ export default function AddColor({}, state: State) {
                 onChange={(evt) => setStore(evt.target.value)}
             />
             <br />
+<<<<<<< HEAD
             {reduxStore.getState().projectId === '' && 
+=======
+            {projectId === '' && 
+>>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
             <>
                 <label htmlFor="project">Project:</label>
                 <select
                     className="form-select inputfield"
                     name="project"
                     id="project"
+<<<<<<< HEAD
                     onChange={handleChange}
+=======
+                    onChange={handleClick}
+>>>>>>> 06c56c96c6d8f271498782990b366214cd42aa80
                 >
                     <option value="">--Välj projekt--</option>
                     {reduxStore.getState().user.projects && reduxStore.getState().user.projects.map((project: any, index: number) => (
