@@ -96,8 +96,7 @@ export default function AddColor({}, state: State) {
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
      
                 // set state to close addColor modal
-        
-                    reduxStore.dispatch(reduxAddColor(false));
+                reduxStore.dispatch(reduxAddColor(false));
       
                 //if showing roomOptions => hide as default
                 setShowRoomOptions(false)
