@@ -9,6 +9,7 @@ interface Props {
 
 interface State {
     selectedProject: any;
+    showRoomOptions: boolean;
     project: any;
     room: any;
     name: string;
@@ -32,6 +33,7 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
     const [gloss, setGloss] = useState('');
     const [comment, setComment] = useState('');
     const [store, setStore] = useState('');
+    const [showRoomOptions, setShowRoomOptions] = useState(false);
 
     const inputRef: any = useRef(null);
     const allProjects = reduxStore.getState().user.projects;
@@ -41,12 +43,24 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
         inputRef.current.focus();
     }, []);
 
+    const handleClick = (evt: React.ChangeEvent<HTMLSelectElement>): void => {
+
+        const foundProject = allProjects.find((project:any) => project._id === evt.currentTarget.value);
+
+        if(foundProject.projectName === "Övriga färger") {
+            const foundRoom = foundProject.rooms.find((room:any) => room.roomName === "noRoom");
+            setRoom(foundRoom._id)
+        } else {
+            setShowRoomOptions(true)
+        }
+
+        setProject(evt.currentTarget.value)
+    }
 
     const handleSubmit = (evt: React.FormEvent) => {
         evt.preventDefault();
 
         let newColor = {
-    
             colorName: name,
             colorCode: code,
             colorType: type,
@@ -77,13 +91,16 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
 
                 //add object to redux: user
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
-
+     
                 // set state to close addColor modal
                 if (projectId === '') {
                     reduxStore.dispatch(reduxAddColor(false));
                 } else {
                     reduxStore.dispatch(addColorInRoom(false));
                 }
+
+                //if showing roomOptions => hide as default
+                setShowRoomOptions(false)
            
             };
         });
@@ -172,22 +189,25 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
                 onChange={(evt) => setStore(evt.target.value)}
             />
             <br />
-            {roomId === '' && 
+            {projectId === '' && 
             <>
                 <label htmlFor="project">Project:</label>
                 <select
                     className="form-select inputfield"
                     name="project"
                     id="project"
-                    onChange={(evt) => setProject(evt.target.value)}
+                    onChange={handleClick}
                 >
-                    <option value="misc">--Välj projekt--</option>
+                    <option value="">--Välj projekt--</option>
                     {reduxStore.getState().user.projects && reduxStore.getState().user.projects.map((project: any, index: number) => (
                         <option key={index} value={project._id}>{project.projectName}</option> ))
                     }
                 </select>
                 <br />
-        
+            </>
+            }
+            {showRoomOptions && 
+             <>
                 <label htmlFor="room">Room:</label>
                 <select
                     className="form-select inputfield"
@@ -196,13 +216,15 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
                     onChange={(evt) => setRoom(evt.target.value)}
                 >
                     <option value="misc">--Välj Rum--</option>
-                    {selectedProject.map((room: any, index:number) => (
-                        <option key={index} value={room._id}>{room.roomName}</option>))
-                    }
+                        {selectedProject.map((room: any, index:number) => (
+                            <option key={index} value={room._id}>{room.roomName}</option>))
+                        }
                 </select>
                 <br />
             </>
             }
+
+
             <button className="btn btn-primary primary-btn">Spara färg</button>
         </form>
     );

@@ -23,10 +23,11 @@ export default function RoomName ({room, projectId}: Props)  {
                 {room.colors.map((color: any) => (
                     <Color key={color.colorId} color={color} />
                 ))}
-            </div>
-            <button className="btn btn-primary bt-lg" onClick={() => store.dispatch(addColorInRoom(true))}>+</button>
+                            <button className="btn btn-primary bt-lg" onClick={() => store.dispatch(addColorInRoom(true))}>+</button>
                 {store.getState().addColorInRoom && 
                     <AddColor projectId={projectId} roomId={room._id}/>}
+            </div>
+
         </div>
     )
 }
