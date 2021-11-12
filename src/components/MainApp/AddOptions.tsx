@@ -1,5 +1,5 @@
 import { store } from '../../store';
-import { addColor, addProject } from '../../actions';
+import { addColor, addProject, setProjectId, setRoomId } from '../../actions';
 import './addOptions.css';
 
 interface Props {
@@ -18,6 +18,8 @@ export default function AddOptions({ callback }: Props) {
                 break;
 
             case 'addColor':
+                store.dispatch(setProjectId(''));
+                store.dispatch(setRoomId(''));
                 store.dispatch(addColor(true));
                 break;
 

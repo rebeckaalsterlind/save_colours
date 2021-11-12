@@ -9,8 +9,9 @@ const initialState = {
     loggedIn: isLoggedIn,
     user: {},
     username: '',
+    projectId: '',
+    rommId: '',
     addColor: false,
-    addColorInRoom: false,
     addProject: false,
 };
 

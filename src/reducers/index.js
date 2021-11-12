@@ -12,17 +12,23 @@ export default function reduce(state, action) {
        username: action.username
       }
 
+    case "SET_PROJECTID":
+      return {
+        ...state,
+        projectId: action.projectId
+      }
+
+    case "SET_ROOMID":
+      return {
+        ...state,
+        roomId: action.roomId
+      }
+
     case "SET_ADDCOLOR":
       return {
         ...state,
         addColor: action.addColor
       }
-
-      case "SET_ADDCOLORINROOM":
-        return {
-          ...state,
-          addColor: action.addColorInRoom
-        }
 
     case "SET_ADDPROJECT":
       return {

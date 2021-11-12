@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { store as reduxStore } from '../../store';
-import { addColor as reduxAddColor, addColorInRoom, saveColor } from '../../actions';
+import { addColor as reduxAddColor, saveColor } from '../../actions';
 
 interface Props {
     roomId: any;
@@ -20,12 +20,12 @@ interface State {
     store: string;
 }
 
-export default function AddColor({roomId, projectId}: Props, state: State) {
-    console.log('roomId', roomId, "projectId", projectId);
+export default function AddColor({}, state: State) {
+   
     const [selectedProject, setSelectedProject] = useState([]);
-    
-    const [project, setProject] = useState(projectId);
-    const [room, setRoom] = useState(roomId);
+
+    const [project, setProject] = useState(reduxStore.getState().projectId);
+    const [room, setRoom] = useState(reduxStore.getState().roomId);
 
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
@@ -39,19 +39,22 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
     const inputRef: any = useRef(null);
     const allProjects = reduxStore.getState().user.projects;
 
+
+    console.log('redux', project, room);
      //set the focus on username input
     useEffect(() => {
         inputRef.current.focus();
     }, []);
 
-    const handleClick = (evt: React.ChangeEvent<HTMLSelectElement>): void => {
+    const handleChange = (evt: React.ChangeEvent<HTMLSelectElement>): void => {
 
         const foundProject = allProjects.find((project:any) => project._id === evt.currentTarget.value);
 
         if(foundProject.projectName === "Övriga färger") {
             const foundRoom = foundProject.rooms.find((room:any) => room.roomName === "noRoom");
             setRoom(foundRoom._id)
-        } else {
+            setShowRoomOptions(false)
+        } else if (foundProject.rooms.length > 0){
             setShowRoomOptions(true)
         }
 
@@ -94,12 +97,8 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
                 reduxStore.dispatch(saveColor({ user: updatedUser }));
      
                 // set state to close addColor modal
-                if (projectId === '') {
-                    reduxStore.dispatch(reduxAddColor(false));
-                } else {
-                    reduxStore.dispatch(addColorInRoom(false));
-                }
-
+                reduxStore.dispatch(reduxAddColor(false));
+      
                 //if showing roomOptions => hide as default
                 setShowRoomOptions(false)
            
@@ -208,14 +207,14 @@ export default function AddColor({roomId, projectId}: Props, state: State) {
                 onChange={(evt) => setStore(evt.target.value)}
             />
             <br />
-            {projectId === '' && 
+            {reduxStore.getState().projectId === '' && 
             <>
                 <label htmlFor="project">Project:</label>
                 <select
                     className="form-select inputfield"
                     name="project"
                     id="project"
-                    onChange={handleClick}
+                    onChange={handleChange}
                 >
                     <option value="">--Välj projekt--</option>
                     {reduxStore.getState().user.projects && reduxStore.getState().user.projects.map((project: any, index: number) => (

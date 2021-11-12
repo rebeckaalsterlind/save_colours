@@ -21,8 +21,8 @@ export default function LogInForm({ }, state: State) {
 
     //check user agains database
     const handleSubmit = (evt: React.FormEvent) => {
+        console.log('test');
         evt.preventDefault();
-
         fetch("https://mads-colour-backend.herokuapp.com/api/users/login", {
             method: "post",
             headers: {
@@ -35,7 +35,7 @@ export default function LogInForm({ }, state: State) {
         })
             .then(res => res.json())
             .then(response => {
-
+                console.log('resp');
                 if (response.username) {
                     store.dispatch(logIn({ isTrue: true, username: response.username, user: response }));
 
