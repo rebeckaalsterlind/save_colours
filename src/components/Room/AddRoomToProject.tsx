@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { store } from '../../store';
+import { setRoomId } from '../../actions'
 
 interface Props {
     projectid: string;
@@ -31,9 +32,7 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
             }
         )
             .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-            });
+            .then((data) =>  store.dispatch(setRoomId(data._id)));
     };
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {

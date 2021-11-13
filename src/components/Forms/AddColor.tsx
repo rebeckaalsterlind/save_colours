@@ -26,7 +26,7 @@ export default function AddColor({}, state: State) {
 
     const [project, setProject] = useState(reduxStore.getState().projectId);
     const [room, setRoom] = useState(reduxStore.getState().roomId);
-
+console.log('proejt och room id', project, room);
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
     const [color, setColor] = useState('#b2b2b2');
@@ -39,9 +39,7 @@ export default function AddColor({}, state: State) {
     const inputRef: any = useRef(null);
     const allProjects = reduxStore.getState().user.projects;
 
-
-    console.log('redux', project, room);
-     //set the focus on username input
+    //set the focus on username input
     useEffect(() => {
         inputRef.current.focus();
     }, []);
@@ -73,7 +71,6 @@ export default function AddColor({}, state: State) {
             comment: comment,
             store: store
         };
-
     
         const userId = reduxStore.getState().user._id;
         fetch(`https://mads-colour-backend.herokuapp.com/api/users/${userId}/projects/${project}/rooms/${room}/colors`, {
@@ -93,12 +90,9 @@ export default function AddColor({}, state: State) {
                 const updatedUser = reduxStore.getState().user;
                 updatedUser.projects = allProjects;
 
-                //add object to redux: user
-                reduxStore.dispatch(saveColor({ user: updatedUser }));
+                //add object to redux: user & set state to close addColor modal
+                reduxStore.dispatch(saveColor({ user: updatedUser }), reduxAddColor(false));
      
-                // set state to close addColor modal
-                reduxStore.dispatch(reduxAddColor(false));
-      
                 //if showing roomOptions => hide as default
                 setShowRoomOptions(false)
            
