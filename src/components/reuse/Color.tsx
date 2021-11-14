@@ -59,12 +59,12 @@ export default function Color({ color }: Props, state: State) {
                 if (!is_hexadecimal(color.color)) {
                     setHex(color.color);
                 } else {
-                    setHex("#dcdcf5");
+                    setHex("#b2b2b2");
                 }
     }
 
     if (color.color == "" && hex === "" ) {
-        setHex("#dcdcf5");
+        setHex("#b2b2b2");
     }
 
     const ncs: string = formatNcs(color.colorCode)
