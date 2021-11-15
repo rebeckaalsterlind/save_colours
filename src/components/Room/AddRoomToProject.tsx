@@ -48,7 +48,7 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
         store
             .getState()
             .user.projects.find((project: any) => project._id === projectid)
-            .rooms.push({ roomName, colors: [], _id: roomid });
+            .rooms.push({ roomName, _id: roomid, colors: [] });
     };
 
     return (
