@@ -32,12 +32,14 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
             }
         )
             .then((res) => res.json())
-            .then((data) => store.dispatch(setRoomId(data._id)));
+            .then((data) => {
+                store.dispatch(setRoomId(data._id));
+            });
     };
 
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        saveRoomToBacken();
+        await saveRoomToBacken();
         updateProject();
         onHideModal(false);
     };
