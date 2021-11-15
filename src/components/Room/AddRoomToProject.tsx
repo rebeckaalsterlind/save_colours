@@ -23,7 +23,7 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
 
     const saveRoomToBacken = () => {
         const userid = store.getState().user._id;
-        fetch(
+        return fetch(
             `https://mads-colour-backend.herokuapp.com/api/users/${userid}/projects/${projectid}/rooms`,
             {
                 method: 'POST',
@@ -34,23 +34,21 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
             .then((res) => res.json())
             .then((data) => {
                 store.dispatch(setRoomId(data._id));
+                updateProject(data._id);
             });
     };
 
-    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        await saveRoomToBacken();
-        updateProject();
-        onHideModal(false);
-    };
-
-    const updateProject = () => {
-        const roomid = store.getState().roomId;
-
+    const updateProject = (id: any) => {
         store
             .getState()
             .user.projects.find((project: any) => project._id === projectid)
-            .rooms.push({ roomName, _id: roomid, colors: [] });
+            .rooms.push({ roomName, _id: id, colors: [] });
+        onHideModal(false);
+    };
+
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        saveRoomToBacken();
     };
 
     return (
