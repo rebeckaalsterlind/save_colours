@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { store } from '../../store';
-import { setRoomId } from '../../actions'
+import { setRoomId } from '../../actions';
 
 interface Props {
     projectid: string;
@@ -23,7 +23,7 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
 
     const saveRoomToBacken = () => {
         const userid = store.getState().user._id;
-        fetch(
+        return fetch(
             `https://mads-colour-backend.herokuapp.com/api/users/${userid}/projects/${projectid}/rooms`,
             {
                 method: 'POST',
@@ -32,21 +32,23 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
             }
         )
             .then((res) => res.json())
-            .then((data) =>  store.dispatch(setRoomId(data._id)));
+            .then((data) => {
+                store.dispatch(setRoomId(data._id));
+                updateProject(data._id);
+            });
+    };
+
+    const updateProject = (id: any) => {
+        store
+            .getState()
+            .user.projects.find((project: any) => project._id === projectid)
+            .rooms.push({ roomName, _id: id, colors: [] });
+        onHideModal(false);
     };
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         saveRoomToBacken();
-        updateProject();
-        onHideModal(false);
-    };
-
-    const updateProject = () => {
-        store
-            .getState()
-            .user.projects.find((project: any) => project._id === projectid)
-            .rooms.push({ roomName, colors: [] });
     };
 
     return (
