@@ -55,18 +55,18 @@ export default function EditBtns({ obj }: Props, state: State) {
                 <i
                     id="share"
                     onClick={handleClick}
-                    className="fas fa-share-alt">
-                </i>
+                    className="fas fa-share-alt"
+                />
                 <i
                     id="edit"
                     onClick={handleClick}
-                    className="far fa-edit">
-                </i> <i className="fas fa-search" >f</i>
+                    className="far fa-edit"
+                /> 
                 <i
                     id="delete"
                     onClick={handleClick}
-                    className="far fa-trash-alt">
-                </i>
+                    className="far fa-trash-alt"
+                />
             </aside>
 
             {isShare && <Share toShare={obj} callback={hide => setIsShare(hide)} />}

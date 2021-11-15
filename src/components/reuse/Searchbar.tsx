@@ -7,7 +7,7 @@ export default function Searchbar({hideSearchbar}: Props) {
   return (
     <>
       <input type="text" placeholder="Sök färg efter kod.."/>
-      <button onClick={() => hideSearchbar(false)}>Sök</button>
+      <button className="btn btn-primary primary-btn" onClick={() => hideSearchbar(false)}>Sök</button>
     </>
   )
 }
