@@ -12,7 +12,7 @@ interface State {
 export default function Color({ color }: Props, state: State) {
 
     const [showInfo, setShowInfo] = useState(false);
-    const [hex, setHex] = useState("") 
+    const [hex, setHex] = useState("")
 
     const formatNcs = (colorCode: string) => {
         let rawNcs = colorCode;
@@ -44,8 +44,8 @@ export default function Color({ color }: Props, state: State) {
             })
     }
 
-    function is_hexadecimal(code:any) {
-        let hexCode:any = /^[0-9a-fA-F]+$/;
+    function is_hexadecimal(code: any) {
+        let hexCode: any = /^[0-9a-fA-F]+$/;
 
         if (hexCode.test(code)) {
             return true;
@@ -55,14 +55,16 @@ export default function Color({ color }: Props, state: State) {
         }
     }
 
-    // change color.colorCode to new value in DB
-    if (hex === "" ) {
-        if (!is_hexadecimal(color.colorCode)){
-            setHex(color.colorCode);
-        } else {
-            setHex("#dcdcf5");
-        }
- 
+    if (color.color !== "" && hex === "") {
+                if (!is_hexadecimal(color.color)) {
+                    setHex(color.color);
+                } else {
+                    setHex("#b2b2b2");
+                }
+    }
+
+    if (color.color == "" && hex === "" ) {
+        setHex("#b2b2b2");
     }
 
     const ncs: string = formatNcs(color.colorCode)
