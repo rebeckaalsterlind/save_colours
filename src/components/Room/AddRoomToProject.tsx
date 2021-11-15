@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { store } from '../../store';
-import { setRoomId } from '../../actions'
+import { setRoomId } from '../../actions';
 
 interface Props {
     projectid: string;
@@ -32,7 +32,7 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
             }
         )
             .then((res) => res.json())
-            .then((data) =>  store.dispatch(setRoomId(data._id)));
+            .then((data) => store.dispatch(setRoomId(data._id)));
     };
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,10 +43,12 @@ export default function AddRoomToProject({ projectid, onHideModal }: Props) {
     };
 
     const updateProject = () => {
+        const roomid = store.getState().roomId;
+
         store
             .getState()
             .user.projects.find((project: any) => project._id === projectid)
-            .rooms.push({ roomName, colors: [] });
+            .rooms.push({ roomName, _id: roomid, colors: [] });
     };
 
     return (
