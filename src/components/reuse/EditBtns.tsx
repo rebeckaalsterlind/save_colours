@@ -61,7 +61,7 @@ export default function EditBtns({ obj }: Props, state: State) {
                     id="edit"
                     onClick={handleClick}
                     className="far fa-edit">
-                </i>
+                </i> <i className="fas fa-search" >f</i>
                 <i
                     id="delete"
                     onClick={handleClick}
