@@ -27,7 +27,7 @@ export default function RoomName ({room, projectId}: Props)  {
                 {room.colors.map((color: any) => (
                     <Color key={color.colorId} color={color} />
                 ))}
-                <button className="btn btn-primary bt-lg" onClick={() => store.dispatch(addColor(true))}>+</button>
+                <button className="colorBlock btn-secondary" onClick={() => store.dispatch(addColor(true))}>+</button>
             </div>
         </div>
     )
