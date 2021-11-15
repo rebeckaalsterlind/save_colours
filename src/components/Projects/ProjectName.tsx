@@ -12,7 +12,6 @@ interface State {
 }
 
 export default function ProjectName({ project }: Props, state: State) {
-    
     const [showProject, setShowProject] = useState(false);
     const [showRoom, setShowRoom] = useState(false);
 
@@ -33,7 +32,7 @@ export default function ProjectName({ project }: Props, state: State) {
                         projectId={project._id}
                     />
                 ))}
-            {showProject && (
+            {showProject && project.projectName !== 'Övriga färger' && (
                 <button
                     className="notActiveBtn btn btn-secondary shadow-none"
                     onClick={() => setShowRoom(!showRoom)}
