@@ -1,5 +1,3 @@
-# Colours
-
 ![coloursLogo](src/img/color-app-icon.png)
 
 ## Overview
