@@ -22,7 +22,9 @@ export default function ProjectName({ project }: Props, state: State) {
                 onClick={() => setShowProject(!showProject)}
             >
                 <h1 className="h4">{project.projectName}</h1>
-                <EditBtns obj={project} />
+                {project.projectName !== 'Övriga färger' && (
+                    <EditBtns obj={project} />
+                )}
             </div>
             {showProject &&
                 project.rooms.map((room: any) => (

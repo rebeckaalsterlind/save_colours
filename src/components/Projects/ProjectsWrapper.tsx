@@ -25,37 +25,39 @@ export default function ProjectsWrapper ({}, state: State) {
     
     return (
         <div className="projectWrap">
-            <button
-                onClick={() => {
-                    setToggleMenu(true);
-                    setProjectPage(true);
-                    setColorPage(false)}}
-                className={
-                    projectPage ?
-                        "activeBtn btn btn-primary shadow-none"
-                        :
-                        "notActiveBtn btn btn-secondary shadow-none"
-                    }
-            >
-                Projekt
-            </button>
-            <button
-                onClick={() => {
-                    setToggleMenu(false);
-                    setColorPage(true);
-                    setProjectPage(false)}}
-                className={
-                    colorPage ?
-                        "activeBtn btn btn-primary shadow-none"
-                        :
-                        "notActiveBtn btn btn-secondary shadow-none"
-                    }
-            >
-                Färger
-            </button>
-            {!showSearch 
-            ? <i className="fas fa-search" onClick={() => setShowSearch(true)}></i>
-            : < Searchbar hideSearchbar={() => setShowSearch(false)}/>}
+            <div className="projectNav">
+                <button
+                    onClick={() => {
+                        setToggleMenu(true);
+                        setProjectPage(true);
+                        setColorPage(false)}}
+                    className={
+                        projectPage ?
+                            "activeBtn btn btn-primary shadow-none"
+                            :
+                            "notActiveBtn btn btn-secondary shadow-none"
+                        }
+                >
+                    Projekt
+                </button>
+                <button
+                    onClick={() => {
+                        setToggleMenu(false);
+                        setColorPage(true);
+                        setProjectPage(false)}}
+                    className={
+                        colorPage ?
+                            "activeBtn btn btn-primary shadow-none"
+                            :
+                            "notActiveBtn btn btn-secondary shadow-none"
+                        }
+                >
+                    Färger
+                </button>
+                {!showSearch 
+                ? <i className="fas fa-search" onClick={() => setShowSearch(true)}></i>
+                : < Searchbar hideSearchbar={() => setShowSearch(false)}/>}
+            </div>
             {toggleMenu 
                 ? <Project colors={getColors} />
                 :  <Allcolors sendColors={colors}/>

@@ -97,6 +97,9 @@ body {
   &:hover h1 {
     color: $roseHover;
   }
+  & .modal-box {
+    color: $gray;
+  }
 }
 
 .roomHead {
@@ -212,6 +215,20 @@ header {
   &.btn-secondary {
     border-style: solid;
     border-width: 1px;
+  }
+}
+
+.projectNav {
+  width: 90%;
+  margin: 0 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newProject {
+  & button {
+    margin-top: 10px;
   }
 }
 

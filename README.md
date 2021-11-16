@@ -1,18 +1,24 @@
-# Colours
-
-![coloursLogo](src/img/logo.png)
+![coloursLogo](src/img/color-app-icon.png)
 
 ## Overview
 
 Colours is an application where a user can create projects and in detail save information of each color that was used.
 
+### Framework
+
+The app is developed in React and Typescript. For styling of app has Bootstrap has been applied. 
+
 ## Project Status
 
 ![](https://img.shields.io/badge/work%20in%20progress-grey?style=for-the-badge&logo=Statuspal&labelColor=blue)
 
-## Project Screen Shot(s)
+## Project Screen Shots
 
-.. coming
+###  Startpage
+![startpage](src/img/colors-start-page.png)
+
+###  Page when logged in
+![mainpage](src/img/colors-mainpage.png)
 
 ## How to use?
 

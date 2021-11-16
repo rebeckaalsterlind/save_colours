@@ -6,7 +6,7 @@ interface Props {
 export default function Searchbar({hideSearchbar}: Props) {
   return (
     <>
-      <input type="text" placeholder="Sök färg efter kod.."/>
+      <input type="text" className="form-control inputfield searchBar" placeholder="Sök färg efter kod.."/>
       <button className="btn btn-primary primary-btn" onClick={() => hideSearchbar(false)}>Sök</button>
     </>
   )
