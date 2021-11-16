@@ -16,10 +16,10 @@ The app is developed in React and Typescript. For styling of app has Bootstrap h
 
 ## Project Screen Shot(s)
 
-# Startpage
+###  Startpage
 ![startpage](src/img/colors-start-page.png)
 
-# Page when logged in
+###  Page when logged in
 ![mainpage](src/img/colors-mainpage.png)
 
 ## How to use?
