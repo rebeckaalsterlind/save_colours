@@ -93,6 +93,10 @@ body {
   color: #a77267;
 }
 
+.projectHead .modal-box {
+  color: #485056;
+}
+
 .roomHead {
   width: 90%;
   margin: 5% 5% 2% 5%;

@@ -97,6 +97,9 @@ body {
   &:hover h1 {
     color: $roseHover;
   }
+  & .modal-box {
+    color: $gray;
+  }
 }
 
 .roomHead {
