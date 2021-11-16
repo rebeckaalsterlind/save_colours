@@ -35,8 +35,19 @@ export default function AddRoom({ roomInfo }: Props) {
   return (
     <div>
       <form>
-        <input ref={inputRef} type="text" placeholder={inputValue} onChange={(evt) => setRoomName(evt.target.value)} />
-        <button onClick={handleClick}>Spara rum</button>
+        <input
+          ref={inputRef}
+          className="form-control inputfield"
+          type="text"
+          placeholder={inputValue}
+          onChange={(evt) => setRoomName(evt.target.value)}
+        />
+        <button
+          onClick={handleClick}
+          className="btn btn-primary"
+        >
+          Spara rum
+        </button>
       </form>
       <div>
 

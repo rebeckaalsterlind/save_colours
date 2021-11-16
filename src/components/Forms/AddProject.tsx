@@ -95,15 +95,16 @@ export default function AddProject({ }, state: State) {
   }
 
   return (
-    <form className="d-grid col-6 mx-auto" onSubmit={handleSubmit}>
-      <p onClick={() => store.dispatch(addProject(false))}>&larr; </p>
+    <form className="d-grid col-6 mx-auto newProject" onSubmit={handleSubmit}>
+      {/* <p onClick={() => store.dispatch(addProject(false))}>&larr; </p> */}
       <h5>Nytt projekt:</h5>
       <input className="form-control inputfield" ref={inputRef} type="text" placeholder="Namn" onChange={(evt) => setProjectName(evt.target.value)} />
-      <p id="room" onClick={show} ><span>{newRoom ? "-" : "+"}</span> Lägg till rum</p>
+      <p id="room" className="btn btn-link" onClick={show} ><span>{newRoom ? "" : ""}</span> Lägg till rum</p>
       {newRoom && <AddRoom roomInfo={roomname} />}
       {/* <p id="color" onClick={show} ><span>{newColor ? "-" : "+"}</span> Lägg till färg</p>
       {newColor && <AddColor />} */}
       <button className="btn btn-primary primary-btn">Spara projekt</button>
+      <button className="btn btn-secondary" onClick={() => {store.dispatch(addProject(false))}}>Tillbaka</button>
     </form>
   )
 }

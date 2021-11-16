@@ -248,4 +248,8 @@ header {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.newProject button {
+  margin-top: 10px;
+}
 /*# sourceMappingURL=style.css.map */

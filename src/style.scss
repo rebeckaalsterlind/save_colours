@@ -226,6 +226,12 @@ header {
   align-items: center;
 }
 
+.newProject {
+  & button {
+    margin-top: 10px;
+  }
+}
+
 // .primary-btn {
 //   background-color: $darkpink; 
 //   color: $white;
