@@ -2,33 +2,27 @@ import '../MainApp/addOptions.css';
 
 interface Props {
   toEdit: any,
-  callback(hideComponent: boolean):void;
+  callback(hideComponent: boolean): void;
 }
 
-export default function Edit({toEdit, callback}: Props) {
+export default function Edit({ toEdit, callback }: Props) {
 
-  const headName:any = Object.values(toEdit)[1];
-  const obj:any = Object.values(toEdit)[2];
+  let subName: string = "";
+  let name: string = "";
 
-  let subName:string = "";
-  const sub = [];
+  if (toEdit.projectName) {
+    subName = "Projekt: "
+    name = toEdit.projectName;
+  }
 
-  for (let i in obj) {
-    
-    sub.push(Object.values(obj[i])[1]);
-    
-    switch(Object.keys(obj[i])[1]) {    
-      case "projectName":
-        subName = "Projekt: "
-        break;
-      case "roomName":
-        subName = "Rum: "
-        break; 
-      case "colorName":
-        subName = "Färger: "
-        break;  
-    }
+  if (toEdit.roomName) {
+    subName = "Rum: "
+    name = toEdit.roomName;
+  }
 
+  if (toEdit.colorName) {
+    subName = "Färg: "
+    name = toEdit.colorName;
   }
 
   //on click outside => close modal
@@ -49,38 +43,41 @@ export default function Edit({toEdit, callback}: Props) {
      }, 2000);
 
      document.getElementById("box")!.innerHTML = `<p>Sparat!</p>`;
-
   }
 
   return (
-    <div 
-      id="wrapper" 
-      className="modal-wrapper" 
-      onClick={handleClick}>
-
-      <form 
+    <div
+      id="wrapper"
+      className="modal-wrapper"
+    onClick={handleClick}
+    >
+      <form
         id="box"
         className="modal-box"
-        onSubmit={handleSubmit}>
-        
-        <h2>Redigera</h2>
+      onSubmit={handleSubmit}
+      >
 
-        <h3>{headName}
-           <i className="fas fa-edit" />
-        </h3><br />
-        
-        <h4>{subName}</h4>
-        {sub.map((name: any) => (
-          <p>{name}
-            <i className="fas fa-edit" />
-            <i className="fas fa-trash-alt" />
-          </p>
-        ))}
+        <h2>Redigera</h2>
+        <h4>{subName}{name} <i className="fas fa-edit" /></h4>
+
+        {toEdit.projectName &&
+          toEdit.rooms.map((e: any) =>
+            <p>Rum: {e.roomName}
+              <i className="fas fa-edit" />
+            </p>)
+        }
+
+        {toEdit.roomName &&
+          toEdit.colors.map((f: any) =>
+            <p>Färg: {f.colorName}
+              <i className="fas fa-edit" />
+            </p>)
+        }
 
         <button className="btn btn-primary">Spara</button>
       </form>
     </div>
-   
+
   )
 }
 
