@@ -14,7 +14,7 @@ The app is developed in React and Typescript. For styling of app has Bootstrap h
 
 ![](https://img.shields.io/badge/work%20in%20progress-grey?style=for-the-badge&logo=Statuspal&labelColor=blue)
 
-## Project Screen Shot(s)
+## Project Screen Shots
 
 ###  Startpage
 ![startpage](src/img/colors-start-page.png)
