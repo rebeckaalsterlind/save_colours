@@ -6,7 +6,7 @@
 
 Colours is an application where a user can create projects and in detail save information of each color that was used.
 
-# Framework
+### Framework
 
 The app is developed in React and Typescript. For styling of app has Bootstrap has been applied. 
 
@@ -16,7 +16,11 @@ The app is developed in React and Typescript. For styling of app has Bootstrap h
 
 ## Project Screen Shot(s)
 
-.. coming
+# Startpage
+![startpage](src/img/colors-start-page.png)
+
+# Page when logged in
+![mainpage](src/img/colors-mainpage.png)
 
 ## How to use?
 
