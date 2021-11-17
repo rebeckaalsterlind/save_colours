@@ -29,7 +29,7 @@ export default function RoomName({ room, projectId }: Props) {
                 ))}
                 <button
                     className="colorBlock btn-secondary"
-                    onClick={() => store.dispatch(addColor(true))}
+                    onClick={() => {store.dispatch(addColor(true)); store.dispatch(setRoomId(room._id))}}
                 >
                     +
                 </button>
