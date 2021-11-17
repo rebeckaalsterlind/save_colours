@@ -24,7 +24,7 @@ The app is developed in React and Typescript. For styling of app has Bootstrap h
 
 ### Access hosted application
 
-This application is hosted on Netlify and you can access it on the following URL: [the url]()
+This application is hosted on Heroku and you can access it on the following URL: https://colorkeeper.herokuapp.com/
 
 ### Install locally
 
