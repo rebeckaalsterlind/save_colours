@@ -1,4 +1,3 @@
-import React from 'react'
 
 interface Props {
   hideSearchbar(clicked: boolean): void;

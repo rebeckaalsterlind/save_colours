@@ -25,7 +25,6 @@ export default function AddColor({}, state: State) {
 
     const [project, setProject] = useState(reduxStore.getState().projectId);
     const [room, setRoom] = useState(reduxStore.getState().roomId);
-    console.log('proejt och room id', project, room);
     const [name, setName] = useState('');
     const [code, setCode] = useState('');
     const [color, setColor] = useState('#b2b2b2');
@@ -212,6 +211,7 @@ export default function AddColor({}, state: State) {
                 onChange={(evt) => setStore(evt.target.value)}
             />
             <br />
+  
             {reduxStore.getState().projectId === '' && (
                 <>
                     <label htmlFor="project">Project:</label>

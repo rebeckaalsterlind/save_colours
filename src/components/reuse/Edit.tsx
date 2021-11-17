@@ -58,7 +58,21 @@ export default function Edit({ toEdit, callback }: Props) {
       >
 
         <h2>Redigera</h2>
-        <h4>{subName}{name} <i className="fas fa-edit" /></h4>
+        <h6>{subName} <input type="text" placeholder={name} /></h6>
+        {subName === "Färg: " && 
+        <>
+          <h6>Färgkod: <input type="text" placeholder={toEdit.colorCode} /></h6>
+          <h6>Typ: <input type="text" placeholder={toEdit.colorType} /></h6>
+          <h6>Finish: <input type="text" placeholder={toEdit.gloss} /></h6>
+          <h6>Butik: <input type="text" placeholder={toEdit.store} /></h6>
+          <h6>Kommentar: <input type="text" placeholder={toEdit.comment} /></h6>
+          <h6>
+            <span>Färg kvar: </span>
+            Ja <input type="checkbox" /> &nbsp;
+            Nej <input type="checkbox" /> 
+          </h6>
+        </>
+        }
 
         {toEdit.projectName &&
           toEdit.rooms.map((e: any) =>
@@ -68,13 +82,15 @@ export default function Edit({ toEdit, callback }: Props) {
         }
 
         {toEdit.roomName &&
-          toEdit.colors.map((f: any) =>
-            <p>Färg: {f.colorName}
-              <i className="fas fa-edit" />
-            </p>)
-        }
-
-        <button className="btn btn-primary">Spara</button>
+          toEdit.colors.map((f: any) => 
+             <>
+              <p>Färg: {f.colorName}
+                <i className="fas fa-edit" />
+              </p>
+             </>
+           )
+        }          
+        <button className="btn btn-primary" style={{width: "70px"}}>Spara</button>
       </form>
     </div>
 

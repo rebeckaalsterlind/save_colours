@@ -15,9 +15,6 @@ interface State {
 
 export default function EditBtns({ obj }: Props, state: State) {
 
-    console.log(obj);
-    
-
     const [isShare, setIsShare] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
     const [isDelete, setIsDelete] = useState(false);   

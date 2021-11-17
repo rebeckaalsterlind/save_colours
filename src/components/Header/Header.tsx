@@ -2,7 +2,6 @@ import { store } from '../../store';
 import LogOutBtn from "./LogOutBtn";
 import * as banner from '../../img/color-app-icon.png';
 
-// {store.getState().username}
 
 export default function Header() {
     const img = banner.default;

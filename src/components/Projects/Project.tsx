@@ -20,9 +20,8 @@ export default function Project({ colors }: Props) {
     return (
         <div className="projects">
             {projects.map((project: any) => (
-                    <ProjectName project={project} />
-                ))
-            }
+                <ProjectName project={project} />
+            ))}
         </div>
     )
 }

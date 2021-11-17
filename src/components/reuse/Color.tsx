@@ -36,11 +36,7 @@ export default function Color({ color }: Props, state: State) {
         })
             .then(res => res.json())
             .then(data => {
-
-                if (data.hexColor[0] != "#FFC2CC") {
-                    setHex(data.hexColor[0]);
-                }
-
+                if (data.hexColor[0] != "#FFC2CC") setHex(data.hexColor[0]);
             })
     }
 
