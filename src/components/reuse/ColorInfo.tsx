@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './colorInfo.css';
 import EditBtns from "../reuse/EditBtns"
 
@@ -7,26 +7,33 @@ interface Props {
     hide(clicked: boolean): void;
 }
 
+interface State {
+    isFinished: boolean
+}
+
 const useClickOutside = (handler: any) => {
     const domNode: any = useRef();
     
-
     useEffect(() => {
+
         let maybeHandler = (evt: any) => {
             if (!domNode.current.contains(evt.target)) handler();
         };
 
         document.addEventListener('mousedown', maybeHandler);
 
-        return () => {
-            document.removeEventListener('mousedown', maybeHandler);
-        };
+        return () => document.removeEventListener('mousedown', maybeHandler);
+
     }, []);
 
     return domNode;
 };
 
-export default function ColorInfo({ color, hide }: Props) {
+export default function ColorInfo({ color, hide }: Props, state: State) {
+    
+    //temp state to get a variety of answers. Should come from db
+    const [isFinished, setIsFinished] = useState(color.store);
+
     let domNode = useClickOutside(() => hide(false));
 
     return (
@@ -34,9 +41,6 @@ export default function ColorInfo({ color, hide }: Props) {
             ref={domNode}
             id="wrapper"
             className="color-wrapper"
-            // onClick={({ target }) =>
-            //     (target as HTMLParagraphElement).id && hide(false)
-            // }
         >
             <div className="color-box">
                 <div>
@@ -79,6 +83,13 @@ export default function ColorInfo({ color, hide }: Props) {
                         <li className="list-group-item">{color.store}</li>
                     </ul>
                 }
+
+                {/*color.finished should come from db*/}
+                <ul className="list-group list-group-horizontal">
+                    <li className="list-group-item first-li">Färg kvar:</li>
+                    <li className="list-group-item">{isFinished ? "Ja" : "Nej"}</li>
+                </ul>
+        
                 <EditBtns obj={color} />
             </div>
         </div>

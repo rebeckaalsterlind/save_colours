@@ -1,4 +1,3 @@
-import React from 'react';
 import ColorsMockData from './ColorsMockData';
 
 export default function CompColors () {
