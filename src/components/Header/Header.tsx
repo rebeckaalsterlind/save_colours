@@ -18,7 +18,6 @@ export default function Header({}, state: State) {
         setIsShown(false)
     }
 
-
     return (
         <header>
             <div className="imgContainer">

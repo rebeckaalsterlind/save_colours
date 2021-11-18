@@ -1,11 +1,20 @@
 import { useState } from 'react';
 import '../MainApp/addOptions.css';
+import { store } from '../../store';
+import { store as reduxStore } from '../../store';
+import { deleteObject } from '../../actions';
+
 
 interface Props {
     callback(hideComponent: boolean): void;
 }
 
 const DeleteUserModal = ({ callback }: Props) => {
+
+    const user = store.getState().user._id;
+
+    let name: string = "";
+
 
     const handleClick = (
         evt: React.MouseEvent<HTMLParagraphElement, MouseEvent>
@@ -15,11 +24,13 @@ const DeleteUserModal = ({ callback }: Props) => {
         switch ((target as HTMLParagraphElement).id) {
             case 'wrapper':
                 callback(false);
+                console.log(user);
                 break;
 
-            case 'yes':
-                callback(true);
+            case "yes":
+                deleteProject();
                 break;
+                
 
             case 'no':
                 callback(false);
@@ -27,6 +38,22 @@ const DeleteUserModal = ({ callback }: Props) => {
         }
     };
 
+
+    const deleteProject = () => {
+
+        fetch(`https://mads-colour-backend.herokuapp.com/api/users/${user}`, {
+            method: "DELETE"
+        })
+            .then(response => response.json())
+            .then(response => {
+
+
+                const updatedUser = reduxStore.getState().user;
+
+                reduxStore.dispatch(deleteObject({ user: updatedUser }));
+
+            })
+    }
 
     return (
         <div
