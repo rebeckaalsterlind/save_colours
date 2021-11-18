@@ -3,18 +3,17 @@ import '../MainApp/addOptions.css';
 import { store } from '../../store';
 import { store as reduxStore } from '../../store';
 import { deleteObject } from '../../actions';
-
+import { logIn } from '../../actions';
 
 interface Props {
     callback(hideComponent: boolean): void;
 }
 
-const DeleteUserModal = ({ callback }: Props) => {
+const DeleteUser = ({ callback }: Props) => {
 
     const user = store.getState().user._id;
 
     let name: string = "";
-
 
     const handleClick = (
         evt: React.MouseEvent<HTMLParagraphElement, MouseEvent>
@@ -29,9 +28,10 @@ const DeleteUserModal = ({ callback }: Props) => {
 
             case "yes":
                 deleteProject();
+                store.dispatch(logIn(false));
+                localStorage.clear();
                 break;
-                
-
+            
             case 'no':
                 callback(false);
                 break;
@@ -47,11 +47,9 @@ const DeleteUserModal = ({ callback }: Props) => {
             .then(response => response.json())
             .then(response => {
 
-
                 const updatedUser = reduxStore.getState().user;
 
                 reduxStore.dispatch(deleteObject({ user: updatedUser }));
-
             })
     }
 
@@ -72,4 +70,4 @@ const DeleteUserModal = ({ callback }: Props) => {
     )
 }
 
-export default DeleteUserModal;
+export default DeleteUser;

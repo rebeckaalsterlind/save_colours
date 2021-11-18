@@ -2,7 +2,7 @@ import { store } from '../../store';
 import LogOutBtn from "./LogOutBtn";
 import * as banner from '../../img/color-app-icon.png';
 import { useState } from 'react';
-import DeleteUserModal from '../reuse/DeleteUserModal';
+import DeleteUser from '../reuse/DeleteUser';
 
 interface State {
     isShown: boolean
@@ -25,7 +25,7 @@ export default function Header({}, state: State) {
             </div>
             <div className="userInfoContainer">
                     <p onClick={()=> setIsShown(true)} className="h5">{store.getState().username}</p>
-                    {isShown && <DeleteUserModal callback={hide => setIsShown(hide)} /> }
+                    {isShown && <DeleteUser callback={hide => setIsShown(hide)} /> }
                     <LogOutBtn />
             </div>
         </header>
