@@ -17,6 +17,10 @@ The app is developed in React and Typescript. For styling of app has Bootstrap h
 ###  Startpage
 ![startpage](src/img/colors-start-page.png)
 
+###  test user details
+Username: username
+Password: password
+
 ###  Page when logged in
 ![mainpage](src/img/colors-mainpage.png)
 
