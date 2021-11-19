@@ -1,5 +1,4 @@
 export function logIn(user) {
-  console.log('user in action: ', user);
   return {
     type: "SET_LOGIN",
     loggedIn: user.isTrue,
