@@ -2,11 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { store as reduxStore } from '../../store';
 import { addColor as reduxAddColor, saveColor } from '../../actions';
 
-interface Props {
-    roomId: any;
-    projectId: any;
-}
-
 interface State {
     selectedProject: any;
     showRoomOptions: boolean;
